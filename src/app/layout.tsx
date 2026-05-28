@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 
+import { siteMetadata } from "@/lib/data/site";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,11 +19,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteMetadata.url),
   title: {
-    default: "e2life.dev",
-    template: "%s | e2life.dev",
+    default: siteMetadata.title,
+    template: `%s | ${siteMetadata.title}`,
   },
-  description: "AI で開発プロセス自体を設計するエンジニア",
+  description: siteMetadata.description,
+  authors: [{ name: siteMetadata.author }],
+  creator: siteMetadata.author,
+  openGraph: {
+    type: "website",
+    locale: siteMetadata.locale,
+    url: siteMetadata.url,
+    siteName: siteMetadata.title,
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+  },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({

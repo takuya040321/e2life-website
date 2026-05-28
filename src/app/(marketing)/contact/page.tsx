@@ -8,6 +8,12 @@ import { SectionHeading } from "@/components/shared/section-heading";
 export const metadata: Metadata = {
   title: "お問い合わせ",
   description: "お問い合わせフォーム",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "お問い合わせ",
+    description: "お問い合わせフォーム",
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {

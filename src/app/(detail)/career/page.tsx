@@ -8,6 +8,12 @@ import { projects } from "@/lib/data/career";
 export const metadata: Metadata = {
   title: "職務経歴",
   description: "匿名化した案件実績の一覧",
+  alternates: { canonical: "/career" },
+  openGraph: {
+    title: "職務経歴",
+    description: "匿名化した案件実績の一覧",
+    url: "/career",
+  },
 };
 
 export default function CareerPage() {
