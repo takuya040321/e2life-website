@@ -71,6 +71,13 @@ e2life.dev の個人 Web サイト。Next.js 16 + Vercel。
 - closed PR 一覧が開発ストーリーとして読めるように意識する
 - main への直 push 禁止
 
+## Claude への指摘・改善記録
+
+`claude-behavior/` 配下に記録する（PA repo の 5 層構造に準拠）。
+`claude-behavior/README.md` は `@import` で起動時に自動ロード。
+
 ## 注意
 
 - claude-assets-public 未整備のため、現在ルールは直書き。整備後に symlink に切り替える
+
+@claude-behavior/README.md
