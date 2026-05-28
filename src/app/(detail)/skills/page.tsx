@@ -8,6 +8,12 @@ import { skills } from "@/lib/data/skills";
 export const metadata: Metadata = {
   title: "SE スキル",
   description: "技術スタック・経験年数の一覧",
+  alternates: { canonical: "/skills" },
+  openGraph: {
+    title: "SE スキル",
+    description: "技術スタック・経験年数の一覧",
+    url: "/skills",
+  },
 };
 
 export default function SkillsPage() {
