@@ -4,23 +4,23 @@
 
 ### MVP
 
-| 変数名 | 用途 | 必須 | 取得元 |
-|---|---|---|---|
-| `NEXT_PUBLIC_GA_ID` | Google Analytics 測定 ID | 必須 | Google Analytics 管理画面 |
-| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | reCAPTCHA v3 サイトキー | 必須 | Google reCAPTCHA 管理画面 |
-| `RECAPTCHA_SECRET_KEY` | reCAPTCHA v3 シークレットキー | 必須 | Google reCAPTCHA 管理画面 |
-| `CONTACT_EMAIL` | 問い合わせメール送信先 | 必須 | 自分のメールアドレス |
+| 変数名                           | 用途                          | 必須 | 取得元                    |
+| -------------------------------- | ----------------------------- | ---- | ------------------------- |
+| `NEXT_PUBLIC_GA_ID`              | Google Analytics 測定 ID      | 必須 | Google Analytics 管理画面 |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | reCAPTCHA v3 サイトキー       | 必須 | Google reCAPTCHA 管理画面 |
+| `RECAPTCHA_SECRET_KEY`           | reCAPTCHA v3 シークレットキー | 必須 | Google reCAPTCHA 管理画面 |
+| `CONTACT_EMAIL`                  | 問い合わせメール送信先        | 必須 | 自分のメールアドレス      |
 
 - `NEXT_PUBLIC_` プレフィックスはクライアントサイドで使用する変数に付ける
 - `RECAPTCHA_SECRET_KEY` はサーバーサイドのみで使用するため `NEXT_PUBLIC_` を付けない
 
 ### フェーズ 2
 
-| 変数名 | 用途 | 必須 | 取得元 |
-|---|---|---|---|
-| `GOOGLE_SHEETS_API_KEY` | Sheets API 認証 | 必須 | Google Cloud Console |
-| `GOOGLE_SHEETS_SPREADSHEET_ID` | 対象スプレッドシート ID | 必須 | スプレッドシートの URL |
-| `GITHUB_TOKEN` | GitHub API 認証 | 必須 | GitHub Settings > Developer settings |
+| 変数名                         | 用途                    | 必須 | 取得元                               |
+| ------------------------------ | ----------------------- | ---- | ------------------------------------ |
+| `GOOGLE_SHEETS_API_KEY`        | Sheets API 認証         | 必須 | Google Cloud Console                 |
+| `GOOGLE_SHEETS_SPREADSHEET_ID` | 対象スプレッドシート ID | 必須 | スプレッドシートの URL               |
+| `GITHUB_TOKEN`                 | GitHub API 認証         | 必須 | GitHub Settings > Developer settings |
 
 ## .env.example
 
@@ -53,20 +53,20 @@ Vercel ダッシュボード → プロジェクト → Settings → Environment
 
 各変数を以下の環境に設定する:
 
-| 環境 | 用途 |
-|---|---|
-| Production | 本番デプロイ（main ブランチ） |
-| Preview | プレビューデプロイ（PR ごと） |
+| 環境        | 用途                                     |
+| ----------- | ---------------------------------------- |
+| Production  | 本番デプロイ（main ブランチ）            |
+| Preview     | プレビューデプロイ（PR ごと）            |
 | Development | ローカル開発（`vercel env pull` で取得） |
 
 ### 3. 環境ごとの設定方針
 
-| 変数 | Production | Preview | Development |
-|---|---|---|---|
-| `NEXT_PUBLIC_GA_ID` | 本番用 ID | 設定しない（トラッキング不要） | 設定しない |
-| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | 本番用キー | テスト用キー | テスト用キー |
-| `RECAPTCHA_SECRET_KEY` | 本番用キー | テスト用キー | テスト用キー |
-| `CONTACT_EMAIL` | 本番メールアドレス | テスト用アドレス | テスト用アドレス |
+| 変数                             | Production         | Preview                        | Development      |
+| -------------------------------- | ------------------ | ------------------------------ | ---------------- |
+| `NEXT_PUBLIC_GA_ID`              | 本番用 ID          | 設定しない（トラッキング不要） | 設定しない       |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | 本番用キー         | テスト用キー                   | テスト用キー     |
+| `RECAPTCHA_SECRET_KEY`           | 本番用キー         | テスト用キー                   | テスト用キー     |
+| `CONTACT_EMAIL`                  | 本番メールアドレス | テスト用アドレス               | テスト用アドレス |
 
 ### 4. ローカル開発での取得
 

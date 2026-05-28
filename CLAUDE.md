@@ -4,16 +4,16 @@ e2life.dev の個人 Web サイト。Next.js 16 + Vercel。
 
 ## 技術スタック
 
-| レイヤー | 技術 |
-|---|---|
-| フレームワーク | Next.js 16 (App Router) |
-| 言語 | TypeScript |
-| スタイリング | Tailwind CSS |
-| UI コンポーネント | shadcn/ui |
-| アニメーション | Framer Motion |
-| フォーム | React Hook Form + reCAPTCHA v3 |
-| テスト | Vitest + Testing Library + Playwright |
-| ホスティング | Vercel |
+| レイヤー          | 技術                                  |
+| ----------------- | ------------------------------------- |
+| フレームワーク    | Next.js 16 (App Router)               |
+| 言語              | TypeScript                            |
+| スタイリング      | Tailwind CSS                          |
+| UI コンポーネント | shadcn/ui                             |
+| アニメーション    | Framer Motion                         |
+| フォーム          | React Hook Form + reCAPTCHA v3        |
+| テスト            | Vitest + Testing Library + Playwright |
+| ホスティング      | Vercel                                |
 
 ## ドキュメント
 
