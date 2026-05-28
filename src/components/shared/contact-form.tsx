@@ -20,9 +20,10 @@ type SubmitState =
   | { status: "error"; message: string };
 
 type ContactFormProps = {
-  onSubmit: (data: ContactFormData, recaptchaToken: string) => Promise<
-    { success: true; message: string } | { success: false; error: string }
-  >;
+  onSubmit: (
+    data: ContactFormData,
+    recaptchaToken: string,
+  ) => Promise<{ success: true; message: string } | { success: false; error: string }>;
 };
 
 export function ContactForm({ onSubmit }: ContactFormProps) {

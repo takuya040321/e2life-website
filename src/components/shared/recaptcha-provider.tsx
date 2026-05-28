@@ -14,10 +14,7 @@ export function ReCaptchaProvider({ children }: ReCaptchaProviderProps) {
   const siteKey = process.env["NEXT_PUBLIC_RECAPTCHA_SITE_KEY"] ?? TEST_SITE_KEY;
 
   return (
-    <GoogleReCaptchaProvider
-      reCaptchaKey={siteKey}
-      scriptProps={{ async: true, defer: true }}
-    >
+    <GoogleReCaptchaProvider reCaptchaKey={siteKey} scriptProps={{ async: true, defer: true }}>
       {children}
     </GoogleReCaptchaProvider>
   );
