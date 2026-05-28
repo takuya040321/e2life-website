@@ -46,18 +46,18 @@ flowchart TB
 
 Next.js 16 のデフォルトレンダリング戦略を採用する。
 
-| 要素 | レンダリング | 理由 |
-|---|---|---|
-| 静的コンテンツ（テキスト、画像） | ビルド時プリレンダリング | 変更頻度が低い。CDN キャッシュで高速配信 |
-| 動的コンテンツ（フェーズ 2） | `use cache` + ISR 的再検証 | 週 1 回の更新に対応 |
-| インタラクティブ要素 | Client Components | Framer Motion アニメーション、フォーム操作 |
+| 要素                             | レンダリング               | 理由                                       |
+| -------------------------------- | -------------------------- | ------------------------------------------ |
+| 静的コンテンツ（テキスト、画像） | ビルド時プリレンダリング   | 変更頻度が低い。CDN キャッシュで高速配信   |
+| 動的コンテンツ（フェーズ 2）     | `use cache` + ISR 的再検証 | 週 1 回の更新に対応                        |
+| インタラクティブ要素             | Client Components          | Framer Motion アニメーション、フォーム操作 |
 
 ### Server Components vs Client Components
 
-| 種別 | 用途 | 具体例 |
-|---|---|---|
-| Server Components（デフォルト） | データ取得、静的描画、レイアウト | ページ本体、Header, Footer, セクション |
-| Client Components | インタラクション、アニメーション、状態管理 | フォーム、ナビゲーションメニュー、Framer Motion |
+| 種別                            | 用途                                       | 具体例                                          |
+| ------------------------------- | ------------------------------------------ | ----------------------------------------------- |
+| Server Components（デフォルト） | データ取得、静的描画、レイアウト           | ページ本体、Header, Footer, セクション          |
+| Client Components               | インタラクション、アニメーション、状態管理 | フォーム、ナビゲーションメニュー、Framer Motion |
 
 Server Components をデフォルトにし、`"use client"` が必要な箇所のみ Client Components にする。React Compiler による自動メモ化で手動の `useMemo` / `useCallback` は不要。
 
@@ -89,10 +89,10 @@ src/app/
 └── layout.tsx          # 共通レイアウト (Header + Footer)
 ```
 
-| Route Group | レイアウト特性 | 対象ページ |
-|---|---|---|
-| `(marketing)` | 全幅、CTA 重視、シンプル | LP, Contact |
-| `(detail)` | サイドナビ付き、コンテンツ重視 | Skills, Career, AI 系 |
+| Route Group   | レイアウト特性                 | 対象ページ            |
+| ------------- | ------------------------------ | --------------------- |
+| `(marketing)` | 全幅、CTA 重視、シンプル       | LP, Contact           |
+| `(detail)`    | サイドナビ付き、コンテンツ重視 | Skills, Career, AI 系 |
 
 ### 設計意図
 
@@ -112,12 +112,12 @@ src/components/
 └── shared/       # 複数ページで使う共通コンポーネント
 ```
 
-| レイヤー | 責務 | 例 |
-|---|---|---|
-| `ui/` | 見た目のみ。ビジネスロジックを含まない | Button, Card, Badge, Input |
-| `layout/` | ページ構造。ナビゲーション、ヘッダー、フッター | Header, Footer, SideNav |
-| `sections/` | LP の各セクション。ページ固有 | HeroSection, StrengthsSection, CTASection |
-| `shared/` | 複数ページで再利用するコンポーネント | SkillBadge, CareerCard, SectionHeading |
+| レイヤー    | 責務                                           | 例                                        |
+| ----------- | ---------------------------------------------- | ----------------------------------------- |
+| `ui/`       | 見た目のみ。ビジネスロジックを含まない         | Button, Card, Badge, Input                |
+| `layout/`   | ページ構造。ナビゲーション、ヘッダー、フッター | Header, Footer, SideNav                   |
+| `sections/` | LP の各セクション。ページ固有                  | HeroSection, StrengthsSection, CTASection |
+| `shared/`   | 複数ページで再利用するコンポーネント           | SkillBadge, CareerCard, SectionHeading    |
 
 ## コンポーネント構成図
 

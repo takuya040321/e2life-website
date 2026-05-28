@@ -68,16 +68,16 @@ type ProjectType = (typeof projectTypes)[number];
 type CareerProject = {
   id: string;
   period: {
-    start: string;   // "2023-04" 形式
-    end?: string;     // 継続中の場合は省略
+    start: string; // "2023-04" 形式
+    end?: string; // 継続中の場合は省略
   };
   projectType: ProjectType;
-  title: string;            // 匿名化したプロジェクト概要
-  description: string;      // 担当内容
-  teamSize: string;         // "5-10名" のような範囲表記
-  role: string;             // "バックエンドエンジニア" 等
-  technologies: string[];   // 使用技術
-  highlights: string[];     // 主な成果
+  title: string; // 匿名化したプロジェクト概要
+  description: string; // 担当内容
+  teamSize: string; // "5-10名" のような範囲表記
+  role: string; // "バックエンドエンジニア" 等
+  technologies: string[]; // 使用技術
+  highlights: string[]; // 主な成果
 };
 
 // データ例
@@ -91,10 +91,7 @@ const projects: CareerProject[] = [
     teamSize: "10-15名",
     role: "フロントエンドリード",
     technologies: ["Next.js", "TypeScript", "GraphQL", "AWS"],
-    highlights: [
-      "ページ表示速度を 40% 改善",
-      "CI/CD パイプラインを構築",
-    ],
+    highlights: ["ページ表示速度を 40% 改善", "CI/CD パイプラインを構築"],
   },
 ];
 ```
@@ -106,19 +103,12 @@ const projects: CareerProject[] = [
 import { z } from "zod";
 
 const contactFormSchema = z.object({
-  name: z
-    .string()
-    .min(1, "名前を入力してください")
-    .max(100, "100 文字以内で入力してください"),
+  name: z.string().min(1, "名前を入力してください").max(100, "100 文字以内で入力してください"),
   email: z
     .string()
     .min(1, "メールアドレスを入力してください")
     .email("正しいメールアドレスを入力してください"),
-  company: z
-    .string()
-    .max(200, "200 文字以内で入力してください")
-    .optional()
-    .or(z.literal("")),
+  company: z.string().max(200, "200 文字以内で入力してください").optional().or(z.literal("")),
   message: z
     .string()
     .min(10, "10 文字以上で入力してください")
@@ -164,11 +154,11 @@ const siteMetadata: SiteMetadata = {
 
 ## データソース
 
-| フェーズ | ソース | 格納場所 | 更新方法 |
-|---|---|---|---|
-| MVP | ローカルファイル | `src/lib/data/*.ts` | 手動編集 → PR → マージ |
+| フェーズ   | ソース            | 格納場所                        | 更新方法                          |
+| ---------- | ----------------- | ------------------------------- | --------------------------------- |
+| MVP        | ローカルファイル  | `src/lib/data/*.ts`             | 手動編集 → PR → マージ            |
 | フェーズ 2 | Google Sheets API | `src/lib/data/*.ts`（自動更新） | Claude Code Routine → PR → マージ |
-| フェーズ 2 | GitHub API | `src/lib/data/*.ts`（自動更新） | Claude Code Routine → PR → マージ |
+| フェーズ 2 | GitHub API        | `src/lib/data/*.ts`（自動更新） | Claude Code Routine → PR → マージ |
 
 ### MVP のデータ管理
 
