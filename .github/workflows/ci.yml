@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  リント:
+  lint:
     name: リント（ESLint + Prettier）
     runs-on: ubuntu-latest
     steps:
@@ -19,7 +19,7 @@ jobs:
       - run: pnpm lint
       - run: pnpm format:check
 
-  型チェック:
+  type-check:
     name: 型チェック（TypeScript）
     runs-on: ubuntu-latest
     steps:
@@ -32,7 +32,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec tsc --noEmit
 
-  テスト:
+  test:
     name: ユニットテスト（Vitest）
     runs-on: ubuntu-latest
     steps:
@@ -45,7 +45,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
 
-  ビルド:
+  build:
     name: ビルド（Next.js）
     runs-on: ubuntu-latest
     steps:
