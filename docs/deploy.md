@@ -8,20 +8,20 @@
 2. 「Add New Project」から GitHub リポジトリ `e2life-website` をインポート
 3. 以下を設定:
 
-| 項目 | 設定値 |
-|---|---|
-| Framework Preset | Next.js |
-| Build Command | `pnpm build` |
-| Output Directory | `.next`（デフォルト） |
-| Install Command | `pnpm install --frozen-lockfile` |
-| Node.js Version | 22.x |
+| 項目             | 設定値                           |
+| ---------------- | -------------------------------- |
+| Framework Preset | Next.js                          |
+| Build Command    | `pnpm build`                     |
+| Output Directory | `.next`（デフォルト）            |
+| Install Command  | `pnpm install --frozen-lockfile` |
+| Node.js Version  | 22.x                             |
 
 ### プロジェクト設定
 
-| 項目 | 設定値 |
-|---|---|
-| プラン | Hobby（無料） |
-| リージョン | Tokyo (hnd1) |
+| 項目        | 設定値                |
+| ----------- | --------------------- |
+| プラン      | Hobby（無料）         |
+| リージョン  | Tokyo (hnd1)          |
 | Auto-deploy | 有効（main ブランチ） |
 
 ## ドメイン設定
@@ -35,11 +35,11 @@
 
 ### ドメイン構成
 
-| ドメイン | 設定 |
-|---|---|
-| `e2life.dev` | プライマリドメイン |
-| `www.e2life.dev` | `e2life.dev` にリダイレクト |
-| `*.vercel.app` | Vercel デフォルトドメイン（残しておく） |
+| ドメイン         | 設定                                    |
+| ---------------- | --------------------------------------- |
+| `e2life.dev`     | プライマリドメイン                      |
+| `www.e2life.dev` | `e2life.dev` にリダイレクト             |
+| `*.vercel.app`   | Vercel デフォルトドメイン（残しておく） |
 
 ## 環境変数設定
 

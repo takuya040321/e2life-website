@@ -111,6 +111,7 @@ components/
 ### 特殊ファイル
 
 Next.js App Router の規約ファイルはそのまま:
+
 - `page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx`, `not-found.tsx`
 
 ## インポート順序
@@ -196,10 +197,13 @@ export default [
     rules: {
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
-      "import/order": ["error", {
-        "groups": ["builtin", "external", "internal", "parent", "sibling"],
-        "newlines-between": "always",
-      }],
+      "import/order": [
+        "error",
+        {
+          groups: ["builtin", "external", "internal", "parent", "sibling"],
+          "newlines-between": "always",
+        },
+      ],
     },
   },
 ];
@@ -232,16 +236,16 @@ export default [
 [footer]
 ```
 
-| type | 用途 |
-|---|---|
-| `feat` | 新機能 |
-| `fix` | バグ修正 |
-| `docs` | ドキュメント |
-| `style` | コードスタイル（ロジック変更なし） |
-| `refactor` | リファクタリング |
-| `test` | テスト |
-| `chore` | ビルド・ツール設定 |
-| `perf` | パフォーマンス改善 |
+| type       | 用途                               |
+| ---------- | ---------------------------------- |
+| `feat`     | 新機能                             |
+| `fix`      | バグ修正                           |
+| `docs`     | ドキュメント                       |
+| `style`    | コードスタイル（ロジック変更なし） |
+| `refactor` | リファクタリング                   |
+| `test`     | テスト                             |
+| `chore`    | ビルド・ツール設定                 |
+| `perf`     | パフォーマンス改善                 |
 
 ### ブランチ命名
 
