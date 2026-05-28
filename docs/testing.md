@@ -2,13 +2,13 @@
 
 ## テスト種類と範囲
 
-| テスト | ツール | 対象 | 実行タイミング |
-|---|---|---|---|
-| Unit Test | Vitest + Testing Library | ユーティリティ関数、データ変換、コンポーネント描画、reCAPTCHA 検証 | PR ごと |
-| Integration Test | Vitest + Testing Library | Server Actions、外部 API 連携、Server Components + データ層 | PR ごと |
-| E2E Test | Playwright | 全ページ表示、ナビゲーション、フォーム送信、PDF DL、レスポンシブ、クロスブラウザ | PR ごと |
-| Performance Test | Lighthouse CI | Core Web Vitals (LCP, CLS, INP) | PR ごと |
-| Security Test | Playwright + カスタム検証 | XSS、CSRF、フォームバリデーション、HTTP ヘッダー、reCAPTCHA バイパス防止 | PR ごと |
+| テスト           | ツール                    | 対象                                                                             | 実行タイミング |
+| ---------------- | ------------------------- | -------------------------------------------------------------------------------- | -------------- |
+| Unit Test        | Vitest + Testing Library  | ユーティリティ関数、データ変換、コンポーネント描画、reCAPTCHA 検証               | PR ごと        |
+| Integration Test | Vitest + Testing Library  | Server Actions、外部 API 連携、Server Components + データ層                      | PR ごと        |
+| E2E Test         | Playwright                | 全ページ表示、ナビゲーション、フォーム送信、PDF DL、レスポンシブ、クロスブラウザ | PR ごと        |
+| Performance Test | Lighthouse CI             | Core Web Vitals (LCP, CLS, INP)                                                  | PR ごと        |
+| Security Test    | Playwright + カスタム検証 | XSS、CSRF、フォームバリデーション、HTTP ヘッダー、reCAPTCHA バイパス防止         | PR ごと        |
 
 ## テストファイル配置
 
@@ -148,13 +148,13 @@ jobs:
 
 ## テストカバレッジ方針
 
-| 対象 | 目標カバレッジ |
-|---|---|
-| ユーティリティ関数 | 90% 以上 |
-| バリデーション | 100% |
-| Server Actions | 80% 以上 |
-| コンポーネント | 70% 以上（描画テスト中心） |
-| E2E | 全ページ・全主要フローをカバー |
+| 対象               | 目標カバレッジ                 |
+| ------------------ | ------------------------------ |
+| ユーティリティ関数 | 90% 以上                       |
+| バリデーション     | 100%                           |
+| Server Actions     | 80% 以上                       |
+| コンポーネント     | 70% 以上（描画テスト中心）     |
+| E2E                | 全ページ・全主要フローをカバー |
 
 - カバレッジ数値の追求よりも、重要なパスのテストを優先する
 - reCAPTCHA 検証、フォームバリデーション、エラーハンドリングは高カバレッジ必須
