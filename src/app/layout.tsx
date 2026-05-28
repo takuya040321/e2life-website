@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { PersonJsonLd, WebSiteJsonLd } from "@/components/shared/json-ld";
 
 import { siteMetadata } from "@/lib/data/site";
 
@@ -62,6 +63,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <head>
+        <PersonJsonLd />
+        <WebSiteJsonLd />
+      </head>
       <body className="flex min-h-full flex-col">
         <Header />
         <main className="flex-1">{children}</main>
