@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { Analytics } from "@/components/shared/analytics";
 import { PersonJsonLd, WebSiteJsonLd } from "@/components/shared/json-ld";
 
 import { siteMetadata } from "@/lib/data/site";
@@ -72,6 +73,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
+      <Analytics />
     </html>
   );
 }
