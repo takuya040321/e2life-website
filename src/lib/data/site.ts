@@ -9,6 +9,7 @@ type SiteMetadata = {
   description: string;
   url: string;
   author: string;
+  locale: string;
   socialLinks: SocialLink[];
 };
 
@@ -17,6 +18,7 @@ export const siteMetadata: SiteMetadata = {
   description: "AI で開発プロセス自体を設計するエンジニア",
   url: "https://e2life.dev",
   author: "takuya",
+  locale: "ja_JP",
   socialLinks: [
     {
       platform: "GitHub",
