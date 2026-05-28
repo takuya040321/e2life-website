@@ -6,9 +6,7 @@ import { verifyRecaptcha } from "@/lib/utils/recaptcha";
 import type { ContactFormData } from "@/lib/validations/contact";
 import { contactFormSchema } from "@/lib/validations/contact";
 
-export type ActionResult =
-  | { success: true; message: string }
-  | { success: false; error: string };
+export type ActionResult = { success: true; message: string } | { success: false; error: string };
 
 export async function submitContactForm(
   formData: ContactFormData,

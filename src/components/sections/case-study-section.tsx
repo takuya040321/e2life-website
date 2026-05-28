@@ -8,10 +8,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 export function CaseStudySection() {
   return (
     <section className="py-20">
-      <SectionHeading
-        title="ケーススタディ"
-        description="AI を活用した開発プロセス設計の実例"
-      />
+      <SectionHeading title="ケーススタディ" description="AI を活用した開発プロセス設計の実例" />
       <Card className="mt-12">
         <CardHeader>
           <CardTitle>PA エコシステム — マルチリポ AI 開発基盤</CardTitle>

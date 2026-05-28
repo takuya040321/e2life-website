@@ -81,10 +81,7 @@ export const projects: CareerProject[] = [
     teamSize: "5-7名",
     role: "フルスタックエンジニア",
     technologies: ["React", "TypeScript", "Java", "MySQL", "AWS"],
-    highlights: [
-      "業務処理時間を 60% 削減",
-      "ユーザビリティテストを実施し、UI/UX を継続改善",
-    ],
+    highlights: ["業務処理時間を 60% 削減", "ユーザビリティテストを実施し、UI/UX を継続改善"],
   },
   {
     id: "project-005",

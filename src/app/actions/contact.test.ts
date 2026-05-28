@@ -28,10 +28,7 @@ const validFormData = {
 
 describe("submitContactForm", () => {
   it("returns error when validation fails", async () => {
-    const result = await submitContactForm(
-      { ...validFormData, email: "invalid" },
-      "token",
-    );
+    const result = await submitContactForm({ ...validFormData, email: "invalid" }, "token");
     expect(result).toEqual({ success: false, error: "入力内容に誤りがあります。" });
   });
 

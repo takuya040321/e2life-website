@@ -15,9 +15,7 @@ type SkillGridProps = {
 export function SkillGrid({ skills }: SkillGridProps) {
   const [selectedCategory, setSelectedCategory] = useState<SkillCategory | null>(null);
 
-  const presentCategories = skillCategories.filter((cat) =>
-    skills.some((s) => s.category === cat),
-  );
+  const presentCategories = skillCategories.filter((cat) => skills.some((s) => s.category === cat));
 
   const filtered = selectedCategory
     ? skills.filter((s) => s.category === selectedCategory)
