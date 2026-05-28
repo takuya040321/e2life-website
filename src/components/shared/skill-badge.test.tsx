@@ -7,7 +7,8 @@ import { SkillBadge } from "./skill-badge";
 
 vi.mock("next/image", () => ({
   default: function MockImage(props: Record<string, unknown>) {
-    const { onError: _onError, ...rest } = props;
+    const rest = { ...props };
+    delete rest["onError"];
     // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
     return <img {...rest} />;
   },
