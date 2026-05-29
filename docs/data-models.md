@@ -4,6 +4,10 @@
 
 ### Skill（SE スキル）
 
+大本（single source of truth）は SE 事業の「スキルシート v1」（Google スプレッドシート）。
+MVP では手動同期、フェーズ 2 で Claude Code Routine による自動同期に移行する。
+経験期間は「業務経験（累計）」と「トータル（業務 + 個人開発）」の 2 軸を月数で保持する。
+
 ```typescript
 // src/lib/data/skills.ts
 
@@ -11,38 +15,46 @@ const skillCategories = [
   "language",
   "framework",
   "database",
-  "cloud",
-  "devops",
+  "vcs",
+  "cicd",
+  "package",
+  "devtool",
+  "ide",
+  "library",
   "ai",
-  "other",
 ] as const;
 
 type SkillCategory = (typeof skillCategories)[number];
+
+// 大本シートの 3 段階レベル評価
+type SkillLevel = "professional" | "work" | "learning";
 
 type Skill = {
   id: string;
   name: string;
   category: SkillCategory;
-  yearsOfExperience: number;
-  logoPath: string;
-  description?: string;
+  businessMonths: number | null; // 業務経験の累計月数。業務経験がなければ null
+  totalMonths: number | null; // 業務 + 個人開発のトータル月数。実績がなければ null
+  level: SkillLevel;
+  projectCount: number; // 業務での担当案件数
+  isStrong?: boolean; // 特に得意な技術か（大本シートの「特に得意」○/◎）
+  logoPath?: string; // ロゴ未整備の場合は省略しフォールバック表示
+  note?: string; // 用途・補足（大本シートの「備考」）
 };
 
 // データ例
 const skills: Skill[] = [
   {
-    id: "typescript",
-    name: "TypeScript",
+    id: "python",
+    name: "Python",
     category: "language",
-    yearsOfExperience: 5,
-    logoPath: "/logos/typescript.svg",
-  },
-  {
-    id: "nextjs",
-    name: "Next.js",
-    category: "framework",
-    yearsOfExperience: 3,
-    logoPath: "/logos/nextjs.svg",
+    businessMonths: 16,
+    totalMonths: 22,
+    level: "professional",
+    projectCount: 4,
+    isStrong: true,
+    logoPath: "/logos/python.svg",
+    note: "業務効率化ツール / EC 自動化",
   },
 ];
 ```
