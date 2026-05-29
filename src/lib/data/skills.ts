@@ -3,8 +3,9 @@
 // フェーズ 2 で Claude Code Routine による自動同期に移行予定（docs/data-models.md 参照）。
 // 経験期間は「業務経験（累計）」と「トータル（業務 + 個人開発）」の 2 軸を月数で保持する。
 //
-// logoPath は public/logos 配下のロゴ。ブランドロゴが存在しない技術（自社/組込/
-// 各種ライブラリ等）は省略し、SkillBadge 側で頭文字フォールバック表示する。
+// 掲載対象は公式ブランドロゴが存在する技術に限定している（logoPath 必須）。
+// ロゴのない技術（組込/自社ツール/各種ライブラリ等）はサイト上では掲載しない。
+// それらも含む完全な棚卸しは大本スキルシート側を参照すること。
 
 export const skillCategories = [
   "language",
@@ -56,8 +57,8 @@ export type Skill = {
   projectCount: number;
   /** 特に得意な技術か（大本シートの「特に得意」○/◎） */
   isStrong?: boolean;
-  /** public/logos 配下のロゴパス。未整備の場合は省略しフォールバック表示 */
-  logoPath?: string;
+  /** public/logos 配下のロゴパス */
+  logoPath: string;
   /** 用途・補足（大本シートの「備考」） */
   note?: string;
 };
@@ -133,16 +134,6 @@ export const skills: Skill[] = [
     logoPath: "/logos/javascript.svg",
     note: "業務 + GAS（個人開発）",
   },
-  {
-    id: "vba",
-    name: "VBA",
-    category: "language",
-    businessMonths: 5,
-    totalMonths: 5,
-    level: "work",
-    projectCount: 1,
-    note: "Excel マクロ連携",
-  },
 
   // フレームワーク・UI
   // NOTE: Next.js は当サイト（e2life-website）構築で使用中。新しい実績のため
@@ -213,27 +204,6 @@ export const skills: Skill[] = [
     logoPath: "/logos/tailwindcss.svg",
   },
   {
-    id: "tkinter",
-    name: "Tkinter",
-    category: "framework",
-    businessMonths: 11,
-    totalMonths: 11,
-    level: "work",
-    projectCount: 3,
-    isStrong: true,
-    note: "Python デスクトップ GUI",
-  },
-  {
-    id: "vosk",
-    name: "Vosk",
-    category: "framework",
-    businessMonths: 3,
-    totalMonths: 3,
-    level: "work",
-    projectCount: 1,
-    note: "音声認識エンジン",
-  },
-  {
     id: "google-apps-script",
     name: "Google Apps Script",
     category: "framework",
@@ -255,16 +225,6 @@ export const skills: Skill[] = [
     projectCount: 0,
     logoPath: "/logos/playwright.svg",
     note: "ブラウザ自動化（個人事業）",
-  },
-  {
-    id: "mfc",
-    name: "MFC",
-    category: "framework",
-    businessMonths: 34,
-    totalMonths: 34,
-    level: "professional",
-    projectCount: 1,
-    note: "製品 FW UI（組込）",
   },
 
   // データベース
@@ -325,17 +285,6 @@ export const skills: Skill[] = [
     projectCount: 5,
     logoPath: "/logos/gitlab.svg",
   },
-  {
-    id: "perforce",
-    name: "Perforce",
-    category: "vcs",
-    businessMonths: 36,
-    totalMonths: 36,
-    level: "professional",
-    projectCount: 2,
-    isStrong: true,
-    note: "製品 FW 開発",
-  },
 
   // CI・自動化
   {
@@ -360,16 +309,6 @@ export const skills: Skill[] = [
     projectCount: 1,
     logoPath: "/logos/jenkins.svg",
     note: "製品 FW CI",
-  },
-  {
-    id: "windows-task-scheduler",
-    name: "Windows タスクスケジューラ",
-    category: "cicd",
-    businessMonths: 5,
-    totalMonths: 5,
-    level: "work",
-    projectCount: 1,
-    note: "月次自動実行",
   },
 
   // パッケージ・ビルド
@@ -397,28 +336,6 @@ export const skills: Skill[] = [
     note: "Python パッケージ管理",
   },
   {
-    id: "pyinstaller",
-    name: "PyInstaller",
-    category: "package",
-    businessMonths: 8,
-    totalMonths: 8,
-    level: "work",
-    projectCount: 2,
-    isStrong: true,
-    note: "exe 化",
-  },
-  {
-    id: "clasp",
-    name: "clasp",
-    category: "package",
-    businessMonths: null,
-    totalMonths: 11,
-    level: "learning",
-    projectCount: 0,
-    isStrong: true,
-    note: "GAS デプロイ",
-  },
-  {
     id: "yarn",
     name: "Yarn",
     category: "package",
@@ -439,16 +356,6 @@ export const skills: Skill[] = [
     projectCount: 2,
     isStrong: true,
     logoPath: "/logos/nodedotjs.svg",
-  },
-  {
-    id: "devcontainer",
-    name: "DevContainer",
-    category: "package",
-    businessMonths: 7,
-    totalMonths: 7,
-    level: "work",
-    projectCount: 2,
-    note: "開発環境構築",
   },
   {
     id: "docker",
@@ -518,17 +425,6 @@ export const skills: Skill[] = [
     logoPath: "/logos/swagger.svg",
     note: "API ドキュメント",
   },
-  {
-    id: "uml",
-    name: "UML",
-    category: "devtool",
-    businessMonths: 23,
-    totalMonths: 36,
-    level: "professional",
-    projectCount: 6,
-    isStrong: true,
-    note: "仕様書作成（クラス図 / シーケンス図 / ER 図 等）",
-  },
 
   // IDE
   {
@@ -578,28 +474,6 @@ export const skills: Skill[] = [
 
   // ライブラリ・API
   {
-    id: "amazon-sp-api",
-    name: "Amazon SP-API",
-    category: "library",
-    businessMonths: null,
-    totalMonths: 13,
-    level: "learning",
-    projectCount: 0,
-    isStrong: true,
-    note: "EC 自動化 / 在庫管理 / レビュー依頼",
-  },
-  {
-    id: "yahoo-shopping",
-    name: "Yahoo! ショッピング",
-    category: "library",
-    businessMonths: null,
-    totalMonths: 4,
-    level: "learning",
-    projectCount: 0,
-    isStrong: true,
-    note: "EC 自動化",
-  },
-  {
     id: "rakuten-api",
     name: "楽天市場 API",
     category: "library",
@@ -610,50 +484,6 @@ export const skills: Skill[] = [
     isStrong: true,
     logoPath: "/logos/rakuten.svg",
     note: "EC 自動化",
-  },
-  {
-    id: "beautifulsoup",
-    name: "BeautifulSoup",
-    category: "library",
-    businessMonths: 5,
-    totalMonths: 9,
-    level: "work",
-    projectCount: 1,
-    isStrong: true,
-    note: "Web スクレイピング",
-  },
-  {
-    id: "requests",
-    name: "Requests",
-    category: "library",
-    businessMonths: 5,
-    totalMonths: 5,
-    level: "work",
-    projectCount: 1,
-    isStrong: true,
-    note: "Web スクレイピング",
-  },
-  {
-    id: "openpyxl",
-    name: "openpyxl",
-    category: "library",
-    businessMonths: 8,
-    totalMonths: 8,
-    level: "work",
-    projectCount: 2,
-    isStrong: true,
-    note: "Excel 操作",
-  },
-  {
-    id: "xlwings",
-    name: "xlwings",
-    category: "library",
-    businessMonths: 11,
-    totalMonths: 11,
-    level: "work",
-    projectCount: 2,
-    isStrong: true,
-    note: "Excel 操作",
   },
   {
     id: "pandas",
