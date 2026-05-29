@@ -82,9 +82,9 @@
 ### SEO
 
 - Next.js Metadata API + generateMetadata で各ページのメタデータ設定
-- OGP 画像: Vercel OG Image Generation で動的生成
-- sitemap.xml 自動生成
+- OGP 画像: Vercel OG Image Generation で動的生成（直リンク共有時のプレビュー用に維持）
 - 構造化データ（JSON-LD）の埋め込み
+- 検索インデックスは無効化（直リンク配布のみで運用するため `robots: Disallow: /` + `noindex`。sitemap.xml は非公開）
 
 ### アクセシビリティ
 
@@ -137,14 +137,14 @@ flowchart TD
 
 **目的**: 最低限の情報公開 + 問い合わせ導線を確立する。
 
-| スコープ       | 内容                                                   |
-| -------------- | ------------------------------------------------------ |
-| ページ         | LP, Skills, Career, Contact の 4 ページ                |
-| 機能           | 問い合わせフォーム、PDF ダウンロード、レスポンシブ対応 |
-| インフラ       | Vercel デプロイ、独自ドメイン（e2life.dev）、CI/CD     |
-| テスト         | Unit / Integration / E2E / Performance / Security      |
-| SEO            | メタデータ、OGP、sitemap.xml                           |
-| アナリティクス | Google Analytics（PV、PDF DL 数、問い合わせ数）        |
+| スコープ       | 内容                                                        |
+| -------------- | ----------------------------------------------------------- |
+| ページ         | LP, Skills, Career, Contact の 4 ページ                     |
+| 機能           | 問い合わせフォーム、PDF ダウンロード、レスポンシブ対応      |
+| インフラ       | Vercel デプロイ、独自ドメイン（e2life.dev）、CI/CD          |
+| テスト         | Unit / Integration / E2E / Performance / Security           |
+| SEO            | メタデータ、OGP、JSON-LD（インデックスは noindex で無効化） |
+| アナリティクス | Google Analytics（PV、PDF DL 数、問い合わせ数）             |
 
 ### フェーズ 2
 
