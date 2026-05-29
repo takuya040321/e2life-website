@@ -2,6 +2,9 @@
 // 大本（single source of truth）として手動同期している。
 // フェーズ 2 で Claude Code Routine による自動同期に移行予定（docs/data-models.md 参照）。
 // 経験期間は「業務経験（累計）」と「トータル（業務 + 個人開発）」の 2 軸を月数で保持する。
+//
+// logoPath は public/logos 配下のロゴ。ブランドロゴが存在しない技術（自社/組込/
+// 各種ライブラリ等）は省略し、SkillBadge 側で頭文字フォールバック表示する。
 
 export const skillCategories = [
   "language",
@@ -80,6 +83,7 @@ export const skills: Skill[] = [
     level: "professional",
     projectCount: 1,
     isStrong: true,
+    logoPath: "/logos/cplusplus.svg",
     note: "製品 FW（組込）",
   },
   {
@@ -90,6 +94,7 @@ export const skills: Skill[] = [
     totalMonths: 4,
     level: "work",
     projectCount: 1,
+    logoPath: "/logos/csharp.svg",
     note: "ASP.NET Core Web API",
   },
   {
@@ -172,6 +177,7 @@ export const skills: Skill[] = [
     totalMonths: 7,
     level: "work",
     projectCount: 2,
+    logoPath: "/logos/vite.svg",
     note: "フロントビルドツール",
   },
   {
@@ -182,6 +188,7 @@ export const skills: Skill[] = [
     totalMonths: 4,
     level: "work",
     projectCount: 1,
+    logoPath: "/logos/dotnet.svg",
     note: "C# Web API",
   },
   {
@@ -192,6 +199,7 @@ export const skills: Skill[] = [
     totalMonths: 7,
     level: "work",
     projectCount: 2,
+    logoPath: "/logos/mui.svg",
     note: "Material UI",
   },
   {
@@ -202,6 +210,7 @@ export const skills: Skill[] = [
     totalMonths: 3,
     level: "work",
     projectCount: 1,
+    logoPath: "/logos/tailwindcss.svg",
   },
   {
     id: "tkinter",
@@ -233,6 +242,7 @@ export const skills: Skill[] = [
     level: "learning",
     projectCount: 0,
     isStrong: true,
+    logoPath: "/logos/googleappsscript.svg",
     note: "EC 自動化（個人事業）",
   },
   {
@@ -243,6 +253,7 @@ export const skills: Skill[] = [
     totalMonths: 4,
     level: "learning",
     projectCount: 0,
+    logoPath: "/logos/playwright.svg",
     note: "ブラウザ自動化（個人事業）",
   },
   {
@@ -265,6 +276,7 @@ export const skills: Skill[] = [
     totalMonths: 7,
     level: "work",
     projectCount: 2,
+    logoPath: "/logos/microsoftsqlserver.svg",
     note: "バックエンド DB",
   },
   {
@@ -276,6 +288,7 @@ export const skills: Skill[] = [
     level: "learning",
     projectCount: 0,
     isStrong: true,
+    logoPath: "/logos/googlesheets.svg",
     note: "個人事業のデータストア",
   },
 
@@ -289,6 +302,7 @@ export const skills: Skill[] = [
     level: "professional",
     projectCount: 4,
     isStrong: true,
+    logoPath: "/logos/git.svg",
   },
   {
     id: "github",
@@ -299,6 +313,7 @@ export const skills: Skill[] = [
     level: "learning",
     projectCount: 0,
     isStrong: true,
+    logoPath: "/logos/github.svg",
   },
   {
     id: "gitlab",
@@ -308,6 +323,7 @@ export const skills: Skill[] = [
     totalMonths: 21,
     level: "professional",
     projectCount: 5,
+    logoPath: "/logos/gitlab.svg",
   },
   {
     id: "perforce",
@@ -342,6 +358,7 @@ export const skills: Skill[] = [
     totalMonths: 34,
     level: "work",
     projectCount: 1,
+    logoPath: "/logos/jenkins.svg",
     note: "製品 FW CI",
   },
   {
@@ -365,6 +382,7 @@ export const skills: Skill[] = [
     level: "work",
     projectCount: 2,
     isStrong: true,
+    logoPath: "/logos/uv.svg",
     note: "Python パッケージ管理",
   },
   {
@@ -375,6 +393,7 @@ export const skills: Skill[] = [
     totalMonths: 11,
     level: "work",
     projectCount: 2,
+    logoPath: "/logos/rye.svg",
     note: "Python パッケージ管理",
   },
   {
@@ -408,6 +427,7 @@ export const skills: Skill[] = [
     level: "work",
     projectCount: 2,
     isStrong: true,
+    logoPath: "/logos/yarn.svg",
   },
   {
     id: "nodejs",
@@ -452,6 +472,7 @@ export const skills: Skill[] = [
     level: "work",
     projectCount: 2,
     isStrong: true,
+    logoPath: "/logos/eslint.svg",
   },
   {
     id: "prettier",
@@ -462,6 +483,7 @@ export const skills: Skill[] = [
     level: "work",
     projectCount: 2,
     isStrong: true,
+    logoPath: "/logos/prettier.svg",
   },
   {
     id: "ruff",
@@ -472,6 +494,7 @@ export const skills: Skill[] = [
     level: "work",
     projectCount: 4,
     isStrong: true,
+    logoPath: "/logos/ruff.svg",
     note: "Python リンター・フォーマッター",
   },
   {
@@ -482,6 +505,7 @@ export const skills: Skill[] = [
     totalMonths: 6,
     level: "learning",
     projectCount: 0,
+    logoPath: "/logos/pytest.svg",
   },
   {
     id: "swagger",
@@ -491,6 +515,7 @@ export const skills: Skill[] = [
     totalMonths: 4,
     level: "work",
     projectCount: 1,
+    logoPath: "/logos/swagger.svg",
     note: "API ドキュメント",
   },
   {
@@ -515,6 +540,7 @@ export const skills: Skill[] = [
     level: "professional",
     projectCount: 6,
     isStrong: true,
+    logoPath: "/logos/vscode.svg",
   },
   {
     id: "visual-studio",
@@ -524,6 +550,7 @@ export const skills: Skill[] = [
     totalMonths: 34,
     level: "work",
     projectCount: 1,
+    logoPath: "/logos/visualstudio.svg",
     note: "C/C++ FW 開発",
   },
   {
@@ -534,6 +561,7 @@ export const skills: Skill[] = [
     totalMonths: 34,
     level: "work",
     projectCount: 1,
+    logoPath: "/logos/eclipseide.svg",
     note: "C/C++ FW 開発",
   },
   {
@@ -544,6 +572,7 @@ export const skills: Skill[] = [
     totalMonths: 13,
     level: "learning",
     projectCount: 0,
+    logoPath: "/logos/cursor.svg",
     note: "個人開発で AI エディタ使用",
   },
 
@@ -579,6 +608,7 @@ export const skills: Skill[] = [
     level: "learning",
     projectCount: 0,
     isStrong: true,
+    logoPath: "/logos/rakuten.svg",
     note: "EC 自動化",
   },
   {
@@ -634,6 +664,7 @@ export const skills: Skill[] = [
     level: "work",
     projectCount: 2,
     isStrong: true,
+    logoPath: "/logos/pandas.svg",
     note: "データ処理",
   },
   {
@@ -645,6 +676,7 @@ export const skills: Skill[] = [
     level: "work",
     projectCount: 2,
     isStrong: true,
+    logoPath: "/logos/axios.svg",
     note: "HTTP クライアント",
   },
 
