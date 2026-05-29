@@ -40,25 +40,22 @@ test.describe("SEO metadata", () => {
     const content = await jsonLd.first().textContent();
     expect(content).toContain("Person");
   });
+
+  test("home page is marked noindex", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+  });
 });
 
-test.describe("sitemap and robots", () => {
-  test("sitemap.xml is accessible and includes all pages", async ({ request }) => {
-    const response = await request.get("/sitemap.xml");
-    expect(response.ok()).toBe(true);
-    const body = await response.text();
-    expect(body).toContain("https://e2life.dev");
-    expect(body).toContain("/skills");
-    expect(body).toContain("/career");
-    expect(body).toContain("/contact");
-  });
-
-  test("robots.txt is accessible and references sitemap", async ({ request }) => {
+test.describe("robots and OGP", () => {
+  test("robots.txt is accessible and disallows all crawling", async ({ request }) => {
     const response = await request.get("/robots.txt");
     expect(response.ok()).toBe(true);
     const body = await response.text();
     expect(body).toContain("User-Agent: *");
-    expect(body).toContain("Sitemap: https://e2life.dev/sitemap.xml");
+    expect(body).toContain("Disallow: /");
+    // sitemap は意図的に公開していない
+    expect(body).not.toContain("Sitemap:");
   });
 
   test("OGP image is accessible", async ({ request }) => {
