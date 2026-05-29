@@ -15,18 +15,17 @@ type SkillBadgeProps = {
 
 export function SkillBadge({ skill, showYears = true }: SkillBadgeProps) {
   const [imgError, setImgError] = useState(false);
-  const showFallback = !skill.logoPath || imgError;
 
   return (
     <div className="border-border flex items-center gap-3 rounded-lg border p-4">
       <div className="bg-muted flex size-10 shrink-0 items-center justify-center rounded-md">
-        {showFallback ? (
+        {imgError ? (
           <span className="text-muted-foreground text-sm font-medium">
             {skill.name.slice(0, 2)}
           </span>
         ) : (
           <Image
-            src={skill.logoPath as string}
+            src={skill.logoPath}
             alt={skill.name}
             width={24}
             height={24}
