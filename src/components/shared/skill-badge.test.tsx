@@ -53,8 +53,8 @@ describe("SkillBadge", () => {
     expect(screen.queryByText("実務経験あり")).toBeNull();
   });
 
-  it("falls back to initials when no logo is provided", () => {
-    render(<SkillBadge skill={{ ...mockSkill, logoPath: undefined }} />);
-    expect(screen.getByText("Py")).toBeInTheDocument();
+  it("renders the logo image from logoPath", () => {
+    render(<SkillBadge skill={mockSkill} />);
+    expect(screen.getByAltText("Python")).toHaveAttribute("src", "/logos/python.svg");
   });
 });
