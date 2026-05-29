@@ -15,26 +15,46 @@ vi.mock("next/image", () => ({
 }));
 
 const mockSkill: Skill = {
-  id: "typescript",
-  name: "TypeScript",
+  id: "python",
+  name: "Python",
   category: "language",
-  yearsOfExperience: 5,
-  logoPath: "/logos/typescript.svg",
+  businessMonths: 16,
+  totalMonths: 22,
+  level: "professional",
+  projectCount: 4,
+  isStrong: true,
+  logoPath: "/logos/python.svg",
 };
 
 describe("SkillBadge", () => {
   it("renders skill name", () => {
     render(<SkillBadge skill={mockSkill} />);
-    expect(screen.getByText("TypeScript")).toBeInTheDocument();
+    expect(screen.getByText("Python")).toBeInTheDocument();
   });
 
-  it("renders experience years by default", () => {
+  it("renders the level label and both experience spans by default", () => {
     render(<SkillBadge skill={mockSkill} />);
-    expect(screen.getByText(/5年/)).toBeInTheDocument();
+    expect(screen.getByText("実務経験あり")).toBeInTheDocument();
+    expect(screen.getByText(/業務 1 年 4 ヶ月 \/ 累計 1 年 10 ヶ月/)).toBeInTheDocument();
   });
 
-  it("hides years when showYears is false", () => {
+  it("marks skills flagged as strong", () => {
+    render(<SkillBadge skill={mockSkill} />);
+    expect(screen.getByLabelText("特に得意")).toBeInTheDocument();
+  });
+
+  it("renders a dash when months are null", () => {
+    render(<SkillBadge skill={{ ...mockSkill, businessMonths: null, totalMonths: 10 }} />);
+    expect(screen.getByText(/業務 — \/ 累計 10 ヶ月/)).toBeInTheDocument();
+  });
+
+  it("hides experience info when showYears is false", () => {
     render(<SkillBadge skill={mockSkill} showYears={false} />);
-    expect(screen.queryByText(/年/)).toBeNull();
+    expect(screen.queryByText("実務経験あり")).toBeNull();
+  });
+
+  it("falls back to initials when no logo is provided", () => {
+    render(<SkillBadge skill={{ ...mockSkill, logoPath: undefined }} />);
+    expect(screen.getByText("Py")).toBeInTheDocument();
   });
 });
