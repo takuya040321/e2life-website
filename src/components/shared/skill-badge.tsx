@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 
 import type { Skill } from "@/lib/data/skills";
+import { formatMonths, skillLevelLabels } from "@/lib/data/skills";
 
 type SkillBadgeProps = {
   skill: Skill;
@@ -14,17 +15,18 @@ type SkillBadgeProps = {
 
 export function SkillBadge({ skill, showYears = true }: SkillBadgeProps) {
   const [imgError, setImgError] = useState(false);
+  const showFallback = !skill.logoPath || imgError;
 
   return (
     <div className="border-border flex items-center gap-3 rounded-lg border p-4">
       <div className="bg-muted flex size-10 shrink-0 items-center justify-center rounded-md">
-        {imgError ? (
+        {showFallback ? (
           <span className="text-muted-foreground text-sm font-medium">
             {skill.name.slice(0, 2)}
           </span>
         ) : (
           <Image
-            src={skill.logoPath}
+            src={skill.logoPath as string}
             alt={skill.name}
             width={24}
             height={24}
@@ -34,11 +36,23 @@ export function SkillBadge({ skill, showYears = true }: SkillBadgeProps) {
         )}
       </div>
       <div className="min-w-0 flex-1">
-        <p className="font-medium">{skill.name}</p>
+        <div className="flex items-center gap-1.5">
+          <p className="truncate font-medium">{skill.name}</p>
+          {skill.isStrong && (
+            <span className="text-amber-500" aria-label="特に得意" title="特に得意">
+              ★
+            </span>
+          )}
+        </div>
         {showYears && (
-          <Badge variant="secondary" className="mt-1 text-xs">
-            {skill.yearsOfExperience}年
-          </Badge>
+          <div className="mt-1 flex flex-wrap items-center gap-1.5">
+            <Badge variant="secondary" className="text-xs">
+              {skillLevelLabels[skill.level]}
+            </Badge>
+            <span className="text-muted-foreground text-xs">
+              業務 {formatMonths(skill.businessMonths)} / 累計 {formatMonths(skill.totalMonths)}
+            </span>
+          </div>
         )}
       </div>
     </div>
