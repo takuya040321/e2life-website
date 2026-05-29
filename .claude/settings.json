@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd=$(jq -r '.tool_input.command // \"\"'); printf '%s' \"$cmd\" | grep -q 'git push' || exit 0; cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; if ! out=$(pnpm format:check 2>&1); then printf 'push を中止しました: Prettier の整形漏れがあります。`pnpm format` で修正してから再 push してください。\\n%s\\n' \"$out\" >&2; exit 2; fi; if ! out=$(pnpm lint 2>&1); then printf 'push を中止しました: ESLint エラーがあります。修正してから再 push してください。\\n%s\\n' \"$out\" >&2; exit 2; fi",
+            "timeout": 180,
+            "statusMessage": "push 前に format:check + lint を検証中..."
+          }
+        ]
+      }
+    ]
+  }
+}
