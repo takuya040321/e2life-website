@@ -1,5 +1,24 @@
 # 運用手順
 
+## 公開ポリシー
+
+本サイトは **検索エンジンには公開せず、直接リンク配布のみで運用する**。クライアント・エージェント等へは URL を直接共有する想定で、検索流入は前提としない。情報露出をコントロールするための方針。
+
+### 具体策
+
+| 対象          | 設定                                                                     |
+| ------------- | ------------------------------------------------------------------------ |
+| robots.txt    | 全クローラに `Disallow: /`（`src/app/robots.ts`）                        |
+| メタタグ      | `robots: { index: false, follow: false }`（`src/app/layout.tsx`）        |
+| sitemap.xml   | 非生成（クローラ誘導が唯一の用途のため `src/app/sitemap.ts` を削除済み） |
+| OGP / JSON-LD | **維持**。検索インデックスとは独立して、直リンク共有時のプレビューに有効 |
+
+### 補足
+
+- ドメインは `e2life.dev`（Vercel 管理、HTTPS 自動）。検索非公開でも独自ドメインで運用する
+- Lighthouse の SEO スコアは `is-crawlable` の意図的失敗により低下するが、これは方針通り。他の SEO 監査・Performance / Accessibility / Best Practices は基準（90 以上）を維持する（`.lighthouserc.json` は SEO 総合ゲートを撤廃し、オンページ SEO 監査を個別にチェック）
+- 将来「検索公開」に方針転換する場合は、上記の `robots.ts` / `layout.tsx` を戻し、sitemap を復活させる
+
 ## コンテンツ更新フロー
 
 ### MVP: 手動更新
