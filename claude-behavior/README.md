@@ -11,6 +11,7 @@
 - [Issue 部分対応 PR では Closes を使わない](workflow/issue-close-keyword.md) — 全タスク完了時のみ `Closes #N`、部分対応は `Refs #N`
 - [PR マージは --merge（no-ff）で枝分かれを残す](workflow/pr-merge-strategy.md) — squash / rebase は使わない
 - [1 Issue = 1 PR を厳守する](workflow/one-issue-one-pr.md) — Issue は PR 1 つで完了できるサイズに分割
+- [git add は対象を分離し staged 内容を確認してからコミットする](workflow/git-add-verification.md) — 削除済みパスを混ぜると add 全体が失敗・コミット欠落
 
 ## 関連
 
