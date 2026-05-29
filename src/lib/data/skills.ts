@@ -140,6 +140,19 @@ export const skills: Skill[] = [
   },
 
   // フレームワーク・UI
+  // NOTE: Next.js は当サイト（e2life-website）構築で使用中。新しい実績のため
+  // 大本スキルシートには未反映の暫定エントリ。次回の大本同期時に正式値へ更新する。
+  {
+    id: "nextjs",
+    name: "Next.js",
+    category: "framework",
+    businessMonths: null,
+    totalMonths: 1,
+    level: "learning",
+    projectCount: 0,
+    logoPath: "/logos/nextdotjs.svg",
+    note: "当サイト構築（個人開発）",
+  },
   {
     id: "react",
     name: "React",
