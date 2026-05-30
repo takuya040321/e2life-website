@@ -18,4 +18,9 @@ describe("SectionHeading", () => {
     const { container } = render(<SectionHeading title="見出し" />);
     expect(container.querySelector("p")).toBeNull();
   });
+
+  it("renders label with comment prefix when provided", () => {
+    render(<SectionHeading title="見出し" label="強み" />);
+    expect(screen.getByText("// 強み")).toBeInTheDocument();
+  });
 });
