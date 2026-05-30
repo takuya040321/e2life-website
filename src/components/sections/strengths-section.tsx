@@ -25,9 +25,12 @@ export function StrengthsSection() {
     <section className="py-20">
       <SectionHeading title="3 つの強み" />
       <div className="mt-12 grid gap-6 sm:grid-cols-3">
-        {strengths.map((strength) => (
+        {strengths.map((strength, index) => (
           <Card key={strength.title}>
             <CardHeader>
+              <span className="text-gradient font-mono text-sm font-bold">
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <CardTitle className="text-lg">{strength.title}</CardTitle>
             </CardHeader>
             <CardContent>

@@ -5,11 +5,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { SectionHeading } from "@/components/shared/section-heading";
 
+const accentGradient = "linear-gradient(to right, var(--accent-from), var(--accent-to))";
+
 export function CaseStudySection() {
   return (
     <section className="py-20">
       <SectionHeading title="ケーススタディ" description="AI を活用した開発プロセス設計の実例" />
-      <Card className="mt-12">
+      <Card className="relative mt-12 overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-0.5"
+          style={{ backgroundImage: accentGradient }}
+        />
         <CardHeader>
           <CardTitle>PA エコシステム — マルチリポ AI 開発基盤</CardTitle>
         </CardHeader>
