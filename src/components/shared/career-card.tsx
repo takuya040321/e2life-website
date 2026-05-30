@@ -9,11 +9,11 @@ type CareerCardProps = {
 
 export function CareerCard({ project }: CareerCardProps) {
   return (
-    <Card>
+    <Card className="transition-shadow hover:ring-[var(--accent-from)]">
       <CardHeader>
         <div className="flex flex-wrap items-start justify-between gap-2">
           <CardTitle className="text-lg">{project.title}</CardTitle>
-          <span className="text-muted-foreground text-sm">
+          <span className="font-mono text-sm text-[var(--accent-from)]">
             {project.period.start} 〜 {project.period.end ?? "現在"}
           </span>
         </div>
