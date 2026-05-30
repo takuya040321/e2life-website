@@ -21,7 +21,7 @@ const strengths = [
 export function StrengthsSection() {
   return (
     <section className="py-20">
-      <SectionHeading title="3 つの強み" label="strengths" align="left" />
+      <SectionHeading title="3 つの強み" label="強み" align="left" />
       <div className="border-border mt-12 grid border-t border-l sm:grid-cols-3">
         {strengths.map((strength, index) => (
           <div key={strength.title} className="border-border border-r border-b p-6">
