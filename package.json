@@ -15,7 +15,10 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:lighthouse": "lhci autorun"
+    "test:lighthouse": "lhci autorun",
+    "sync:skill-sheet": "node --env-file=.env.local --import tsx scripts/sync-skill-sheet/main.ts",
+    "sync:skill-sheet:fetch": "node --env-file=.env.local --import tsx scripts/sync-skill-sheet/main.ts --fetch-only",
+    "sync:skill-sheet:generate": "tsx scripts/sync-skill-sheet/main.ts --generate-only"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
@@ -49,10 +52,12 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "eslint-config-prettier": "^10.1.8",
+    "googleapis": "^173.0.0",
     "jsdom": "^29.1.1",
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4",
+    "tsx": "^4.22.3",
     "typescript": "^5",
     "vitest": "^4.1.7"
   },
