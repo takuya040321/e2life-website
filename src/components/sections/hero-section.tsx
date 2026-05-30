@@ -18,13 +18,14 @@ export function HeroSection() {
         <p className="text-muted-foreground mb-4 font-mono text-sm">
           AI × Development Process Engineering
         </p>
-        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+        <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-6xl">
           AI で開発プロセス自体を
-          <br />
+          <br className="hidden sm:block" />
           <GradientText>設計する</GradientText>エンジニア
         </h1>
-        <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg">
+        <p className="text-muted-foreground mx-auto mt-6 max-w-xl text-lg text-pretty">
           マルチエージェント構成による品質管理と、自己改善する開発プロセスで、
+          <br className="hidden sm:block" />
           プロジェクトの生産性を根本から変えます。
         </p>
         <div className="mt-8 flex justify-center gap-4">
