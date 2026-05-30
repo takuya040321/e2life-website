@@ -138,7 +138,14 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         )}
       </div>
 
-      <Button type="submit" disabled={isSubmitting || submitState.status === "submitting"}>
+      <Button
+        type="submit"
+        disabled={isSubmitting || submitState.status === "submitting"}
+        className="border-0 text-white"
+        style={{
+          backgroundImage: "linear-gradient(to right, var(--accent-from), var(--accent-to))",
+        }}
+      >
         {submitState.status === "submitting" ? "送信中..." : "送信"}
       </Button>
 
