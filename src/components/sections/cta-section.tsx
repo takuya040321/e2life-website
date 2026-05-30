@@ -4,6 +4,10 @@ import { buttonVariants } from "@/components/ui/button";
 
 import { SectionHeading } from "@/components/shared/section-heading";
 
+import { cn } from "@/lib/utils/cn";
+
+const accentGradient = "linear-gradient(to right, var(--accent-from), var(--accent-to))";
+
 export function CTASection() {
   return (
     <section className="border-border border-t py-20 text-center">
@@ -12,7 +16,11 @@ export function CTASection() {
         description="スキルシートのダウンロードやお問い合わせはこちらから。"
       />
       <div className="mt-8 flex justify-center gap-4">
-        <Link href="/contact" className={buttonVariants({ size: "lg" })}>
+        <Link
+          href="/contact"
+          className={cn(buttonVariants({ size: "lg" }), "border-0 text-white")}
+          style={{ backgroundImage: accentGradient }}
+        >
           お問い合わせ
         </Link>
         <a

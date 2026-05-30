@@ -67,7 +67,7 @@ export default function RootLayout({
         <PersonJsonLd />
         <WebSiteJsonLd />
       </head>
-      <body className="flex min-h-full flex-col">
+      <body className="bg-grid flex min-h-full flex-col">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
