@@ -17,7 +17,7 @@ export function SkillBadge({ skill, showYears = true }: SkillBadgeProps) {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className="border-border flex items-center gap-3 rounded-lg border p-4">
+    <div className="border-border flex items-center gap-3 rounded-lg border p-4 transition-colors hover:border-[var(--accent-from)]">
       <div className="bg-muted flex size-10 shrink-0 items-center justify-center rounded-md">
         {imgError ? (
           <span className="text-muted-foreground text-sm font-medium">
