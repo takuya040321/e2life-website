@@ -10,21 +10,21 @@ test.describe("navigation", () => {
 
   test("navigates to skills page", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: "Skills" }).click();
+    await page.getByRole("link", { name: "~/skills" }).click();
     await expect(page).toHaveURL(/\/skills/);
     await expect(page.getByRole("heading", { level: 2, name: "SE スキル" })).toBeVisible();
   });
 
   test("navigates to career page", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: "Career" }).click();
+    await page.getByRole("link", { name: "~/career" }).click();
     await expect(page).toHaveURL(/\/career/);
     await expect(page.getByRole("heading", { level: 2, name: "職務経歴" })).toBeVisible();
   });
 
   test("navigates to contact page", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: "Contact" }).click();
+    await page.getByRole("link", { name: "~/contact" }).click();
     await expect(page).toHaveURL(/\/contact/);
     await expect(page.getByRole("heading", { level: 2, name: "お問い合わせ" })).toBeVisible();
   });
