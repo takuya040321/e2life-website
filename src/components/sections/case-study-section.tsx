@@ -26,7 +26,7 @@ export function CaseStudySection() {
             エージェントで効率化するエコシステム。複数リポジトリを横断するマルチエージェント構成で、開発・運用・コンテンツ更新を自動化しています。
           </p>
           <p className="text-muted-foreground mt-3 text-sm">
-            詳細は AI 活用ページ（フェーズ 2 で公開予定）にて体系的に紹介します。
+            詳細は AI 活用ページ（今後公開予定）にて体系的に紹介します。
           </p>
           <div className="mt-4">
             <Link href="/skills" className={buttonVariants({ variant: "outline", size: "sm" })}>
