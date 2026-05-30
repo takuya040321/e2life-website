@@ -35,3 +35,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# skill sheet sync（取得キャッシュは顧客名を含む生データ・SA 鍵は絶対にコミットしない）
+scripts/sync-skill-sheet/.cache/
+scripts/sync-skill-sheet/.secrets/
