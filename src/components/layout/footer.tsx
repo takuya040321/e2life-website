@@ -3,8 +3,11 @@ import { siteMetadata } from "@/lib/data/site";
 export function Footer() {
   return (
     <footer className="border-foreground/10 mt-auto border-t">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6 font-mono">
         <p className="text-foreground/50 text-sm">
+          <span className="text-terminal" aria-hidden="true">
+            $
+          </span>{" "}
           &copy; {new Date().getFullYear()} {siteMetadata.author}
         </p>
         <div className="flex gap-4">
@@ -14,7 +17,7 @@ export function Footer() {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/50 hover:text-foreground text-sm transition-colors"
+              className="text-foreground/50 hover:text-terminal text-sm transition-colors"
             >
               {link.platform}
             </a>
