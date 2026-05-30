@@ -18,6 +18,9 @@
   --color-ring: var(--ring);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  --color-terminal: var(--terminal);
+  --color-terminal-foreground: var(--terminal-foreground);
+  --color-grid-line: var(--grid-line);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -43,6 +46,10 @@
   --ring: #171717;
   --card: #ffffff;
   --card-foreground: #0a0a0a;
+  /* ターミナル風アクセント（開発者ターミナル風デザイン） */
+  --terminal: #16a34a;
+  --terminal-foreground: #ffffff;
+  --grid-line: rgba(10, 10, 10, 0.045);
   --radius: 0.625rem;
 }
 
@@ -64,6 +71,10 @@
     --ring: #d4d4d4;
     --card: #0a0a0a;
     --card-foreground: #fafafa;
+    /* ダークではグリッド線と緑をやや明るく */
+    --terminal: #4ade80;
+    --terminal-foreground: #0a0a0a;
+    --grid-line: rgba(250, 250, 250, 0.05);
   }
 }
 
@@ -71,4 +82,12 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* グリッド線背景（ターミナル / 方眼紙風）。セクション背景に敷く */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 2rem 2rem;
 }
