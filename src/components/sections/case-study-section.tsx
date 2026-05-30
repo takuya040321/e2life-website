@@ -9,7 +9,7 @@ export function CaseStudySection() {
     <section className="py-20">
       <SectionHeading
         title="ケーススタディ"
-        label="case study"
+        label="ケーススタディ"
         description="AI を活用した開発プロセス設計の実例"
         align="left"
       />
