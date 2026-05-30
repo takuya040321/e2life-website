@@ -12,7 +12,7 @@ const accentGradient = "linear-gradient(to right, var(--accent-from), var(--acce
 
 export function HeroSection() {
   return (
-    <section className="bg-grid relative flex min-h-[70vh] flex-col items-center justify-center overflow-hidden text-center">
+    <section className="relative flex min-h-[70vh] flex-col items-center justify-center overflow-hidden text-center">
       <Glow className="top-1/4 left-1/2 size-[32rem] -translate-x-1/2 opacity-20" />
       <HeroAnimation>
         <p className="text-muted-foreground mb-4 font-mono text-sm">
