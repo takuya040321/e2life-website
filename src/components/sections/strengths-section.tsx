@@ -1,5 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 import { SectionHeading } from "@/components/shared/section-heading";
 
 const strengths = [
@@ -23,17 +21,16 @@ const strengths = [
 export function StrengthsSection() {
   return (
     <section className="py-20">
-      <SectionHeading title="3 つの強み" />
-      <div className="mt-12 grid gap-6 sm:grid-cols-3">
-        {strengths.map((strength) => (
-          <Card key={strength.title}>
-            <CardHeader>
-              <CardTitle className="text-lg">{strength.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground text-sm">{strength.description}</p>
-            </CardContent>
-          </Card>
+      <SectionHeading title="3 つの強み" label="強み" align="left" />
+      <div className="border-border mt-12 grid border-t border-l sm:grid-cols-3">
+        {strengths.map((strength, index) => (
+          <div key={strength.title} className="border-border border-r border-b p-6">
+            <span className="text-gradient font-mono text-sm font-bold">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 className="mt-3 text-lg font-medium">{strength.title}</h3>
+            <p className="text-muted-foreground mt-2 text-sm">{strength.description}</p>
+          </div>
         ))}
       </div>
     </section>
