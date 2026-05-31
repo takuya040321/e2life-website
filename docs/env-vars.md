@@ -2,8 +2,6 @@
 
 ## 環境変数
 
-### MVP
-
 | 変数名                           | 用途                          | 必須 | 取得元                    |
 | -------------------------------- | ----------------------------- | ---- | ------------------------- |
 | `NEXT_PUBLIC_GA_ID`              | Google Analytics 測定 ID      | 必須 | Google Analytics 管理画面 |
@@ -13,14 +11,6 @@
 
 - `NEXT_PUBLIC_` プレフィックスはクライアントサイドで使用する変数に付ける
 - `RECAPTCHA_SECRET_KEY` はサーバーサイドのみで使用するため `NEXT_PUBLIC_` を付けない
-
-### フェーズ 2
-
-| 変数名                         | 用途                    | 必須 | 取得元                               |
-| ------------------------------ | ----------------------- | ---- | ------------------------------------ |
-| `GOOGLE_SHEETS_API_KEY`        | Sheets API 認証         | 必須 | Google Cloud Console                 |
-| `GOOGLE_SHEETS_SPREADSHEET_ID` | 対象スプレッドシート ID | 必須 | スプレッドシートの URL               |
-| `GITHUB_TOKEN`                 | GitHub API 認証         | 必須 | GitHub Settings > Developer settings |
 
 ## .env.example
 
@@ -34,13 +24,6 @@ RECAPTCHA_SECRET_KEY=6L...
 
 # Contact
 CONTACT_EMAIL=your-email@example.com
-
-# Phase 2: Google Sheets API
-# GOOGLE_SHEETS_API_KEY=
-# GOOGLE_SHEETS_SPREADSHEET_ID=
-
-# Phase 2: GitHub API
-# GITHUB_TOKEN=
 ```
 
 ## Vercel での環境変数設定手順
@@ -82,4 +65,3 @@ vercel env pull .env.local
 - `.env` / `.env.local` は絶対に commit しない（`.gitignore` で除外済み）
 - シークレットキーは `NEXT_PUBLIC_` プレフィックスを付けない
 - reCAPTCHA のテスト用キーは Google が公開している固定値を使用する
-- フェーズ 2 の変数は MVP 時点ではコメントアウトしておく

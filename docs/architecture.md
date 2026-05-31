@@ -200,9 +200,7 @@ classDiagram
 
 ## データフロー
 
-### MVP
-
-MVP では全コンテンツをローカルのデータファイル（TypeScript / JSON）で管理する。
+全コンテンツをローカルのデータファイル（TypeScript / JSON）で管理する。
 
 ```
 src/lib/data/
@@ -212,21 +210,6 @@ src/lib/data/
 ```
 
 Server Components が直接データファイルを import してレンダリングする。ビルド時に静的生成される。
-
-### フェーズ 2
-
-外部ソースからデータを取得し、コンテンツを自動更新する。
-
-```
-Claude Code Routine (週 1 回)
-  → Sheets API / GitHub API からデータ取得
-  → コンテンツファイル更新
-  → PR 作成
-  → テスト自動実行
-  → AI レビュー
-  → マージ
-  → Vercel 自動デプロイ
-```
 
 ## ディレクトリ構成
 
