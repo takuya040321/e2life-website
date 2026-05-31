@@ -41,19 +41,6 @@
 | 職務経歴   | `src/lib/data/career.ts` | 案件変更時   |
 | サイト情報 | `src/lib/data/site.ts`   | まれ         |
 
-### フェーズ 2: 自動更新
-
-```
-Claude Code Routine (週 1 回、スケジュール実行)
-  → Google Sheets API / GitHub API からデータ取得
-  → src/lib/data/*.ts を更新
-  → PR 作成（変更差分付き）
-  → GitHub Actions でテスト自動実行
-  → AI レビュー（テスト結果 + データ整合性）
-  → 問題なければ自動マージ
-  → Vercel 自動デプロイ
-```
-
 ## 監視
 
 ### Vercel Analytics
