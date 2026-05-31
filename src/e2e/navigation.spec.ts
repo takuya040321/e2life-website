@@ -29,6 +29,13 @@ test.describe("navigation", () => {
     await expect(page.getByRole("heading", { level: 2, name: "お問い合わせ" })).toBeVisible();
   });
 
+  test("navigates to ai page", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("link", { name: "AI" }).click();
+    await expect(page).toHaveURL(/\/ai/);
+    await expect(page.getByRole("heading", { level: 2, name: "AI 活用" })).toBeVisible();
+  });
+
   test("logo links back to home", async ({ page }) => {
     await page.goto("/skills");
     await page.getByRole("link", { name: "e2life.dev" }).click();
