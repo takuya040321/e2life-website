@@ -31,7 +31,7 @@ test.describe("navigation", () => {
 
   test("navigates to ai page", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: "AI" }).click();
+    await page.getByRole("link", { name: "AI", exact: true }).click();
     await expect(page).toHaveURL(/\/ai/);
     await expect(page.getByRole("heading", { level: 2, name: "AI 活用" })).toBeVisible();
   });
