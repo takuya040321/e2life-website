@@ -1,6 +1,5 @@
 // このファイルのデータは SE 事業の「スキルシート v1」（Google スプレッドシート）を
-// 大本（single source of truth）として手動同期している。
-// フェーズ 2 で Claude Code Routine による自動同期に移行予定（docs/data-models.md 参照）。
+// 大本（single source of truth）として手動同期している（docs/data-models.md 参照）。
 // 経験期間は「業務経験（累計）」と「トータル（業務 + 個人開発）」の 2 軸を月数で保持する。
 //
 // 掲載対象は公式ブランドロゴが存在する技術に限定している（logoPath 必須）。
