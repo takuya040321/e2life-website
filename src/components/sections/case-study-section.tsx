@@ -24,11 +24,14 @@ export function CaseStudySection() {
                 エージェントで効率化するエコシステム。複数リポジトリを横断するマルチエージェント構成で、開発・運用・コンテンツ更新を自動化しています。
               </p>
               <p className="text-muted-foreground mt-2 text-sm">
-                詳細は AI 活用ページ（今後公開予定）にて体系的に紹介します。
+                詳細は AI 活用ページにて体系的に紹介します。
               </p>
-              <div className="mt-4">
+              <div className="mt-4 flex flex-wrap gap-3">
+                <Link href="/ai" className={buttonVariants({ variant: "outline", size: "sm" })}>
+                  AI 活用の詳細
+                </Link>
                 <Link href="/skills" className={buttonVariants({ variant: "outline", size: "sm" })}>
-                  技術スタックを見る
+                  技術スタック
                 </Link>
               </div>
             </div>
