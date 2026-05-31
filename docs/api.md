@@ -39,15 +39,6 @@ export async function submitContactForm(
 | reCAPTCHA v3 Verify API    | フォームスパム判定        | Server Action (`submitContactForm`) |
 | Google Analytics (gtag.js) | PV / イベントトラッキング | クライアントサイド                  |
 
-### フェーズ 2
-
-| API               | 用途                     | 呼び出し元                     |
-| ----------------- | ------------------------ | ------------------------------ |
-| Google Sheets API | スキル・経歴データの取得 | Claude Code Routine (ビルド時) |
-| GitHub API        | リポジトリ統計の取得     | Claude Code Routine (ビルド時) |
-
-フェーズ 2 の外部 API はランタイムでは呼ばない。Claude Code Routine がデータを取得し、コンテンツファイルを更新して PR を作成する。
-
 ## シーケンス図: 問い合わせフォーム送信
 
 ```mermaid
