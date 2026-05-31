@@ -11,10 +11,9 @@
 
 ## 索引
 
-<!-- 最初のファイルを追加したら、この repo の事情に合わせて時系列順 or 対象別で並べる -->
-<!-- 例: - [2026-05-29-<topic>.md](2026-05-29-<topic>.md) — <1 行サマリ> -->
-
-(まだ判断記録なし)
+- [2026-05-30-dark-ai-design.md](2026-05-30-dark-ai-design.md) — サイトデザインをダーク AI モダン（D2 グリッド）に採用
+- [2026-05-31-drop-data-auto-sync.md](2026-05-31-drop-data-auto-sync.md) — データ自動同期を廃止し手動運用に
+- [2026-05-31-ai-pages-content-scope.md](2026-05-31-ai-pages-content-scope.md) — AI 詳細ページは公開可能な技術枠組みのみ掲載
 
 ## 書く / 書かない
 

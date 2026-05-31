@@ -11,10 +11,10 @@
 
 ## 索引
 
-<!-- 最初のファイルを追加したら 1 行サマリ付きで並べる。件数が増えたら H2 でカテゴリ分け -->
-<!-- 例: - [<topic>.md](<topic>.md) — <1 行サマリ> -->
-
-(まだ知見なし)
+- [claude-design.md](claude-design.md) — Claude Design でデザイン案を出すときの知見（チャットは改行＝送信、生成物は仕様として参照）
+- [stacked-pr-merge.md](stacked-pr-merge.md) — スタック PR で `--delete-branch` を使わない
+- [e2e-getbyrole-exact.md](e2e-getbyrole-exact.md) — Playwright `getByRole` は `exact: true` で厳密化
+- [record-layers-not-memory.md](record-layers-not-memory.md) — 記録は repo 内 record-layers に取る
 
 ## 書く / 書かない
 
