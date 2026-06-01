@@ -81,3 +81,5 @@ e2life.dev の個人 Web サイト。Next.js 16 + Vercel。
 - claude-assets-public 未整備のため、現在ルールは直書き。整備後に symlink に切り替える
 
 @claude-behavior/README.md
+
+@.claude/about-me/README.md
