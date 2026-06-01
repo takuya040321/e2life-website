@@ -14,6 +14,7 @@
 - [2026-05-30-dark-ai-design.md](2026-05-30-dark-ai-design.md) — サイトデザインをダーク AI モダン（D2 グリッド）に採用
 - [2026-05-31-drop-data-auto-sync.md](2026-05-31-drop-data-auto-sync.md) — データ自動同期を廃止し手動運用に
 - [2026-05-31-ai-pages-content-scope.md](2026-05-31-ai-pages-content-scope.md) — AI 詳細ページは公開可能な技術枠組みのみ掲載
+- [2026-06-01-drop-pr-workflow.md](2026-06-01-drop-pr-workflow.md) — PR 必須運用を廃止し main 直 push 運用に
 
 ## 書く / 書かない
 
