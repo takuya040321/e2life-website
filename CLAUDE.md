@@ -48,8 +48,7 @@ e2life.dev の個人 Web サイト。Next.js 16 + Vercel。
 ## git
 
 - Conventional Commits 準拠（`<type>(<scope>): <subject>`）
-- feature ブランチ + PR 必須（main 直 push 禁止）
-- PR ごとに Vercel プレビュー URL が自動生成される
+- main 直 push OK（個人 site で 1 人作業のため、PR 必須を 2026-06-01 に廃止）
 
 ## コード品質基準
 
@@ -59,17 +58,16 @@ e2life.dev の個人 Web サイト。Next.js 16 + Vercel。
 - TypeScript strict mode + any 禁止
 - コンポーネントは責務を明確に分離する（UI / ロジック / データ取得）
 - ディレクトリ構成は App Router のベストプラクティスに沿う
-- PR description には「なぜこう作ったか」の設計判断を記録する
+- commit message に「なぜこう作ったか」の設計判断を記録する
 - README.md はアーキテクチャ・セットアップ手順・テスト戦略を網羅する
-- GitHub Actions で lint / test / Lighthouse を PR ごとに自動実行する
+- GitHub Actions で lint / test / Lighthouse を main push ごとに自動実行する
 
 ## 開発フロー
 
-- feature ブランチを切り、PR ベースで開発する
-- PR title は Conventional Commits 形式（`feat: ...`、`fix: ...`）
-- PR description に変更の目的・設計判断・テスト結果を記録する
-- closed PR 一覧が開発ストーリーとして読めるように意識する
-- main への直 push 禁止
+- main 直 push で開発する（PR なし、個人 site で 1 人作業のため）
+- commit title は Conventional Commits 形式（`feat: ...`、`fix: ...`）
+- commit message に変更の目的・設計判断・テスト結果を記録する
+- commit log が開発ストーリーとして読めるように意識する
 
 ## Claude への指摘・改善記録
 
