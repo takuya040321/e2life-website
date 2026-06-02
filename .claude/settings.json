@@ -7,9 +7,9 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command // \"\"'); printf '%s' \"$cmd\" | grep -q 'git push' || exit 0; cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; if ! out=$(pnpm format:check 2>&1); then printf 'push を中止しました: Prettier の整形漏れがあります。`pnpm format` で修正してから再 push してください。\\n%s\\n' \"$out\" >&2; exit 2; fi; if ! out=$(pnpm lint 2>&1); then printf 'push を中止しました: ESLint エラーがあります。修正してから再 push してください。\\n%s\\n' \"$out\" >&2; exit 2; fi",
-            "timeout": 180,
-            "statusMessage": "push 前に format:check + lint を検証中..."
+            "command": "cmd=$(jq -r '.tool_input.command // \"\"'); printf '%s' \"$cmd\" | grep -q 'git push' || exit 0; cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 2; run_stage() { stage=\"$1\"; shift; printf '[%s] 実行中...\\n' \"$stage\" >&2; if ! out=$(\"$@\" 2>&1); then printf 'push を中止しました: %s\\n%s\\n' \"$stage\" \"$out\" >&2; exit 2; fi }; run_stage 'format:check (Prettier)' pnpm format:check; run_stage 'lint (ESLint)' pnpm lint; run_stage 'type-check (tsc --noEmit)' pnpm exec tsc --noEmit; run_stage 'unit test (Vitest)' pnpm test; run_stage 'build (Next.js)' pnpm build; run_stage 'E2E (Playwright)' pnpm test:e2e; run_stage 'Lighthouse (LHCI)' pnpm test:lighthouse",
+            "timeout": 600,
+            "statusMessage": "push 前に format/lint/type-check/test/build/e2e/lighthouse を検証中..."
           }
         ]
       }
