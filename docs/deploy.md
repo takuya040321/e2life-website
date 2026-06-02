@@ -50,12 +50,10 @@ env-vars.md を参照。Vercel ダッシュボードの Settings → Environment
 ### 通常フロー
 
 ```
-feature ブランチで開発
-  → PR 作成
-  → Vercel がプレビュー URL を自動生成
-  → GitHub Actions でテスト自動実行
-  → コードレビュー + プレビュー確認
-  → main にマージ
+ローカルで開発
+  → ローカル Claude Hooks (push 前) で品質ゲート通過
+    (format / lint / type-check / unit test / build / E2E / Lighthouse 直列)
+  → main に直 push（個人 site で 1 人作業、PR 廃止済み）
   → Vercel が本番に自動デプロイ
 ```
 
@@ -91,12 +89,12 @@ feature ブランチで開発
 
 ### git revert によるロールバック
 
-問題のあるコミットを revert して新しい PR を作成する:
+問題のあるコミットを revert して main に直 push する:
 
 ```bash
 git revert <commit-hash>
-git push origin <branch>
-# PR 作成 → マージ → 自動デプロイ
+git push origin main
+# Vercel が自動で本番デプロイ
 ```
 
 ### 注意事項

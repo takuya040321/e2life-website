@@ -25,11 +25,9 @@
 
 ```
 コンテンツ修正（src/lib/data/*.ts）
-  → feature ブランチ作成
-  → PR 作成
-  → テスト自動実行
-  → レビュー
-  → main にマージ
+  → ローカル Claude Hooks (push 前) で品質ゲート通過
+    (format / lint / type-check / unit test / build / E2E / Lighthouse 直列)
+  → main に直 push
   → Vercel 自動デプロイ
 ```
 
@@ -62,9 +60,9 @@
 
 ### パフォーマンス監視
 
-- Lighthouse CI を PR ごとに自動実行
+- Lighthouse CI をローカル Claude Hooks (push 前) で自動実行
 - Core Web Vitals (LCP, CLS, INP) を継続モニタリング
-- スコアが基準値を下回った場合は PR にコメントで警告
+- スコアが基準値を下回った場合は push がブロックされる
 
 ## 障害対応
 
@@ -83,7 +81,7 @@
   → 影響範囲の確認
   → 緊急度判断
   → 高: Vercel ダッシュボードから即座にロールバック
-  → 中: git revert で修正 PR 作成 → マージ → 自動デプロイ
+  → 中: git revert で main に直 push → Vercel 自動デプロイ
   → 低: 通常の修正フローで対応
 ```
 

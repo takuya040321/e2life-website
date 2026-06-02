@@ -60,7 +60,7 @@ e2life.dev の個人 Web サイト。Next.js 16 + Vercel。
 - ディレクトリ構成は App Router のベストプラクティスに沿う
 - commit message に「なぜこう作ったか」の設計判断を記録する
 - README.md はアーキテクチャ・セットアップ手順・テスト戦略を網羅する
-- GitHub Actions で lint / test / Lighthouse を main push ごとに自動実行する
+- 品質ゲートはローカル Claude Hooks (`.claude/settings.json` の PreToolUse) に集約し、`git push` 前に format / lint / 型チェック / unit test / build / E2E / Lighthouse を直列実行する
 
 ## 開発フロー
 
