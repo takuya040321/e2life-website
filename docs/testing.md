@@ -4,11 +4,11 @@
 
 | テスト           | ツール                    | 対象                                                                             | 実行タイミング |
 | ---------------- | ------------------------- | -------------------------------------------------------------------------------- | -------------- |
-| Unit Test        | Vitest + Testing Library  | ユーティリティ関数、データ変換、コンポーネント描画、reCAPTCHA 検証               | PR ごと        |
-| Integration Test | Vitest + Testing Library  | Server Actions、外部 API 連携、Server Components + データ層                      | PR ごと        |
-| E2E Test         | Playwright                | 全ページ表示、ナビゲーション、フォーム送信、PDF DL、レスポンシブ、クロスブラウザ | PR ごと        |
-| Performance Test | Lighthouse CI             | Core Web Vitals (LCP, CLS, INP)                                                  | PR ごと        |
-| Security Test    | Playwright + カスタム検証 | XSS、CSRF、フォームバリデーション、HTTP ヘッダー、reCAPTCHA バイパス防止         | PR ごと        |
+| Unit Test        | Vitest + Testing Library  | ユーティリティ関数、データ変換、コンポーネント描画、reCAPTCHA 検証               | push 前        |
+| Integration Test | Vitest + Testing Library  | Server Actions、外部 API 連携、Server Components + データ層                      | push 前        |
+| E2E Test         | Playwright                | 全ページ表示、ナビゲーション、フォーム送信、PDF DL、レスポンシブ、クロスブラウザ | push 前        |
+| Performance Test | Lighthouse CI             | Core Web Vitals (LCP, CLS, INP)                                                  | push 前        |
+| Security Test    | Playwright + カスタム検証 | XSS、CSRF、フォームバリデーション、HTTP ヘッダー、reCAPTCHA バイパス防止         | push 前        |
 
 ## テストファイル配置
 
@@ -98,53 +98,31 @@ pnpm test:e2e:ui       # Playwright UI モード
 pnpm test:lighthouse   # Lighthouse CI 実行
 ```
 
-## CI/CD 連携
+## 品質ゲート (ローカル Claude Hooks)
 
-### GitHub Actions テストフロー
+GitHub Actions による CI は 2026-06-02 に全廃した（詳細: PA `decisions/website/2026-06-02-ci-to-hooks-migration.md`）。
+代替として、品質ゲートはローカル Claude Hooks の `PreToolUse` で `git push` 直前に直列実行する。
 
-```yaml
-# .github/workflows/test.yml
-name: Test
-on:
-  pull_request:
-    branches: [main]
+### 実行段階
 
-jobs:
-  unit-integration:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm test:coverage
+`.claude/settings.json` の `PreToolUse` Bash matcher で以下を直列実行し、1 つでも失敗すれば push を中止する（`exit 2`）:
 
-  e2e:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm build
-      - run: pnpm test:e2e
+1. `pnpm format:check` (Prettier)
+2. `pnpm lint` (ESLint)
+3. `pnpm exec tsc --noEmit` (TypeScript)
+4. `pnpm test` (Vitest unit / integration)
+5. `pnpm build` (Next.js)
+6. `pnpm test:e2e` (Playwright)
+7. `pnpm test:lighthouse` (Lighthouse CI)
 
-  lighthouse:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm build
-      - run: pnpm test:lighthouse
-```
+各段階の開始時に `[stage] 実行中...` を stderr に出力する。失敗時は段階名 + 失敗内容を表示。
 
-### PR ごとの自動実行
+### 運用
 
-- PR を作成・更新するたびに全テストが自動実行される
-- 全テスト通過が main マージの必須条件
-- Lighthouse スコアが基準値を下回った場合は PR にコメントで警告
+- `git push` 前に全段階を通過することが必須
+- Playwright のブラウザバイナリは事前に `pnpm exec playwright install --with-deps chromium` で導入しておく
+- Lighthouse は `.lighthouserc.json` の `upload.target: temporary-public-storage` でローカル実行
+- 基準値を下回った段階で push がブロックされる
 
 ## テストカバレッジ方針
 
@@ -164,4 +142,4 @@ jobs:
 ### 実装時のテスト同時生成
 
 - 新しいコンポーネント・関数を実装する際は、テストも同時に生成する
-- PR description にテストの意図と範囲を記録する
+- commit message にテストの意図と範囲を記録する（CLAUDE.md L70 に準拠）
