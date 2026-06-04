@@ -17,16 +17,71 @@
       }
     },
     "assert": {
-      "assertions": {
-        "categories:performance": ["warn", { "minScore": 0.94 }],
-        "categories:accessibility": ["error", { "minScore": 0.9 }],
-        "categories:best-practices": ["warn", { "minScore": 0.73 }],
-        "categories:seo": ["warn", { "minScore": 0.61 }],
-        "document-title": ["error", { "minScore": 1 }],
-        "meta-description": ["error", { "minScore": 1 }],
-        "viewport": ["error", { "minScore": 1 }],
-        "http-status-code": ["error", { "minScore": 1 }]
-      }
+      "assertMatrix": [
+        {
+          "matchingUrlPattern": "^http://localhost:3000/?.*$",
+          "assertions": {
+            "document-title": ["error", { "minScore": 1 }],
+            "meta-description": ["error", { "minScore": 1 }],
+            "viewport": ["error", { "minScore": 1 }],
+            "http-status-code": ["error", { "minScore": 1 }]
+          }
+        },
+        {
+          "matchingUrlPattern": "^http://localhost:3000/?$",
+          "assertions": {
+            "categories:performance": ["warn", { "minScore": 0.94 }],
+            "categories:accessibility": ["error", { "minScore": 0.9 }],
+            "categories:best-practices": ["warn", { "minScore": 0.95 }],
+            "categories:seo": ["warn", { "minScore": 0.61 }]
+          }
+        },
+        {
+          "matchingUrlPattern": "^http://localhost:3000/skills/?$",
+          "assertions": {
+            "categories:performance": ["warn", { "minScore": 0.95 }],
+            "categories:accessibility": ["error", { "minScore": 0.91 }],
+            "categories:best-practices": ["warn", { "minScore": 0.95 }],
+            "categories:seo": ["warn", { "minScore": 0.64 }]
+          }
+        },
+        {
+          "matchingUrlPattern": "^http://localhost:3000/career/?$",
+          "assertions": {
+            "categories:performance": ["warn", { "minScore": 0.94 }],
+            "categories:accessibility": ["error", { "minScore": 0.9 }],
+            "categories:best-practices": ["warn", { "minScore": 0.95 }],
+            "categories:seo": ["warn", { "minScore": 0.61 }]
+          }
+        },
+        {
+          "matchingUrlPattern": "^http://localhost:3000/contact/?$",
+          "assertions": {
+            "categories:performance": ["warn", { "minScore": 0.95 }],
+            "categories:accessibility": ["error", { "minScore": 0.91 }],
+            "categories:best-practices": ["warn", { "minScore": 0.73 }],
+            "categories:seo": ["warn", { "minScore": 0.61 }]
+          }
+        },
+        {
+          "matchingUrlPattern": "^http://localhost:3000/ai/?$",
+          "assertions": {
+            "categories:performance": ["warn", { "minScore": 0.95 }],
+            "categories:accessibility": ["error", { "minScore": 0.9 }],
+            "categories:best-practices": ["warn", { "minScore": 0.95 }],
+            "categories:seo": ["warn", { "minScore": 0.61 }]
+          }
+        },
+        {
+          "matchingUrlPattern": "^http://localhost:3000/ai/ecosystem/?$",
+          "assertions": {
+            "categories:performance": ["warn", { "minScore": 0.95 }],
+            "categories:accessibility": ["error", { "minScore": 0.9 }],
+            "categories:best-practices": ["warn", { "minScore": 0.95 }],
+            "categories:seo": ["warn", { "minScore": 0.61 }]
+          }
+        }
+      ]
     },
     "upload": {
       "target": "temporary-public-storage"
