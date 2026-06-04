@@ -5,32 +5,26 @@ import { siteMetadata } from "@/lib/data/site";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/ai", label: "AI" },
-  { href: "/skills", label: "Skills" },
-  { href: "/career", label: "Career" },
-  { href: "/contact", label: "Contact" },
+  { href: "/skills", label: "スキル" },
+  { href: "/career", label: "経歴" },
+  { href: "/contact", label: "お問い合わせ" },
 ] as const;
-
-const accentGradient = "linear-gradient(to right, var(--accent-from), var(--accent-to))";
 
 export function Header() {
   return (
-    <header className="border-foreground/10 border-b">
+    <header className="border-border/80 bg-background/85 border-b backdrop-blur-sm">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-          <span
-            aria-hidden="true"
-            className="size-2.5 rounded-full"
-            style={{ backgroundImage: accentGradient }}
-          />
+        <Link href="/" className="flex items-center gap-2 font-serif text-lg font-bold">
+          <span aria-hidden="true" className="bg-accent size-2.5 rounded-sm" />
           {siteMetadata.title}
         </Link>
         <nav>
-          <ul className="flex gap-6">
+          <ul className="flex flex-wrap justify-end gap-x-6 gap-y-2">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-foreground/70 text-sm transition-colors hover:text-[var(--accent-from)]"
+                  className="text-muted-foreground hover:text-accent text-sm transition-colors"
                 >
                   {link.label}
                 </Link>

@@ -1,7 +1,10 @@
 # e2life.dev デザインブリーフ
 
-Claude Design 連携で 4 方向を比較し、**ダークAIモダン**を採用方向に決定。
-本ファイルは実装時のブランド・トークン参照に使う。
+- PA decisions: `PA repo decisions/website/2026-06-04-japanese-modern-design.md`
+- 実装計画書: `docs/implementation-plan-2026-06-04-japanese-modern.md`
+
+Claude Design 連携で複数方向を比較し、**和モダン (墨と朱)** を採用方向に決定。
+本ファイルは実装時のブランド・方向性参照に使う。判断経緯と詳細トークンは上記 decisions / 実装計画書に集約する。
 
 ## サイトの性格
 
@@ -21,27 +24,12 @@ Claude Design 連携で 4 方向を比較し、**ダークAIモダン**を採用
 | アニメーション | Framer Motion                  |
 | ホスティング   | Vercel                         |
 
-## 採用デザイン: ダークAIモダン（ライト主役）
+## 採用デザイン: 和モダン (墨と朱)
 
-- **配色主役はライト**（白基調）。`prefers-color-scheme: dark` でダーク（`#0a0a0a` 基調）も提供。
-- アクセントは **赤 → オレンジのグラデーション / グロー**。AI・先端感を表現。
-- 微細ノイズで質感を付け、Framer Motion でフローティング等の動きを添える。
-
-### デザイントークン（Claude Design 03 実ファイルより）
-
-| 用途             | ライト                | ダーク    |
-| ---------------- | --------------------- | --------- |
-| background       | `#ffffff`             | `#0a0a0a` |
-| card             | `#ffffff`             | `#101010` |
-| subtle           | `#f5f5f5`             | `#141414` |
-| border           | `#e5e5e5`             | `#262626` |
-| foreground       | `#0a0a0a`             | `#fafafa` |
-| muted-foreground | `#737373`             | `#a3a3a3` |
-| accent-from      | `#ef4444`（赤）       |           |
-| accent-to        | `#f97316`（オレンジ） |           |
-
-- radius: `0.625rem`
-- font: Geist Sans / Geist Mono（+ Noto Sans JP フォールバック）
+- 配色主役は和紙生成りのライトモード。`prefers-color-scheme: dark` では墨地ベースも提供する。
+- アクセントは朱、差し色は金。旧グラデーショントークンは Phase 7 まで互換用に残置する。
+- 明朝体を見出し・象徴的な箇所に限定導入し、本文は Geist Sans を維持する。
+- 和紙テクスチャ、墨の円相、朱の落款は段階的に追加する。Phase 1 ではトークンと共通レイアウトの下準備に留める。
 
 ## ページ構成
 
@@ -53,6 +41,7 @@ Claude Design 連携で 4 方向を比較し、**ダークAIモダン**を採用
 | `/contact` | 問い合わせ                                        | ContactForm + reCAPTCHA v3         |
 
 共通: ヘッダー / フッター、コンテンツ幅 `max-w-5xl`、左右 `px-6`。
+ヘッダーナビは `AI` / `スキル` / `経歴` / `お問い合わせ`。
 
 ## Hero の現状コピー
 
@@ -62,7 +51,7 @@ Claude Design 連携で 4 方向を比較し、**ダークAIモダン**を採用
 
 ## トーン & 制約
 
-- トーン: 信頼感・先端感・読みやすさ。過剰演出より「品質と構造」を感じさせる。
+- トーン: 信頼感・余白・読みやすさ。過剰演出より「品質と構造」を感じさせる。
 - 日本語 UI。レスポンシブ必須。ダークモード対応。
 - 個人情報・具体的事業判断・顧客名・契約金額を一切含めない。
 
@@ -70,4 +59,4 @@ Claude Design 連携で 4 方向を比較し、**ダークAIモダン**を採用
 
 Claude Design の生成物（HTML 直書き）はそのまま使わず、**仕様として参照**し、
 Next.js + Tailwind + shadcn/ui のコンポーネント設計で実装し直す。
-全ページを機能単位の複数 PR（基盤 → トップ → skills → career → contact）で順次刷新する。
+Phase 単位の commit で、基盤 → トップ → skills → career → contact → AI の順に刷新する。
