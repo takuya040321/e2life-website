@@ -7,11 +7,20 @@ describe("AiTopicPage", () => {
   it("renders the topic title, intro and sections", async () => {
     const ui = await AiTopicPage({ params: Promise.resolve({ slug: "ecosystem" }) });
     render(ui);
-    expect(
-      screen.getByRole("heading", { level: 2, name: "エコシステム全体像" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "エコシステム全体像" })).toHaveClass(
+      "font-serif",
+    );
     expect(
       screen.getByText("役割を絞った AI エージェントと、権限の三層モデル"),
     ).toBeInTheDocument();
+  });
+
+  it("renders sections as Japanese-modern cards", async () => {
+    const ui = await AiTopicPage({ params: Promise.resolve({ slug: "ecosystem" }) });
+    const { container } = render(ui);
+
+    expect(screen.getByText("壱")).toHaveClass("text-accent");
+    expect(screen.getByText("弐")).toHaveClass("text-accent");
+    expect(container.querySelector("section")).toHaveClass("bg-card/70");
   });
 });
