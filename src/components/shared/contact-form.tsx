@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { executeLazyRecaptcha } from "@/lib/utils/recaptcha-client";
 
 import type { ContactFormData } from "@/lib/validations/contact";
 import { contactFormSchema } from "@/lib/validations/contact";
@@ -25,6 +26,14 @@ type ContactFormProps = {
     recaptchaToken: string,
   ) => Promise<{ success: true; message: string } | { success: false; error: string }>;
 };
+
+function isRecaptchaProviderUnavailable(error: unknown) {
+  return (
+    error instanceof Error &&
+    (error.message.includes("GoogleReCaptcha Context") ||
+      error.message.includes("Google Recaptcha has not been loaded"))
+  );
+}
 
 export function ContactForm({ onSubmit }: ContactFormProps) {
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -53,7 +62,20 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
     }
 
     try {
-      const recaptchaToken = await executeRecaptcha("contact_form");
+      let recaptchaToken: string;
+
+      try {
+        recaptchaToken = executeRecaptcha
+          ? await executeRecaptcha("contact_form")
+          : await executeLazyRecaptcha("contact_form");
+      } catch (error) {
+        if (!isRecaptchaProviderUnavailable(error)) {
+          throw error;
+        }
+
+        recaptchaToken = await executeLazyRecaptcha("contact_form");
+      }
+
       const result = await onSubmit(data, recaptchaToken);
 
       if (result.success) {
