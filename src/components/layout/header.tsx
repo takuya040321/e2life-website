@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { siteMetadata } from "@/lib/data/site";
@@ -17,6 +18,15 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 font-serif text-lg font-bold">
           <span aria-hidden="true" className="bg-accent size-2.5 rounded-sm" />
           {siteMetadata.title}
+          <Image
+            src="/illustrations/hanko-e2life.png"
+            alt=""
+            width={36}
+            height={36}
+            aria-hidden="true"
+            className="size-9"
+            priority
+          />
         </Link>
         <nav>
           <ul className="flex flex-wrap justify-end gap-x-6 gap-y-2">
