@@ -3,7 +3,6 @@ import Image from "next/image";
 
 import { submitContactForm } from "@/app/actions/contact";
 import { ContactForm } from "@/components/shared/contact-form";
-import { ReCaptchaProvider } from "@/components/shared/recaptcha-provider";
 
 export const metadata: Metadata = {
   title: "お問い合わせ",
@@ -26,9 +25,7 @@ export default function ContactPage() {
         </p>
       </div>
       <div className="mt-12">
-        <ReCaptchaProvider>
-          <ContactForm onSubmit={submitContactForm} />
-        </ReCaptchaProvider>
+        <ContactForm onSubmit={submitContactForm} />
       </div>
       <Image
         src="/illustrations/hanko-e2life.png"
