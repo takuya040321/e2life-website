@@ -22,13 +22,17 @@ export function StrengthsSection() {
   return (
     <section className="py-20">
       <SectionHeading title="3 つの強み" align="left" />
-      <div className="border-border mt-12 grid border-t border-l sm:grid-cols-3">
+      <div className="border-border bg-card/70 mt-12 grid overflow-hidden border-t border-l shadow-[0_18px_60px_color-mix(in_srgb,var(--foreground)_8%,transparent)] sm:grid-cols-3">
         {strengths.map((strength, index) => (
-          <div key={strength.title} className="border-border border-r border-b p-6">
-            <span className="text-gradient font-mono text-sm font-bold">
+          <div
+            key={strength.title}
+            className="border-border relative border-r border-b p-6 backdrop-blur-[1px]"
+          >
+            <div className="bg-accent absolute top-0 left-0 h-px w-12" aria-hidden="true" />
+            <span className="text-accent font-mono text-sm font-bold">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 className="mt-3 text-lg font-medium">{strength.title}</h3>
+            <h3 className="mt-3 font-serif text-lg font-bold">{strength.title}</h3>
             <p className="text-muted-foreground mt-2 text-sm">{strength.description}</p>
           </div>
         ))}

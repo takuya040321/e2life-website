@@ -324,7 +324,7 @@ Phase 1 着手時に `design-brief.md` を以下のように改訂する (Phase 
 | LHCI が global floor だと URL 別 degradation を検知できない               | **URL-specific assertion (`assertMatrix`)** を Phase 0 で採用、URL × カテゴリで実測 -0.05 マージンの floor を固定                             |
 | `warn` レベルが Phase 完了判定で曖昧に扱われ、Lighthouse 悪化が放置される | 計画書 9.2.1 で「warn も Phase 完了ゲート、baseline 未満なら Phase 未完了」を明文化、Codex は lhci 出力を毎 Phase 確認                        |
 | Phase 7 で全 6 slug の最終確認が抜ける                                    | 9.1 Phase 7 で「全 6 slug を Lighthouse URL 配列に一時追加してフル計測」を明記、完了後は代表 slug に戻す                                      |
-| 配色変更でライト/ダークの片方を更新し忘れる                               | 計画書 9.0 / 9.2 で MUST 規定、`src/e2e/dark-mode.spec.ts` で全 URL の dark mode を構造的検証                                                  |
+| 配色変更でライト/ダークの片方を更新し忘れる                               | 計画書 9.0 / 9.2 で MUST 規定、`src/e2e/dark-mode.spec.ts` で全 URL の dark mode を構造的検証                                                 |
 
 ## 14. 完了基準
 
