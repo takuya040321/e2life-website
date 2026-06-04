@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { submitContactForm } from "@/app/actions/contact";
 import { ContactForm } from "@/components/shared/contact-form";
 import { ReCaptchaProvider } from "@/components/shared/recaptcha-provider";
-import { SectionHeading } from "@/components/shared/section-heading";
 
 export const metadata: Metadata = {
   title: "お問い合わせ",
@@ -18,17 +18,26 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-2xl px-6 py-20">
-      <SectionHeading
-        title="お問い合わせ"
-        description="ご質問・ご相談がありましたら、以下のフォームからお気軽にお問い合わせください。"
-        align="left"
-      />
+    <div className="relative mx-auto max-w-2xl px-6 py-20">
+      <div>
+        <h2 className="font-serif text-2xl font-bold tracking-normal">お問い合わせ</h2>
+        <p className="text-muted-foreground mt-2">
+          ご質問・ご相談がありましたら、以下のフォームからお気軽にお問い合わせください。
+        </p>
+      </div>
       <div className="mt-12">
         <ReCaptchaProvider>
           <ContactForm onSubmit={submitContactForm} />
         </ReCaptchaProvider>
       </div>
+      <Image
+        src="/illustrations/hanko-e2life.png"
+        alt=""
+        width={72}
+        height={72}
+        className="absolute right-6 bottom-8 hidden opacity-80 sm:block"
+        aria-hidden="true"
+      />
     </div>
   );
 }
