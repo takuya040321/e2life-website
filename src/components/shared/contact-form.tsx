@@ -29,6 +29,8 @@ type ContactFormProps = {
 export function ContactForm({ onSubmit }: ContactFormProps) {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [submitState, setSubmitState] = useState<SubmitState>({ status: "idle" });
+  const fieldClassName =
+    "border-border bg-background/60 rounded-sm focus-visible:border-accent focus-visible:ring-accent/40";
 
   const {
     register,
@@ -69,13 +71,18 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6" noValidate>
+    <form
+      onSubmit={handleSubmit(handleFormSubmit)}
+      className="border-border bg-card/70 space-y-6 rounded-lg border p-6 shadow-sm sm:p-8"
+      noValidate
+    >
       <div className="space-y-2">
         <Label htmlFor="name">
           名前 <span className="text-destructive">*</span>
         </Label>
         <Input
           id="name"
+          className={fieldClassName}
           {...register("name")}
           aria-invalid={errors.name ? "true" : "false"}
           aria-describedby={errors.name ? "name-error" : undefined}
@@ -94,6 +101,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         <Input
           id="email"
           type="email"
+          className={fieldClassName}
           {...register("email")}
           aria-invalid={errors.email ? "true" : "false"}
           aria-describedby={errors.email ? "email-error" : undefined}
@@ -109,6 +117,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         <Label htmlFor="company">会社名（任意）</Label>
         <Input
           id="company"
+          className={fieldClassName}
           {...register("company")}
           aria-invalid={errors.company ? "true" : "false"}
           aria-describedby={errors.company ? "company-error" : undefined}
@@ -127,6 +136,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         <Textarea
           id="message"
           rows={6}
+          className={fieldClassName}
           {...register("message")}
           aria-invalid={errors.message ? "true" : "false"}
           aria-describedby={errors.message ? "message-error" : undefined}
@@ -141,10 +151,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
       <Button
         type="submit"
         disabled={isSubmitting || submitState.status === "submitting"}
-        className="border-0 text-white"
-        style={{
-          backgroundImage: "linear-gradient(to right, var(--accent-from), var(--accent-to))",
-        }}
+        className="bg-accent text-accent-foreground hover:bg-accent/90 border-accent rounded-sm px-5"
       >
         {submitState.status === "submitting" ? "送信中..." : "送信"}
       </Button>
