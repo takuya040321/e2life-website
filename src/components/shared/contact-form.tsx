@@ -53,14 +53,6 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
   const handleFormSubmit = async (data: ContactFormData) => {
     setSubmitState({ status: "submitting" });
 
-    if (!executeRecaptcha) {
-      setSubmitState({
-        status: "error",
-        message: "reCAPTCHA の準備ができていません。ページを再読み込みしてください。",
-      });
-      return;
-    }
-
     try {
       let recaptchaToken: string;
 

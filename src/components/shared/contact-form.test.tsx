@@ -1,16 +1,33 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { ContactForm } from "./contact-form";
 
+type ExecuteRecaptcha = (action: string) => Promise<string>;
+
+const recaptchaMocks = vi.hoisted(() => ({
+  executeLazyRecaptcha: vi.fn(async () => "lazy-recaptcha-token"),
+  executeRecaptcha: vi.fn(async () => "test-recaptcha-token"),
+  executeRecaptchaHandler: undefined as ExecuteRecaptcha | undefined,
+}));
+
 vi.mock("react-google-recaptcha-v3", () => ({
   useGoogleReCaptcha: () => ({
-    executeRecaptcha: vi.fn(async () => "test-recaptcha-token"),
+    executeRecaptcha: recaptchaMocks.executeRecaptchaHandler,
   }),
 }));
 
+vi.mock("@/lib/utils/recaptcha-client", () => ({
+  executeLazyRecaptcha: recaptchaMocks.executeLazyRecaptcha,
+}));
+
 describe("ContactForm", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    recaptchaMocks.executeRecaptchaHandler = recaptchaMocks.executeRecaptcha;
+  });
+
   it("renders all form fields", () => {
     render(<ContactForm onSubmit={vi.fn()} />);
     expect(screen.getByLabelText(/名前/)).toBeInTheDocument();
@@ -54,6 +71,32 @@ describe("ContactForm", () => {
         "test-recaptcha-token",
       );
     });
+  });
+
+  it("falls back to lazy reCAPTCHA and submits when provider executeRecaptcha is unavailable", async () => {
+    const user = userEvent.setup();
+    const onSubmit = vi.fn(async () => ({ success: true as const, message: "送信完了" }));
+    recaptchaMocks.executeRecaptchaHandler = undefined;
+
+    render(<ContactForm onSubmit={onSubmit} />);
+
+    await user.type(screen.getByLabelText(/名前/), "テスト太郎");
+    await user.type(screen.getByLabelText(/メールアドレス/), "test@example.com");
+    await user.type(screen.getByLabelText(/メッセージ/), "テスト用のメッセージ本文です。");
+    await user.click(screen.getByRole("button", { name: "送信" }));
+
+    await waitFor(() => {
+      expect(recaptchaMocks.executeLazyRecaptcha).toHaveBeenCalledWith("contact_form");
+    });
+    expect(onSubmit).toHaveBeenCalledWith(
+      {
+        name: "テスト太郎",
+        email: "test@example.com",
+        company: "",
+        message: "テスト用のメッセージ本文です。",
+      },
+      "lazy-recaptcha-token",
+    );
   });
 
   it("displays success message after successful submission", async () => {
