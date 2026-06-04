@@ -10,8 +10,8 @@ type HeroAnimationProps = {
 };
 
 const ensoMaskStyle: CSSProperties = {
-  WebkitMaskImage: "url('/illustrations/enso.png')",
-  maskImage: "url('/illustrations/enso.png')",
+  WebkitMaskImage: "url('/illustrations/enso.webp')",
+  maskImage: "url('/illustrations/enso.webp')",
   WebkitMaskPosition: "center",
   maskPosition: "center",
   WebkitMaskRepeat: "no-repeat",

@@ -18,7 +18,7 @@ describe("HeroSection", () => {
     render(<HeroSection />);
 
     expect(screen.getByTestId("enso-illustration")).toHaveStyle({
-      maskImage: "url('/illustrations/enso.png')",
+      maskImage: "url('/illustrations/enso.webp')",
     });
   });
 });
