@@ -36,21 +36,21 @@ e2life.dev の全ページデザインを **和モダン (墨と朱)** へ刷新
 
 `src/app/globals.css` の `:root` と `@media (prefers-color-scheme: dark)` の両方を **同一 commit (Phase 1) で更新** する。Tailwind v4 の `@theme inline` ブロックに `--font-serif` と `--color-gold` を追加する。
 
-| 用途 | ライト | ダーク (補助) |
-|---|---|---|
-| `--background` | `#f5f0e6` (和紙生成り) | `#0d0a08` (墨地) |
-| `--card` | `#fbf8f1` (和紙微差) | `#15110e` |
-| `--secondary` / `--muted` | `#ede4d3` (薄茶) | `#1c1814` |
-| `--border` | `#d4c4a8` (砂色) | `#3a3128` |
-| `--foreground` | `#1a1a1a` (墨色) | `#f5f0e6` |
-| `--muted-foreground` | `#6b5f54` (薄墨) | `#a89986` |
-| `--primary` | `#1a1a1a` (墨) | `#f5f0e6` |
-| `--primary-foreground` | `#f5f0e6` | `#1a1a1a` |
-| `--destructive` / `--ring` | `#c8331e` (朱) | `#d94a35` |
-| `--accent` (新規: 朱) | `#c8331e` | `#d94a35` |
-| `--accent-foreground` | `#f5f0e6` | `#f5f0e6` |
-| `--gold` (新規: 差し色) | `#c9a87c` | `#d9b88c` |
-| `--accent-from` / `--accent-to` | Phase 1 で **残置**、Phase 7 で削除 | — |
+| 用途                            | ライト                              | ダーク (補助)    |
+| ------------------------------- | ----------------------------------- | ---------------- |
+| `--background`                  | `#f5f0e6` (和紙生成り)              | `#0d0a08` (墨地) |
+| `--card`                        | `#fbf8f1` (和紙微差)                | `#15110e`        |
+| `--secondary` / `--muted`       | `#ede4d3` (薄茶)                    | `#1c1814`        |
+| `--border`                      | `#d4c4a8` (砂色)                    | `#3a3128`        |
+| `--foreground`                  | `#1a1a1a` (墨色)                    | `#f5f0e6`        |
+| `--muted-foreground`            | `#6b5f54` (薄墨)                    | `#a89986`        |
+| `--primary`                     | `#1a1a1a` (墨)                      | `#f5f0e6`        |
+| `--primary-foreground`          | `#f5f0e6`                           | `#1a1a1a`        |
+| `--destructive` / `--ring`      | `#c8331e` (朱)                      | `#d94a35`        |
+| `--accent` (新規: 朱)           | `#c8331e`                           | `#d94a35`        |
+| `--accent-foreground`           | `#f5f0e6`                           | `#f5f0e6`        |
+| `--gold` (新規: 差し色)         | `#c9a87c`                           | `#d9b88c`        |
+| `--accent-from` / `--accent-to` | Phase 1 で **残置**、Phase 7 で削除 | —                |
 
 - `--radius`: `0.25rem` に変更 (角張った和の感じ)。shadcn の `rounded-lg` / `rounded-xl` は基本そのまま、`--radius` 変更で連動する
 - `--font-serif`: 新規追加 (`var(--font-noto-serif-jp)`)、`@theme inline` に同時登録
@@ -120,12 +120,12 @@ e2life.dev の全ページデザインを **和モダン (墨と朱)** へ刷新
 
 ### `/` トップ (`src/app/(marketing)/page.tsx` + `src/components/sections/*`)
 
-| セクション | 構成 | 対象ファイル |
-|---|---|---|
-| Hero | 円相 + 横組み明朝見出し + 朱の落款 + 縦組みサブ | `hero-section.tsx`, `hero-animation.tsx` |
-| Strengths | 3 カード、和紙背景に墨と朱の細罫線 | `strengths-section.tsx` |
-| CaseStudy | 縦タイムライン、墨色の縦線 + 朱の点 | `case-study-section.tsx` |
-| CTA | 朱の角ボタン「お問い合わせ」(主) + 墨枠線ボタン「スキルを見る」(副) + **PDF link は現状維持** | `cta-section.tsx` |
+| セクション | 構成                                                                                          | 対象ファイル                             |
+| ---------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| Hero       | 円相 + 横組み明朝見出し + 朱の落款 + 縦組みサブ                                               | `hero-section.tsx`, `hero-animation.tsx` |
+| Strengths  | 3 カード、和紙背景に墨と朱の細罫線                                                            | `strengths-section.tsx`                  |
+| CaseStudy  | 縦タイムライン、墨色の縦線 + 朱の点                                                           | `case-study-section.tsx`                 |
+| CTA        | 朱の角ボタン「お問い合わせ」(主) + 墨枠線ボタン「スキルを見る」(副) + **PDF link は現状維持** | `cta-section.tsx`                        |
 
 ### `/skills` (`src/app/(detail)/skills/page.tsx`)
 
@@ -169,12 +169,12 @@ e2life.dev の全ページデザインを **和モダン (墨と朱)** へ刷新
 
 `framer-motion` は導入済み (`hero-animation.tsx` で使用中)。Phase 3 では **円相 path アニメーションへの置換 + reduced-motion 対応** を行う (新規導入ではなく置換)。
 
-| 対象 | アニメーション | 持続時間 |
-|---|---|---|
-| 円相 | 初回 SVG パス描画 (または PNG フェードイン) | 1.2s |
-| セクション登場 | フェードアップ (`y: 20 → 0, opacity: 0 → 1`) | 0.4s |
-| 朱の落款 | hover で `y: -2px` | 0.2s |
-| CTA ボタン | hover で背景色わずか暗転 | 0.15s |
+| 対象           | アニメーション                               | 持続時間 |
+| -------------- | -------------------------------------------- | -------- |
+| 円相           | 初回 SVG パス描画 (または PNG フェードイン)  | 1.2s     |
+| セクション登場 | フェードアップ (`y: 20 → 0, opacity: 0 → 1`) | 0.4s     |
+| 朱の落款       | hover で `y: -2px`                           | 0.2s     |
+| CTA ボタン     | hover で背景色わずか暗転                     | 0.15s    |
 
 過剰演出は避ける (「品質と構造」のトーンを維持)。
 すべての装飾アニメは `prefers-reduced-motion` を尊重 (既存 HeroAnimation に追従)。
@@ -210,15 +210,15 @@ e2life.dev の全ページデザインを **和モダン (墨と朱)** へ刷新
 
 ### 9.1 Phase 一覧
 
-| Phase | スコープ | 主要対象ファイル | commit メッセージ例 |
-|---|---|---|---|
-| 1 | デザイントークン更新 (ライト / ダーク両方同時、`@theme inline` に `--font-serif` `--color-gold` 追加) + Noto Serif JP フォント追加 + 共通レイアウト (Header / Footer) のナビ日本語化 + `navigation.spec.ts` 更新 + design-brief.md 改訂 | `src/app/globals.css`, `src/app/layout.tsx`, `src/components/layout/header.tsx`, `src/components/layout/footer.tsx`, `src/e2e/navigation.spec.ts`, `design-brief.md` | `feat(design): switch tokens to Japanese-modern palette` (本文に「旧 accent tokens は Phase 7 まで残置」を明記) |
-| 2 | 和紙 / 円相 / 落款 / 墨滲み アセット作成・配置 (円相・落款は codex-image で事前生成済みを配置) + `bg-grid` から和紙テクスチャに切替 | `public/textures/washi.svg`, `public/illustrations/enso.png`, `public/illustrations/hanko-e2life.png`, `public/textures/sumi-blot.svg`, `src/app/layout.tsx` (body 背景切替) | `feat(design): add Japanese-modern visual assets` (アセットと layout 切替を 1 commit、または `feat(assets)` + `feat(layout)` の 2 commit に分割可) |
-| 3 | トップ (`/`) Hero / Strengths / CaseStudy / CTA 刷新 + 円相 path アニメーション置換 + reduced-motion 対応 + 影響 spec 確認 | `src/app/(marketing)/page.tsx`, `src/components/sections/{hero,hero-animation,strengths,case-study,cta}-section.tsx`, `src/e2e/{navigation,responsive,seo}.spec.ts` (見出し文言保持で更新不要見込み) | `feat(top): redesign landing with enso hero and ink sections` |
-| 4 | `/skills` 刷新 (フィルタ button の **アクセシブル名は維持**) | `src/app/(detail)/skills/page.tsx`, `src/components/shared/{skill-grid,category-filter,skill-badge}.tsx`, `src/e2e/skills-filter.spec.ts` (基本更新不要見込み) | `feat(skills): apply Japanese-modern design` |
-| 5 | `/career` 刷新 (PDF link はトップ CTA 側にあるため career 変更で `pdf-download.spec.ts` 更新は基本不要) | `src/app/(detail)/career/page.tsx`, `src/components/shared/career-card.tsx` | `feat(career): apply Japanese-modern timeline` |
-| 6 | `/contact` 刷新 (フォーム field label / submit button 名は **維持**) | `src/app/(marketing)/contact/page.tsx`, `src/components/shared/contact-form.tsx`, `src/e2e/contact-form.spec.ts` (基本更新不要見込み) | `feat(contact): apply Japanese-modern form` |
-| 7 | `/ai` ハブ + `/ai/[slug]` 全 6 サブページ刷新 + ハブの `[var(--accent-from)]` 置換 + 旧トークン (`--accent-from` / `--accent-to`) 削除 + ダークモード最終調整 + 全 Lighthouse 再確認 (mermaid 図表はスコープ外) | `src/app/(detail)/ai/page.tsx`, `src/app/(detail)/ai/[slug]/page.tsx`, `src/components/sections/*` (必要箇所), `globals.css` (旧トークン削除) | `feat(ai): apply Japanese-modern to ai hub and subpages` + `refactor(design): remove legacy accent tokens` (2 commit 推奨) |
+| Phase | スコープ                                                                                                                                                                                                                                | 主要対象ファイル                                                                                                                                                                                     | commit メッセージ例                                                                                                                                |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | デザイントークン更新 (ライト / ダーク両方同時、`@theme inline` に `--font-serif` `--color-gold` 追加) + Noto Serif JP フォント追加 + 共通レイアウト (Header / Footer) のナビ日本語化 + `navigation.spec.ts` 更新 + design-brief.md 改訂 | `src/app/globals.css`, `src/app/layout.tsx`, `src/components/layout/header.tsx`, `src/components/layout/footer.tsx`, `src/e2e/navigation.spec.ts`, `design-brief.md`                                 | `feat(design): switch tokens to Japanese-modern palette` (本文に「旧 accent tokens は Phase 7 まで残置」を明記)                                    |
+| 2     | 和紙 / 円相 / 落款 / 墨滲み アセット作成・配置 (円相・落款は codex-image で事前生成済みを配置) + `bg-grid` から和紙テクスチャに切替                                                                                                     | `public/textures/washi.svg`, `public/illustrations/enso.png`, `public/illustrations/hanko-e2life.png`, `public/textures/sumi-blot.svg`, `src/app/layout.tsx` (body 背景切替)                         | `feat(design): add Japanese-modern visual assets` (アセットと layout 切替を 1 commit、または `feat(assets)` + `feat(layout)` の 2 commit に分割可) |
+| 3     | トップ (`/`) Hero / Strengths / CaseStudy / CTA 刷新 + 円相 path アニメーション置換 + reduced-motion 対応 + 影響 spec 確認                                                                                                              | `src/app/(marketing)/page.tsx`, `src/components/sections/{hero,hero-animation,strengths,case-study,cta}-section.tsx`, `src/e2e/{navigation,responsive,seo}.spec.ts` (見出し文言保持で更新不要見込み) | `feat(top): redesign landing with enso hero and ink sections`                                                                                      |
+| 4     | `/skills` 刷新 (フィルタ button の **アクセシブル名は維持**)                                                                                                                                                                            | `src/app/(detail)/skills/page.tsx`, `src/components/shared/{skill-grid,category-filter,skill-badge}.tsx`, `src/e2e/skills-filter.spec.ts` (基本更新不要見込み)                                       | `feat(skills): apply Japanese-modern design`                                                                                                       |
+| 5     | `/career` 刷新 (PDF link はトップ CTA 側にあるため career 変更で `pdf-download.spec.ts` 更新は基本不要)                                                                                                                                 | `src/app/(detail)/career/page.tsx`, `src/components/shared/career-card.tsx`                                                                                                                          | `feat(career): apply Japanese-modern timeline`                                                                                                     |
+| 6     | `/contact` 刷新 (フォーム field label / submit button 名は **維持**)                                                                                                                                                                    | `src/app/(marketing)/contact/page.tsx`, `src/components/shared/contact-form.tsx`, `src/e2e/contact-form.spec.ts` (基本更新不要見込み)                                                                | `feat(contact): apply Japanese-modern form`                                                                                                        |
+| 7     | `/ai` ハブ + `/ai/[slug]` 全 6 サブページ刷新 + ハブの `[var(--accent-from)]` 置換 + 旧トークン (`--accent-from` / `--accent-to`) 削除 + ダークモード最終調整 + 全 Lighthouse 再確認 (mermaid 図表はスコープ外)                         | `src/app/(detail)/ai/page.tsx`, `src/app/(detail)/ai/[slug]/page.tsx`, `src/components/sections/*` (必要箇所), `globals.css` (旧トークン削除)                                                        | `feat(ai): apply Japanese-modern to ai hub and subpages` + `refactor(design): remove legacy accent tokens` (2 commit 推奨)                         |
 
 ### 9.2 各 Phase 完了条件
 
@@ -289,21 +289,21 @@ Phase 1 着手時に `design-brief.md` を以下のように改訂する (Phase 
 
 ## 13. リスクと回避策
 
-| リスク | 回避策 |
-|---|---|
-| 「先端 AI コンセプト」と「和」の組み合わせが顧客に伝わらない | `/ai` ハブ + サブページ群で技術的具体性を和モダンで表現 (Phase 7)。FAQ / about セクションで意図補強 |
-| 縦組み多用で可読性が落ちる | 主役は横組み、縦組みは演出のみ。`writing-mode` 使用箇所を限定 |
-| 和紙テクスチャ・円相 PNG でパフォーマンスが落ちる | SVG パターン化 + PNG は WebP 変換検討、Phase 2 で個別計測、Lighthouse ベースライン維持 |
-| ダークモード切替時の世界観の連続性 | Phase 1 でライト / ダーク両方同時更新、5C を色彩のみ流用 |
-| 7 Phase 実装中に世界観がブレる | 各 Phase 完了時に Claude Code (PA) がデザインモックと照合、次 Phase 指示に反映 |
-| main 直 push 中間状態で本番が崩れる | Phase 1 で旧トークン残置、各 Phase 完了条件に「表示崩れなし」追加、Phase 7 で旧トークン削除 |
-| Phase 1 後の中間状態で旧グラデーション残存により世界観未達に見える | Phase 1〜2 を連続して進める運用 (1 セッション内 or 翌セッション)、Phase 2 完了までは PA レビューでの世界観評価は留保 |
-| 既存 e2e spec / Playwright がデザイン変更で壊れる | アクセシブル名 (button 名 / label / heading 文言) を維持する範囲で見た目刷新。ナビ日本語化は `navigation.spec.ts` を Phase 1 同 commit で更新 |
-| `/ai` Phase を後回しにすると「世界観だけで中身が無い」と読まれる | `/ai` を Phase 7 に明示配置、Phase 7 完了で全体一貫性を保証 |
-| 落款 SVG / PNG に本名・個人特定情報が混入 | Phase 2 配置前に SVG/PNG 中身 (path / title / desc / metadata / EXIF) を点検、刻印は `e2life` のみ |
-| Noto Serif JP のフォント payload で Lighthouse 悪化 | weights `[400, 700]`、`display: swap`、`preload: false`、subsets `latin` に絞る。Japanese は動的フォールバック |
-| `bg-grid` と和紙テクスチャ背景の競合 | Phase 2 で `bg-grid` を和紙テクスチャに置換 (Phase 1 では残置、両者共存しない) |
-| 円相・落款の codex-image 生成品質がモック由来でブレる | Phase 2 着手前に Claude Code (PA) が生成→目視確認、必要なら再生成 |
+| リスク                                                             | 回避策                                                                                                                                        |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| 「先端 AI コンセプト」と「和」の組み合わせが顧客に伝わらない       | `/ai` ハブ + サブページ群で技術的具体性を和モダンで表現 (Phase 7)。FAQ / about セクションで意図補強                                           |
+| 縦組み多用で可読性が落ちる                                         | 主役は横組み、縦組みは演出のみ。`writing-mode` 使用箇所を限定                                                                                 |
+| 和紙テクスチャ・円相 PNG でパフォーマンスが落ちる                  | SVG パターン化 + PNG は WebP 変換検討、Phase 2 で個別計測、Lighthouse ベースライン維持                                                        |
+| ダークモード切替時の世界観の連続性                                 | Phase 1 でライト / ダーク両方同時更新、5C を色彩のみ流用                                                                                      |
+| 7 Phase 実装中に世界観がブレる                                     | 各 Phase 完了時に Claude Code (PA) がデザインモックと照合、次 Phase 指示に反映                                                                |
+| main 直 push 中間状態で本番が崩れる                                | Phase 1 で旧トークン残置、各 Phase 完了条件に「表示崩れなし」追加、Phase 7 で旧トークン削除                                                   |
+| Phase 1 後の中間状態で旧グラデーション残存により世界観未達に見える | Phase 1〜2 を連続して進める運用 (1 セッション内 or 翌セッション)、Phase 2 完了までは PA レビューでの世界観評価は留保                          |
+| 既存 e2e spec / Playwright がデザイン変更で壊れる                  | アクセシブル名 (button 名 / label / heading 文言) を維持する範囲で見た目刷新。ナビ日本語化は `navigation.spec.ts` を Phase 1 同 commit で更新 |
+| `/ai` Phase を後回しにすると「世界観だけで中身が無い」と読まれる   | `/ai` を Phase 7 に明示配置、Phase 7 完了で全体一貫性を保証                                                                                   |
+| 落款 SVG / PNG に本名・個人特定情報が混入                          | Phase 2 配置前に SVG/PNG 中身 (path / title / desc / metadata / EXIF) を点検、刻印は `e2life` のみ                                            |
+| Noto Serif JP のフォント payload で Lighthouse 悪化                | weights `[400, 700]`、`display: swap`、`preload: false`、subsets `latin` に絞る。Japanese は動的フォールバック                                |
+| `bg-grid` と和紙テクスチャ背景の競合                               | Phase 2 で `bg-grid` を和紙テクスチャに置換 (Phase 1 では残置、両者共存しない)                                                                |
+| 円相・落款の codex-image 生成品質がモック由来でブレる              | Phase 2 着手前に Claude Code (PA) が生成→目視確認、必要なら再生成                                                                             |
 
 ## 14. 完了基準
 
