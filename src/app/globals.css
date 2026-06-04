@@ -103,7 +103,7 @@ body {
 
 /* 和紙背景。Phase 2 以降の全ページ共通背景として使用する */
 @utility bg-washi {
-  background-color: #f5f0e6;
+  background-color: var(--background);
   background-image: url("/textures/washi.svg");
   background-repeat: repeat;
 }
