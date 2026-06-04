@@ -212,6 +212,7 @@ e2life.dev の全ページデザインを **和モダン (墨と朱)** へ刷新
 - 計測結果を `docs/lighthouse-baseline-2026-06-04.md` に記録
 - baseline doc に **SEO 0.61 floor は noindex 戦略 (`robots: { index: false }`) 起因の意図設計** であることを 1 行追記
 - 各 Phase 完了時にこの値を下回らないことを完了条件にする
+- **配色変更時はライト・ダーク両方を MUST 更新**: トークン変更だけでなく、新規 utility class や component の background-color も両モード対応必須。ハードコード値ではなく CSS 変数経由 (`var(--background)` 等) で書く。Phase 2 commit e5b25f6 の `.bg-washi` ハードコード回帰 → b4cb222 修正の事例参照
 
 ### 9.1 Phase 一覧
 
@@ -235,6 +236,7 @@ e2life.dev の全ページデザインを **和モダン (墨と朱)** へ刷新
 - Claude Code (PA) がデザインモック (`design-05-japanese-modern.png`) と照合してレビュー、世界観のブレを次 Phase 指示に反映
 - Phase 7: `grep -r "accent-from\|accent-to" src/ public/` で旧トークン残存ゼロ
 - Phase 7: 全 6 slug (`/ai/ecosystem` / `agents` / `recording` / `autonomous` / `security` / `sns-pipeline`) の Lighthouse をフル計測、全 URL × 全カテゴリで baseline 以上
+- 新規ページ追加時は `src/e2e/dark-mode.spec.ts` の `darkModePages` 配列に URL を追加 (dark mode 回帰防止の網に新規ページを乗せる)
 
 ### 9.2.1 `warn` レベルの扱い (明文化)
 
@@ -322,6 +324,7 @@ Phase 1 着手時に `design-brief.md` を以下のように改訂する (Phase 
 | LHCI が global floor だと URL 別 degradation を検知できない               | **URL-specific assertion (`assertMatrix`)** を Phase 0 で採用、URL × カテゴリで実測 -0.05 マージンの floor を固定                             |
 | `warn` レベルが Phase 完了判定で曖昧に扱われ、Lighthouse 悪化が放置される | 計画書 9.2.1 で「warn も Phase 完了ゲート、baseline 未満なら Phase 未完了」を明文化、Codex は lhci 出力を毎 Phase 確認                        |
 | Phase 7 で全 6 slug の最終確認が抜ける                                    | 9.1 Phase 7 で「全 6 slug を Lighthouse URL 配列に一時追加してフル計測」を明記、完了後は代表 slug に戻す                                      |
+| 配色変更でライト/ダークの片方を更新し忘れる                               | 計画書 9.0 / 9.2 で MUST 規定、`src/e2e/dark-mode.spec.ts` で全 URL の dark mode を構造的検証                                                  |
 
 ## 14. 完了基準
 
@@ -349,3 +352,7 @@ Phase 1 着手時に `design-brief.md` を以下のように改訂する (Phase 
   - Phase 7 で **全 6 slug を Lighthouse URL 配列に一時追加してフル計測** を明記 (Codex 指摘: `/ai/ecosystem` のみ代表計測では他 5 slug の最終確認が抜ける)
   - baseline doc に **SEO 0.61 = noindex 戦略起因の意図設計** を 1 行追記する旨を 9.0 で明記 (PA / CEO / Codex 全員から指摘)
   - リスク表に「LHCI global floor の弱さ」「warn 放置」「Phase 7 最終確認抜け」の 3 項目追加
+- 2026-06-04 v3.1: Phase 2 追加対応の三者再レビュー反映
+  - CEO 推奨: 「全 Phase でライト・ダーク両更新 MUST」を 9.0 に追加、リスク表に対応リスク追加
+  - CEO 推奨: 「新規ページ追加時は dark-mode.spec.ts の darkModePages 配列に URL を追加」を 9.2 に追加
+  - Phase 2 ハードコード回帰 (e5b25f6) → 修正 (b4cb222) の経緯を踏まえた予防規律
