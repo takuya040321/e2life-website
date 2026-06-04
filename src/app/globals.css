@@ -46,9 +46,6 @@
   --card: #fbf8f1;
   --card-foreground: #1a1a1a;
   --gold: #c9a87c;
-  /* Legacy gradient tokens retained until Phase 7 migration is complete. */
-  --accent-from: #ef4444;
-  --accent-to: #f97316;
   --radius: 0.25rem;
 }
 
@@ -80,25 +77,9 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-/* 赤 → オレンジのグラデーションテキスト（ダーク AI モダンのアクセント） */
-@utility text-gradient {
-  background-image: linear-gradient(to right, var(--accent-from), var(--accent-to));
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
 /* 微細ノイズのオーバーレイ（質感付け）。装飾なので要素側で opacity を調整する */
 @utility bg-noise {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* グリッド線背景（D2 グリッド構造）。罫線で構造を見せる */
-@utility bg-grid {
-  background-image:
-    linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 4rem 4rem;
 }
 
 /* 和紙背景。Phase 2 以降の全ページ共通背景として使用する */

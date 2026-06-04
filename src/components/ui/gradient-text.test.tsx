@@ -9,8 +9,8 @@ describe("GradientText", () => {
     expect(screen.getByText("設計する")).toBeInTheDocument();
   });
 
-  it("applies the gradient utility class", () => {
+  it("applies the accent utility class", () => {
     render(<GradientText>x</GradientText>);
-    expect(screen.getByText("x")).toHaveClass("text-gradient");
+    expect(screen.getByText("x")).toHaveClass("text-accent");
   });
 });

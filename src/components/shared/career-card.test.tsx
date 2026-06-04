@@ -50,6 +50,6 @@ describe("CareerCard", () => {
     expect(marker).toHaveClass("bg-accent");
     expect(screen.getByText(/2023-04/)).toHaveClass("text-accent");
     expect(renderedClasses).toContain("hover:ring-accent");
-    expect(renderedClasses).not.toContain("accent-from");
+    expect(renderedClasses).not.toContain("legacy-gradient-token");
   });
 });

@@ -5,7 +5,7 @@ type GlowProps = {
 };
 
 /**
- * 背景に敷く暖色グロー（装飾）。赤 → オレンジの放射状グラデーションをぼかす。
+ * 背景に敷く朱のグロー（装飾）。
  * 親に relative を指定し、その背面に絶対配置する想定。支援技術からは隠す。
  */
 export function Glow({ className }: GlowProps) {
@@ -17,8 +17,7 @@ export function Glow({ className }: GlowProps) {
         className,
       )}
       style={{
-        backgroundImage:
-          "radial-gradient(circle, var(--accent-from), var(--accent-to) 45%, transparent 70%)",
+        backgroundImage: "radial-gradient(circle, var(--accent), transparent 70%)",
       }}
     />
   );
