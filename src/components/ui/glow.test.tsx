@@ -9,6 +9,13 @@ describe("Glow", () => {
     expect(container.firstChild).toHaveAttribute("aria-hidden", "true");
   });
 
+  it("uses the Japanese-modern accent glow", () => {
+    const { container } = render(<Glow />);
+    expect(container.firstChild).toHaveStyle({
+      backgroundImage: "radial-gradient(circle, var(--accent), transparent 70%)",
+    });
+  });
+
   it("merges custom className", () => {
     const { container } = render(<Glow className="size-96" />);
     expect(container.firstChild).toHaveClass("size-96");

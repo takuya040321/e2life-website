@@ -8,9 +8,8 @@ type GradientTextProps = {
 };
 
 /**
- * 赤 → オレンジのグラデーションを文字に適用する。
- * ダーク AI モダンのアクセント表現（Hero 見出しの一部など）に使う。
+ * 朱のアクセント色を文字に適用する。
  */
 export function GradientText({ children, className }: GradientTextProps) {
-  return <span className={cn("text-gradient", className)}>{children}</span>;
+  return <span className={cn("text-accent", className)}>{children}</span>;
 }
