@@ -39,17 +39,22 @@ Baseline = measured score - 0.05 margin.
 
 ## LHCI assertion floor
 
-`.lighthouserc.json` applies category assertions globally across all collected URLs, so the fixed `minScore` values use the lowest URL-specific baseline in each category.
+`.lighthouserc.json` applies category assertions through `assertMatrix`, so each collected URL keeps its own baseline floor instead of falling back to the lowest global score.
 
-| Category       | Fixed minScore | Source URL                    |
-| -------------- | -------------: | ----------------------------- |
-| Performance    |           0.94 | http://localhost:3000         |
-| Accessibility  |           0.90 | http://localhost:3000         |
-| Best Practices |           0.73 | http://localhost:3000/contact |
-| SEO            |           0.61 | http://localhost:3000         |
+| URL                                | Performance | Accessibility | Best Practices |  SEO |
+| ---------------------------------- | ----------: | ------------: | -------------: | ---: |
+| http://localhost:3000              |        0.94 |          0.90 |           0.95 | 0.61 |
+| http://localhost:3000/skills       |        0.95 |          0.91 |           0.95 | 0.64 |
+| http://localhost:3000/career       |        0.94 |          0.90 |           0.95 | 0.61 |
+| http://localhost:3000/contact      |        0.95 |          0.91 |           0.73 | 0.61 |
+| http://localhost:3000/ai           |        0.95 |          0.90 |           0.95 | 0.61 |
+| http://localhost:3000/ai/ecosystem |        0.95 |          0.90 |           0.95 | 0.61 |
+
+Accessibility is enforced as `error`; Performance, Best Practices, and SEO are enforced as `warn`. `document-title`, `meta-description`, `viewport`, and `http-status-code` remain `error` assertions across all collected URLs.
 
 ## Notes for Claude Code (PA) review
 
 - Phase 0 contains no visual changes.
 - The `/contact` Best Practices score measured at 0.78, so its baseline is fixed at 0.73 and kept as a future improvement target.
-- SEO measured between 0.66 and 0.69 across the six URLs, so the global SEO assertion floor is fixed at 0.61.
+- SEO measured between 0.66 and 0.69 across the six URLs, so URL-specific SEO assertion floors are fixed at 0.61 or 0.64.
+- SEO floor 0.61 is the intentional consequence of the noindex strategy (`robots: { index: false }` in `src/app/layout.tsx`). Lower scores are by design and will be revisited only if the indexing strategy itself changes.
