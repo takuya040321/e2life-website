@@ -22,7 +22,7 @@ export function SkillGrid({ skills }: SkillGridProps) {
     : skills;
 
   return (
-    <div>
+    <div className="border-border bg-card/70 rounded-lg border p-4 shadow-sm sm:p-5">
       <CategoryFilter
         categories={presentCategories}
         selected={selectedCategory}
