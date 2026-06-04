@@ -3,9 +3,9 @@ import Link from "next/link";
 
 import { buttonVariants } from "@/components/ui/button";
 
-import { SectionHeading } from "@/components/shared/section-heading";
-
 import { aiTopics } from "@/lib/data/ai-topics";
+
+const japaneseNumerals = ["壱", "弐", "参", "四", "五", "六"] as const;
 
 export const metadata: Metadata = {
   title: "AI 活用",
@@ -21,31 +21,56 @@ export const metadata: Metadata = {
 export default function AiHubPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-20">
-      <SectionHeading
-        title="AI 活用"
-        description="AI で開発プロセス自体を設計する取り組みの概要です。"
-        align="left"
-      />
+      <div className="relative">
+        <div
+          className="border-gold/35 absolute -top-8 right-0 hidden size-28 rounded-full border md:block"
+          aria-hidden="true"
+        />
+        <p className="text-muted-foreground mb-2 font-mono text-sm">{"// AI"}</p>
+        <h2 className="font-serif text-3xl font-bold tracking-normal">AI 活用</h2>
+        <p className="text-muted-foreground mt-2">
+          AI で開発プロセス自体を設計する取り組みの概要です。
+        </p>
+      </div>
 
-      <p className="text-muted-foreground mt-10 max-w-2xl">
+      <p className="text-muted-foreground mt-10 max-w-3xl text-base leading-8">
         マルチエージェント構成による品質管理と、自己改善する開発プロセスを、複数リポジトリを横断するエコシステムとして構築・運用しています。各テーマの詳細は順次公開していきます。
       </p>
 
-      <div className="mt-12">
-        <h2 className="text-xl font-bold">取り組みの構成</h2>
-        <div className="border-border mt-6 grid border-t border-l sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-16">
+        <div className="border-accent/70 flex items-end justify-between gap-6 border-l pl-5">
+          <div>
+            <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">
+              AI Ecosystem
+            </p>
+            <h2 className="mt-2 font-serif text-2xl font-bold tracking-normal">取り組みの構成</h2>
+          </div>
+          <div className="bg-accent hidden h-px flex-1 sm:block" aria-hidden="true" />
+        </div>
+
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {aiTopics.map((topic, index) => (
             <Link
               key={topic.slug}
               href={`/ai/${topic.slug}`}
-              className="border-border border-r border-b p-6 transition-colors hover:border-[var(--accent-from)]"
+              className="border-border bg-card/70 hover:border-accent group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors"
             >
-              <span className="text-gradient font-mono text-sm font-bold">
-                {String(index + 1).padStart(2, "0")}
+              <span
+                className="border-accent/20 absolute top-5 right-5 size-20 rounded-full border"
+                aria-hidden="true"
+              />
+              <span
+                className="border-gold/25 absolute top-8 right-8 size-14 rounded-full border"
+                aria-hidden="true"
+              />
+              <span className="text-accent font-serif text-3xl leading-none font-bold">
+                {japaneseNumerals[index]}
               </span>
-              <h3 className="mt-3 font-medium">{topic.title}</h3>
-              <p className="text-muted-foreground mt-2 text-sm">{topic.summary}</p>
-              <p className="mt-3 font-mono text-xs text-[var(--accent-from)]">詳細を見る →</p>
+              <h3 className="mt-5 font-serif text-lg font-bold tracking-normal">{topic.title}</h3>
+              <p className="text-muted-foreground mt-3 text-sm leading-7">{topic.summary}</p>
+              <p className="text-accent mt-5 font-mono text-xs font-bold tracking-[0.16em]">
+                詳細を見る →
+              </p>
             </Link>
           ))}
         </div>
