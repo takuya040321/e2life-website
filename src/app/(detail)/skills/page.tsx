@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { SectionHeading } from "@/components/shared/section-heading";
 import { SkillGrid } from "@/components/shared/skill-grid";
 
 import { skills } from "@/lib/data/skills";
@@ -19,11 +18,10 @@ export const metadata: Metadata = {
 export default function SkillsPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-20">
-      <SectionHeading
-        title="SE スキル"
-        description="技術スタックと経験年数の一覧です。"
-        align="left"
-      />
+      <div>
+        <h2 className="text-foreground font-serif text-3xl font-bold tracking-normal">SE スキル</h2>
+        <p className="text-muted-foreground mt-3">技術スタックと経験年数の一覧です。</p>
+      </div>
       <div className="mt-12">
         <SkillGrid skills={skills} />
       </div>

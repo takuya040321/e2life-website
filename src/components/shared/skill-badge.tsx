@@ -17,8 +17,8 @@ export function SkillBadge({ skill, showYears = true }: SkillBadgeProps) {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className="border-border flex items-center gap-3 rounded-lg border p-4 transition-colors hover:border-[var(--accent-from)]">
-      <div className="bg-muted flex size-10 shrink-0 items-center justify-center rounded-md">
+    <div className="border-border bg-card text-card-foreground hover:border-accent flex items-center gap-3 rounded-lg border p-4 transition-colors">
+      <div className="border-border bg-background flex size-10 shrink-0 items-center justify-center rounded-md border">
         {imgError ? (
           <span className="text-muted-foreground text-sm font-medium">
             {skill.name.slice(0, 2)}
@@ -38,14 +38,14 @@ export function SkillBadge({ skill, showYears = true }: SkillBadgeProps) {
         <div className="flex items-center gap-1.5">
           <p className="truncate font-medium">{skill.name}</p>
           {skill.isStrong && (
-            <span className="text-amber-500" aria-label="特に得意" title="特に得意">
+            <span className="text-accent" aria-label="特に得意" title="特に得意">
               ★
             </span>
           )}
         </div>
         {showYears && (
           <div className="mt-1 flex flex-wrap items-center gap-1.5">
-            <Badge variant="secondary" className="text-xs">
+            <Badge variant="outline" className="border-accent/50 bg-accent/10 text-accent text-xs">
               {skillLevelLabels[skill.level]}
             </Badge>
             <span className="text-muted-foreground text-xs">
