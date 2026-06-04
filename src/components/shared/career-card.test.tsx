@@ -40,4 +40,16 @@ describe("CareerCard", () => {
     render(<CareerCard project={ongoing} />);
     expect(screen.getByText(/現在/)).toBeInTheDocument();
   });
+
+  it("uses the Japanese-modern timeline marker and accent token", () => {
+    const { container } = render(<CareerCard project={mockProject} />);
+
+    const marker = container.querySelector('[aria-hidden="true"]');
+    const renderedClasses = container.innerHTML;
+
+    expect(marker).toHaveClass("bg-accent");
+    expect(screen.getByText(/2023-04/)).toHaveClass("text-accent");
+    expect(renderedClasses).toContain("hover:ring-accent");
+    expect(renderedClasses).not.toContain("accent-from");
+  });
 });

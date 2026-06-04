@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { CareerCard } from "@/components/shared/career-card";
-import { SectionHeading } from "@/components/shared/section-heading";
 
 import { projects } from "@/lib/data/career";
 
@@ -19,12 +18,13 @@ export const metadata: Metadata = {
 export default function CareerPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-20">
-      <SectionHeading
-        title="職務経歴"
-        description="匿名化した案件実績です。顧客名・契約金額は非公開です。"
-        align="left"
-      />
-      <div className="mt-12 space-y-6">
+      <div>
+        <h2 className="text-foreground font-serif text-3xl font-bold tracking-normal">職務経歴</h2>
+        <p className="text-muted-foreground mt-3">
+          匿名化した案件実績です。顧客名・契約金額は非公開です。
+        </p>
+      </div>
+      <div className="border-primary/80 mt-12 ml-2 space-y-6 border-l-2 pl-6 md:pl-8">
         {projects.map((project) => (
           <CareerCard key={project.id} project={project} />
         ))}
