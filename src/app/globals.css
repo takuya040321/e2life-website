@@ -75,7 +75,7 @@
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
@@ -99,4 +99,11 @@ body {
     linear-gradient(to right, var(--border) 1px, transparent 1px),
     linear-gradient(to bottom, var(--border) 1px, transparent 1px);
   background-size: 4rem 4rem;
+}
+
+/* 和紙背景。Phase 2 以降の全ページ共通背景として使用する */
+@utility bg-washi {
+  background-color: #f5f0e6;
+  background-image: url("/textures/washi.svg");
+  background-repeat: repeat;
 }
