@@ -9,15 +9,20 @@ describe("CTASection", () => {
     expect(screen.getByText("お気軽にご相談ください")).toBeInTheDocument();
   });
 
-  it("renders PDF download link", () => {
+  it("renders two CTA links", () => {
     render(<CTASection />);
-    const pdfLink = screen.getByText("スキルシート PDF");
-    expect(pdfLink.closest("a")).toHaveAttribute("href", "/downloads/skill-sheet.pdf");
+    expect(screen.getAllByRole("link")).toHaveLength(2);
   });
 
   it("renders contact link", () => {
     render(<CTASection />);
     const contactLink = screen.getByText("お問い合わせ");
     expect(contactLink.closest("a")).toHaveAttribute("href", "/contact");
+  });
+
+  it("renders skills link", () => {
+    render(<CTASection />);
+    const skillsLink = screen.getByText("スキルを見る");
+    expect(skillsLink.closest("a")).toHaveAttribute("href", "/skills");
   });
 });

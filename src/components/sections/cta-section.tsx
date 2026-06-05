@@ -11,7 +11,7 @@ export function CTASection() {
     <section className="border-border border-t py-20 text-center">
       <SectionHeading
         title="お気軽にご相談ください"
-        description="スキルシートのダウンロードやお問い合わせはこちらから。"
+        description="スキルの確認やお問い合わせはこちらから。"
       />
       <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
         <Link
@@ -32,16 +32,6 @@ export function CTASection() {
         >
           スキルを見る
         </Link>
-        <a
-          href="/downloads/skill-sheet.pdf"
-          download
-          className={cn(
-            buttonVariants({ variant: "outline", size: "lg" }),
-            "border-border rounded-sm px-5",
-          )}
-        >
-          スキルシート PDF
-        </a>
       </div>
     </section>
   );
