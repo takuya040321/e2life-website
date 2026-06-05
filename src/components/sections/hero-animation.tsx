@@ -26,7 +26,8 @@ export function EnsoAnimation() {
   return (
     <motion.div
       aria-hidden="true"
-      className="pointer-events-none absolute right-[-9rem] bottom-[7%] z-0 aspect-square w-[clamp(18rem,76vw,25rem)] sm:top-1/2 sm:right-auto sm:left-[6%] sm:w-[clamp(24rem,34vw,31rem)] sm:-translate-y-1/2"
+      data-testid="enso-layer"
+      className="pointer-events-none absolute right-[-11rem] bottom-[3%] z-0 aspect-square w-[clamp(22rem,92vw,31rem)] sm:top-1/2 sm:right-auto sm:left-[-8rem] sm:w-[clamp(30rem,43vw,38rem)] sm:-translate-y-1/2 lg:left-[-6rem]"
       initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={shouldReduceMotion ? { duration: 0 } : { duration: 1.2, ease: "easeOut" }}

@@ -17,6 +17,7 @@ describe("HeroSection", () => {
   it("renders the decorative enso image", () => {
     render(<HeroSection />);
 
+    expect(screen.getByTestId("enso-layer")).toHaveClass("sm:w-[clamp(30rem,43vw,38rem)]");
     expect(screen.getByTestId("enso-illustration")).toHaveStyle({
       maskImage: "url('/illustrations/enso.webp')",
     });
