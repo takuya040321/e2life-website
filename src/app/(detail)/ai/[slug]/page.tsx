@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 
 import { buttonVariants } from "@/components/ui/button";
 
+import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
+
 import { aiTopics, getAiTopic } from "@/lib/data/ai-topics";
 
 const japaneseNumerals = ["壱", "弐", "参", "四"] as const;
@@ -81,7 +83,9 @@ export default async function AiTopicPage({ params }: { params: Promise<{ slug: 
           aria-hidden="true"
         />
         <p className="text-muted-foreground mb-2 font-mono text-sm">{"// AI"}</p>
-        <h2 className="font-serif text-3xl font-bold tracking-normal">{topic.title}</h2>
+        <h2 className="font-serif text-3xl font-bold tracking-normal">
+          <JapaneseLineBreak text={topic.title} />
+        </h2>
         <div className="mt-6 max-w-xl space-y-2">
           <JapaneseModernProse text={topic.intro} />
         </div>
@@ -103,7 +107,7 @@ export default async function AiTopicPage({ params }: { params: Promise<{ slug: 
               </span>
               <div>
                 <h2 className="font-serif text-xl leading-snug font-bold tracking-normal">
-                  {section.heading}
+                  <JapaneseLineBreak text={section.heading} />
                 </h2>
                 <div className="mt-4 max-w-xl space-y-2">
                   <JapaneseModernProse text={section.body} />

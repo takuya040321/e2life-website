@@ -1,6 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+import { JapaneseLineBreak } from "./japanese-line-break";
+
 import type { CareerProject } from "@/lib/data/career";
 
 type CareerCardProps = {
@@ -16,15 +18,19 @@ export function CareerCard({ project }: CareerCardProps) {
       />
       <Card className="border-border bg-card/70 hover:ring-accent rounded-lg border shadow-sm transition-shadow">
         <CardHeader>
-          <div className="flex flex-wrap items-start justify-between gap-2">
-            <CardTitle className="font-serif text-lg tracking-normal">{project.title}</CardTitle>
-            <span className="text-accent font-mono text-sm">
+          <div className="flex flex-col items-start justify-between gap-2 sm:flex-row">
+            <CardTitle className="min-w-0 flex-1 font-serif text-lg tracking-normal">
+              <JapaneseLineBreak text={project.title} />
+            </CardTitle>
+            <span className="text-accent shrink-0 font-mono text-sm">
               {project.period.start} 〜 {project.period.end ?? "現在"}
             </span>
           </div>
         </CardHeader>
         <CardContent>
-          <p className="text-muted-foreground">{project.description}</p>
+          <p className="text-muted-foreground">
+            <JapaneseLineBreak text={project.description} />
+          </p>
           <div className="text-muted-foreground mt-3 flex flex-wrap gap-4 text-sm">
             <span>役割: {project.role}</span>
             <span>チーム: {project.teamSize}</span>
@@ -40,7 +46,7 @@ export function CareerCard({ project }: CareerCardProps) {
             <ul className="mt-4 space-y-1">
               {project.highlights.map((highlight) => (
                 <li key={highlight} className="text-muted-foreground text-sm">
-                  ・{highlight}
+                  <JapaneseLineBreak text={`・${highlight}`} />
                 </li>
               ))}
             </ul>

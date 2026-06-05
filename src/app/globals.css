@@ -75,6 +75,19 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  line-break: strict;
+  overflow-wrap: normal;
+}
+
+@supports (word-break: auto-phrase) {
+  body {
+    word-break: auto-phrase;
+  }
+}
+
+.ja-budoux {
+  overflow-wrap: break-word;
+  word-break: keep-all;
 }
 
 /* 微細ノイズのオーバーレイ（質感付け）。装飾なので要素側で opacity を調整する */

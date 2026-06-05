@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { submitContactForm } from "@/app/actions/contact";
 import { ContactForm } from "@/components/shared/contact-form";
+import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
 export const metadata: Metadata = {
   title: "お問い合わせ",
@@ -19,9 +20,11 @@ export default function ContactPage() {
   return (
     <div className="relative mx-auto max-w-2xl px-6 py-20">
       <div>
-        <h2 className="font-serif text-2xl font-bold tracking-normal">お問い合わせ</h2>
+        <h2 className="font-serif text-2xl font-bold tracking-normal">
+          <JapaneseLineBreak text="お問い合わせ" />
+        </h2>
         <p className="text-muted-foreground mt-2">
-          ご質問・ご相談がありましたら、以下のフォームからお気軽にお問い合わせください。
+          <JapaneseLineBreak text="ご質問・ご相談がありましたら、以下のフォームからお気軽にお問い合わせください。" />
         </p>
       </div>
       <div className="mt-12">

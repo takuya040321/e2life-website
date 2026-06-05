@@ -3,6 +3,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 
 import { SectionHeading } from "@/components/shared/section-heading";
+import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
 export function CaseStudySection() {
   return (
@@ -23,14 +24,13 @@ export function CaseStudySection() {
             <div>
               <span className="text-accent font-mono text-sm font-bold">01</span>
               <h3 className="mt-2 font-serif text-lg font-bold">
-                PA エコシステム — マルチリポ AI 開発基盤
+                <JapaneseLineBreak text="PA エコシステム — マルチリポ AI 開発基盤" />
               </h3>
               <p className="text-muted-foreground mt-2">
-                個人の事業運営を AI
-                エージェントで効率化するエコシステム。複数リポジトリを横断するマルチエージェント構成で、開発・運用・コンテンツ更新を自動化しています。
+                <JapaneseLineBreak text="個人の事業運営を AI エージェントで効率化するエコシステム。複数リポジトリを横断するマルチエージェント構成で、開発・運用・コンテンツ更新を自動化しています。" />
               </p>
               <p className="text-muted-foreground mt-2 text-sm">
-                詳細は AI 活用ページにて体系的に紹介します。
+                <JapaneseLineBreak text="詳細は AI 活用ページにて体系的に紹介します。" />
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 <Link
