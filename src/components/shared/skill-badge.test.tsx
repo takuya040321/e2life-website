@@ -32,16 +32,10 @@ describe("SkillBadge", () => {
     expect(screen.getByText("Python")).toBeInTheDocument();
   });
 
-  it("renders the level label and business experience by default", () => {
+  it("renders business experience by default", () => {
     render(<SkillBadge skill={mockSkill} />);
-    expect(screen.getByText("実務経験あり")).toBeInTheDocument();
     expect(screen.getByText("業務 1 年 4 ヶ月")).toBeInTheDocument();
     expect(screen.queryByText(/累計/)).toBeNull();
-  });
-
-  it("marks skills flagged as strong", () => {
-    render(<SkillBadge skill={mockSkill} />);
-    expect(screen.getByLabelText("特に得意")).toBeInTheDocument();
   });
 
   it("renders personal development experience when business months are null", () => {
@@ -51,13 +45,12 @@ describe("SkillBadge", () => {
 
   it("hides experience months when both month values are null", () => {
     render(<SkillBadge skill={{ ...mockSkill, businessMonths: null, totalMonths: null }} />);
-    expect(screen.getByText("実務経験あり")).toBeInTheDocument();
     expect(screen.queryByText(/業務|個人開発のみ|累計/)).toBeNull();
   });
 
   it("hides experience info when showYears is false", () => {
     render(<SkillBadge skill={mockSkill} showYears={false} />);
-    expect(screen.queryByText("実務経験あり")).toBeNull();
+    expect(screen.queryByText(/業務|個人開発のみ|累計/)).toBeNull();
   });
 
   it("renders the logo image from logoPath", () => {
