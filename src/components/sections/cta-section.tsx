@@ -32,6 +32,15 @@ export function CTASection() {
         >
           スキルを見る
         </Link>
+        <Link
+          href="/about"
+          className={cn(
+            buttonVariants({ variant: "outline", size: "lg" }),
+            "border-border hover:border-accent hover:text-accent rounded-sm px-5",
+          )}
+        >
+          自分について
+        </Link>
       </div>
     </section>
   );
