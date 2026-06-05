@@ -17,7 +17,7 @@ export const siteMetadata: SiteMetadata = {
   title: "e2life.dev",
   description: "AI で開発プロセス自体を設計するエンジニア",
   url: "https://e2life.dev",
-  author: "takuya",
+  author: "たくや",
   locale: "ja_JP",
   socialLinks: [
     {
