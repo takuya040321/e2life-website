@@ -7,6 +7,7 @@ describe("AiHubPage", () => {
   it("renders the heading", () => {
     render(<AiHubPage />);
     expect(screen.getByRole("heading", { level: 2, name: "AI 活用" })).toHaveClass("font-serif");
+    expect(screen.queryByText("AI")).not.toBeInTheDocument();
   });
 
   it("renders the upcoming topics", () => {

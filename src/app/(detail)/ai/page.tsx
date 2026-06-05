@@ -24,11 +24,6 @@ export default function AiHubPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-20">
       <div className="relative">
-        <div
-          className="border-gold/35 absolute -top-8 right-0 hidden size-28 rounded-full border md:block"
-          aria-hidden="true"
-        />
-        <p className="text-muted-foreground mb-2 font-mono text-sm">AI</p>
         <h2 className="font-serif text-3xl font-bold tracking-normal">
           <JapaneseLineBreak text="AI 活用" />
         </h2>
