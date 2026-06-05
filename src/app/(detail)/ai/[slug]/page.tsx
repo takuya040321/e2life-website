@@ -82,7 +82,7 @@ export default async function AiTopicPage({ params }: { params: Promise<{ slug: 
           className="border-gold/35 absolute -top-10 right-0 hidden size-32 rounded-full border md:block"
           aria-hidden="true"
         />
-        <p className="text-muted-foreground mb-2 font-mono text-sm">{"// AI"}</p>
+        <p className="text-muted-foreground mb-2 font-mono text-sm">AI</p>
         <h2 className="font-serif text-3xl font-bold tracking-normal">
           <JapaneseLineBreak text={topic.title} />
         </h2>

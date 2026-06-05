@@ -4,7 +4,7 @@ type SectionHeadingProps = {
   title: string;
   description?: string;
   align?: "left" | "center";
-  /** モノスペースのコメント風ラベル（例: "強み"）。表示時は `// ` を前置する */
+  /** モノスペースの補助ラベル（例: "強み"）。 */
   label?: string;
 };
 
@@ -16,7 +16,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={align === "center" ? "text-center" : ""}>
-      {label && <p className="text-muted-foreground mb-2 font-mono text-sm">{`// ${label}`}</p>}
+      {label && <p className="text-muted-foreground mb-2 font-mono text-sm">{label}</p>}
       <h2 className="text-2xl font-bold">
         <JapaneseLineBreak text={title} />
       </h2>

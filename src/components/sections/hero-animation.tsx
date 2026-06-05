@@ -26,14 +26,14 @@ export function EnsoAnimation() {
   return (
     <motion.div
       aria-hidden="true"
-      className="pointer-events-none absolute top-[62%] left-1/2 z-0 aspect-square w-[clamp(18rem,74vw,24rem)] -translate-x-1/2 -translate-y-1/2 sm:top-1/2 sm:left-[15%] sm:w-[clamp(24rem,38vw,34rem)]"
+      className="pointer-events-none absolute right-[-9rem] bottom-[7%] z-0 aspect-square w-[clamp(18rem,76vw,25rem)] sm:top-1/2 sm:right-auto sm:left-[6%] sm:w-[clamp(24rem,34vw,31rem)] sm:-translate-y-1/2"
       initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={shouldReduceMotion ? { duration: 0 } : { duration: 1.2, ease: "easeOut" }}
     >
       <div
         data-testid="enso-illustration"
-        className="bg-primary dark:bg-gold size-full opacity-25 sm:opacity-95 dark:sm:opacity-80"
+        className="bg-primary dark:bg-gold size-full opacity-20 sm:opacity-35 dark:opacity-25 dark:sm:opacity-30"
         style={ensoMaskStyle}
       />
     </motion.div>
