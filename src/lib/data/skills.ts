@@ -521,17 +521,4 @@ export const skills: Skill[] = [
     isStrong: true,
     logoPath: "/logos/claude.svg",
   },
-  // NOTE: GitHub Copilot は本セッションで業務 34 ヶ月 (2023/07-2026/04) を設定したが
-  // 大本スキルシートには未反映の暫定エントリ。次回の大本同期時に正式値へ更新する。
-  {
-    id: "copilot",
-    name: "GitHub Copilot",
-    category: "ai",
-    businessMonths: 34,
-    totalMonths: 34,
-    level: "work",
-    projectCount: 0,
-    logoPath: "/logos/githubcopilot.svg",
-    note: "実務の日常使いで利用",
-  },
 ];

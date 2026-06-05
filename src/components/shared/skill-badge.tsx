@@ -3,10 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { Badge } from "@/components/ui/badge";
-
 import type { Skill } from "@/lib/data/skills";
-import { formatMonths, skillLevelLabels } from "@/lib/data/skills";
+import { formatMonths } from "@/lib/data/skills";
 
 type SkillBadgeProps = {
   skill: Skill;
@@ -37,17 +35,9 @@ export function SkillBadge({ skill, showYears = true }: SkillBadgeProps) {
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-1.5">
           <p className="truncate font-medium">{skill.name}</p>
-          {skill.isStrong && (
-            <span className="text-accent" aria-label="特に得意" title="特に得意">
-              ★
-            </span>
-          )}
         </div>
         {showYears && (
           <div className="mt-1 flex flex-wrap items-center gap-1.5">
-            <Badge variant="outline" className="border-accent/50 bg-accent/10 text-accent text-xs">
-              {skillLevelLabels[skill.level]}
-            </Badge>
             {skill.businessMonths !== null ? (
               <span className="text-muted-foreground text-xs">
                 業務 {formatMonths(skill.businessMonths)}
