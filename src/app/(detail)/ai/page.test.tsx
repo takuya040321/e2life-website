@@ -15,12 +15,12 @@ describe("AiHubPage", () => {
     expect(screen.getByRole("link", { name: /SNS 自動化パイプライン/ })).toBeInTheDocument();
   });
 
-  it("renders Japanese-modern topic cards with accent numerals", () => {
+  it("renders Japanese-modern topic cards with accent numbers", () => {
     render(<AiHubPage />);
 
-    expect(screen.getByText("壱")).toHaveClass("text-accent");
-    expect(screen.getByText("弐")).toHaveClass("text-accent");
-    expect(screen.getByText("参")).toHaveClass("text-accent");
+    expect(screen.getByText("01")).toHaveClass("text-accent");
+    expect(screen.getByText("02")).toHaveClass("text-accent");
+    expect(screen.getByText("03")).toHaveClass("text-accent");
     expect(screen.getByRole("link", { name: /エコシステム全体像/ })).toHaveClass("bg-card/70");
   });
 });

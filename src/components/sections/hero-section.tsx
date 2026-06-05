@@ -26,13 +26,17 @@ export function HeroSection() {
             <p className="text-muted-foreground mb-5 font-mono text-sm">
               AI x Development Process Engineering
             </p>
-            <h1 className="font-serif text-3xl leading-tight font-bold tracking-normal sm:text-5xl lg:text-6xl">
-              <span className="sm:inline-block sm:whitespace-nowrap">AI で開発プロセス自体を</span>
-              <br className="hidden sm:block" />
-              <span className="inline-block sm:whitespace-nowrap">
-                <span className="text-accent">設計する</span>エンジニア
-              </span>
-            </h1>
+            <div className="bg-background/80 dark:bg-background/70 inline-block rounded-sm px-3 py-2 sm:-ml-3">
+              <h1 className="font-serif text-3xl leading-tight font-bold tracking-normal sm:text-5xl lg:text-6xl">
+                <span className="sm:inline-block sm:whitespace-nowrap">
+                  AI で開発プロセス自体を
+                </span>
+                <br className="hidden sm:block" />
+                <span className="inline-block sm:whitespace-nowrap">
+                  <span className="text-accent">設計する</span>エンジニア
+                </span>
+              </h1>
+            </div>
             <div className="bg-accent mt-6 h-px w-full origin-left sm:w-4/5" />
             <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg sm:mx-0">
               <JapaneseLineBreak text="マルチエージェント構成による品質管理と、自己改善する開発プロセスで、" />

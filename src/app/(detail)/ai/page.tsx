@@ -7,7 +7,7 @@ import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
 import { aiTopics } from "@/lib/data/ai-topics";
 
-const japaneseNumerals = ["壱", "弐", "参", "四", "五", "六"] as const;
+const topicNumbers = ["01", "02", "03", "04", "05", "06"] as const;
 
 export const metadata: Metadata = {
   title: "AI 活用",
@@ -28,7 +28,7 @@ export default function AiHubPage() {
           className="border-gold/35 absolute -top-8 right-0 hidden size-28 rounded-full border md:block"
           aria-hidden="true"
         />
-        <p className="text-muted-foreground mb-2 font-mono text-sm">{"// AI"}</p>
+        <p className="text-muted-foreground mb-2 font-mono text-sm">AI</p>
         <h2 className="font-serif text-3xl font-bold tracking-normal">
           <JapaneseLineBreak text="AI 活用" />
         </h2>
@@ -69,8 +69,8 @@ export default function AiHubPage() {
                 className="border-gold/25 absolute top-8 right-8 size-14 rounded-full border"
                 aria-hidden="true"
               />
-              <span className="text-accent font-serif text-3xl leading-none font-bold">
-                {japaneseNumerals[index]}
+              <span className="text-accent font-mono text-sm leading-none font-bold tracking-[0.18em]">
+                {topicNumbers[index]}
               </span>
               <h3 className="mt-5 font-serif text-lg font-bold tracking-normal">
                 <JapaneseLineBreak text={topic.title} />
