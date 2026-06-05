@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import { buttonVariants } from "@/components/ui/button";
 
+import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
+
 import { aiTopics } from "@/lib/data/ai-topics";
 
 const japaneseNumerals = ["壱", "弐", "参", "四", "五", "六"] as const;
@@ -27,14 +29,16 @@ export default function AiHubPage() {
           aria-hidden="true"
         />
         <p className="text-muted-foreground mb-2 font-mono text-sm">{"// AI"}</p>
-        <h2 className="font-serif text-3xl font-bold tracking-normal">AI 活用</h2>
+        <h2 className="font-serif text-3xl font-bold tracking-normal">
+          <JapaneseLineBreak text="AI 活用" />
+        </h2>
         <p className="text-muted-foreground mt-2">
-          AI で開発プロセス自体を設計する取り組みの概要です。
+          <JapaneseLineBreak text="AI で開発プロセス自体を設計する取り組みの概要です。" />
         </p>
       </div>
 
       <p className="text-muted-foreground mt-10 max-w-3xl text-base leading-8">
-        マルチエージェント構成による品質管理と、自己改善する開発プロセスを、複数リポジトリを横断するエコシステムとして構築・運用しています。各テーマの詳細は順次公開していきます。
+        <JapaneseLineBreak text="マルチエージェント構成による品質管理と、自己改善する開発プロセスを、複数リポジトリを横断するエコシステムとして構築・運用しています。各テーマの詳細は順次公開していきます。" />
       </p>
 
       <div className="mt-16">
@@ -43,7 +47,9 @@ export default function AiHubPage() {
             <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">
               AI Ecosystem
             </p>
-            <h2 className="mt-2 font-serif text-2xl font-bold tracking-normal">取り組みの構成</h2>
+            <h2 className="mt-2 font-serif text-2xl font-bold tracking-normal">
+              <JapaneseLineBreak text="取り組みの構成" />
+            </h2>
           </div>
           <div className="bg-accent hidden h-px flex-1 sm:block" aria-hidden="true" />
         </div>
@@ -66,8 +72,12 @@ export default function AiHubPage() {
               <span className="text-accent font-serif text-3xl leading-none font-bold">
                 {japaneseNumerals[index]}
               </span>
-              <h3 className="mt-5 font-serif text-lg font-bold tracking-normal">{topic.title}</h3>
-              <p className="text-muted-foreground mt-3 text-sm leading-7">{topic.summary}</p>
+              <h3 className="mt-5 font-serif text-lg font-bold tracking-normal">
+                <JapaneseLineBreak text={topic.title} />
+              </h3>
+              <p className="text-muted-foreground mt-3 text-sm leading-7">
+                <JapaneseLineBreak text={topic.summary} />
+              </p>
               <p className="text-accent mt-5 font-mono text-xs font-bold tracking-[0.16em]">
                 詳細を見る →
               </p>

@@ -11,8 +11,8 @@ describe("AiHubPage", () => {
 
   it("renders the upcoming topics", () => {
     render(<AiHubPage />);
-    expect(screen.getByText("エコシステム全体像")).toBeInTheDocument();
-    expect(screen.getByText("SNS 自動化パイプライン")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /エコシステム全体像/ })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /SNS 自動化パイプライン/ })).toBeInTheDocument();
   });
 
   it("renders Japanese-modern topic cards with accent numerals", () => {

@@ -1,4 +1,5 @@
 import { SectionHeading } from "@/components/shared/section-heading";
+import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
 const strengths = [
   {
@@ -32,8 +33,12 @@ export function StrengthsSection() {
             <span className="text-accent font-mono text-sm font-bold">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 className="mt-3 font-serif text-lg font-bold">{strength.title}</h3>
-            <p className="text-muted-foreground mt-2 text-sm">{strength.description}</p>
+            <h3 className="mt-3 font-serif text-lg font-bold">
+              <JapaneseLineBreak text={strength.title} />
+            </h3>
+            <p className="text-muted-foreground mt-2 text-sm">
+              <JapaneseLineBreak text={strength.description} />
+            </p>
           </div>
         ))}
       </div>

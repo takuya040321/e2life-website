@@ -11,7 +11,10 @@ describe("AiTopicPage", () => {
       "font-serif",
     );
     expect(
-      screen.getByText("役割を絞った AI エージェントと、権限の三層モデル"),
+      screen.getByRole("heading", {
+        level: 2,
+        name: "役割を絞った AI エージェントと、権限の三層モデル",
+      }),
     ).toBeInTheDocument();
   });
 

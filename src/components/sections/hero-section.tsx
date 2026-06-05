@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import { buttonVariants } from "@/components/ui/button";
 
+import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
+
 import { cn } from "@/lib/utils/cn";
 
 import { EnsoAnimation, HeroAnimation } from "./hero-animation";
@@ -11,7 +13,7 @@ export function HeroSection() {
     <section className="relative min-h-[78vh] overflow-hidden py-20 sm:py-28">
       <EnsoAnimation />
       <HeroAnimation>
-        <div className="relative z-10 grid min-h-[56vh] items-center gap-10 sm:grid-cols-[minmax(4rem,0.55fr)_minmax(0,1fr)]">
+        <div className="relative z-10 grid min-h-[56vh] items-center gap-10 sm:grid-cols-[minmax(3rem,0.35fr)_minmax(0,1.25fr)]">
           <div className="hidden h-full items-center sm:flex">
             <div
               aria-label="AI と開発プロセス設計"
@@ -20,20 +22,22 @@ export function HeroSection() {
               AI x Development Process
             </div>
           </div>
-          <div className="max-w-3xl text-center sm:text-left">
+          <div className="max-w-5xl text-center sm:text-left">
             <p className="text-muted-foreground mb-5 font-mono text-sm">
               AI x Development Process Engineering
             </p>
-            <h1 className="font-serif text-4xl leading-tight font-bold tracking-normal sm:text-6xl lg:text-7xl">
-              AI で開発プロセス自体を
+            <h1 className="font-serif text-3xl leading-tight font-bold tracking-normal sm:text-5xl lg:text-6xl">
+              <span className="sm:inline-block sm:whitespace-nowrap">AI で開発プロセス自体を</span>
               <br className="hidden sm:block" />
-              <span className="text-accent">設計する</span>エンジニア
+              <span className="inline-block sm:whitespace-nowrap">
+                <span className="text-accent">設計する</span>エンジニア
+              </span>
             </h1>
             <div className="bg-accent mt-6 h-px w-full origin-left sm:w-4/5" />
             <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg sm:mx-0">
-              マルチエージェント構成による品質管理と、自己改善する開発プロセスで、
+              <JapaneseLineBreak text="マルチエージェント構成による品質管理と、自己改善する開発プロセスで、" />
               <br className="hidden sm:block" />
-              プロジェクトの生産性を根本から変えます。
+              <JapaneseLineBreak text="プロジェクトの生産性を根本から変えます。" />
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:justify-start">
               <Link
