@@ -48,9 +48,15 @@ export function SkillBadge({ skill, showYears = true }: SkillBadgeProps) {
             <Badge variant="outline" className="border-accent/50 bg-accent/10 text-accent text-xs">
               {skillLevelLabels[skill.level]}
             </Badge>
-            <span className="text-muted-foreground text-xs">
-              業務 {formatMonths(skill.businessMonths)} / 累計 {formatMonths(skill.totalMonths)}
-            </span>
+            {skill.businessMonths !== null ? (
+              <span className="text-muted-foreground text-xs">
+                業務 {formatMonths(skill.businessMonths)}
+              </span>
+            ) : skill.totalMonths !== null ? (
+              <span className="text-muted-foreground text-xs">
+                個人開発のみ {formatMonths(skill.totalMonths)}
+              </span>
+            ) : null}
           </div>
         )}
       </div>
