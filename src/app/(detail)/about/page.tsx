@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -22,6 +23,8 @@ const values = [
   },
 ] as const;
 
+const japaneseNumerals = ["壱", "弐", "参"] as const;
+
 const githubLink = siteMetadata.socialLinks.find((link) => link.platform === "GitHub");
 
 export const metadata: Metadata = {
@@ -37,7 +40,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-20">
+    <div className="relative mx-auto max-w-5xl px-6 py-20">
       <section>
         <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">About</p>
         <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight font-bold tracking-normal md:text-5xl">
@@ -85,14 +88,19 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {values.map((value) => (
+          {values.map((value, index) => (
             <article
               key={value.title}
               className="border-border bg-card/70 rounded-sm border p-6 shadow-sm"
             >
-              <h3 className="font-serif text-lg font-bold tracking-normal">
-                <JapaneseLineBreak text={value.title} />
-              </h3>
+              <div className="flex items-start gap-4">
+                <span className="text-accent shrink-0 font-serif text-3xl leading-none font-bold">
+                  {japaneseNumerals[index]}
+                </span>
+                <h3 className="font-serif text-lg leading-snug font-bold tracking-normal">
+                  <JapaneseLineBreak text={value.title} />
+                </h3>
+              </div>
               <p className="text-muted-foreground mt-4 text-sm leading-7">
                 <JapaneseLineBreak text={value.body} />
               </p>
@@ -118,6 +126,14 @@ export default function AboutPage() {
           )}
         </div>
       </section>
+      <Image
+        src="/illustrations/hanko-e2life.png"
+        alt=""
+        width={72}
+        height={72}
+        className="absolute right-6 bottom-8 hidden opacity-80 sm:block"
+        aria-hidden="true"
+      />
     </div>
   );
 }
