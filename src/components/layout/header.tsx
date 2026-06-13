@@ -5,8 +5,8 @@ import { siteMetadata } from "@/lib/data/site";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/ai", label: "AI" },
-  { href: "/harness", label: "ハーネス" },
+  { href: "/ai", label: "AI活用" },
+  { href: "/harness", label: "ハーネス設計" },
   { href: "/about", label: "自分について" },
   { href: "/contact", label: "お問い合わせ" },
 ] as const;
