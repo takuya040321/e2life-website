@@ -7,15 +7,15 @@ import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
 import { aiTopics } from "@/lib/data/ai-topics";
 
-const topicNumbers = ["01", "02", "03", "04", "05", "06"] as const;
+const topicNumbers = ["01", "02", "03", "04"] as const;
 
 export const metadata: Metadata = {
   title: "AI 活用",
-  description: "AI で開発プロセス自体を設計する取り組みの概要",
+  description: "SNS 発信・情報収集・コンテンツ生成・ナレッジ管理など実用 AI 活用の取り組み",
   alternates: { canonical: "/ai" },
   openGraph: {
     title: "AI 活用",
-    description: "AI で開発プロセス自体を設計する取り組みの概要",
+    description: "SNS 発信・情報収集・コンテンツ生成・ナレッジ管理など実用 AI 活用の取り組み",
     url: "/ai",
   },
 };
@@ -28,12 +28,12 @@ export default function AiHubPage() {
           <JapaneseLineBreak text="AI 活用" />
         </h2>
         <p className="text-muted-foreground mt-2">
-          <JapaneseLineBreak text="AI で開発プロセス自体を設計する取り組みの概要です。" />
+          <JapaneseLineBreak text="SNS 発信・情報収集・コンテンツ生成・ナレッジ管理など実用 AI 活用の取り組みです。" />
         </p>
       </div>
 
       <p className="text-muted-foreground mt-10 max-w-3xl text-base leading-8">
-        <JapaneseLineBreak text="マルチエージェント構成による品質管理と、自己改善する開発プロセスを、複数リポジトリを横断するエコシステムとして構築・運用しています。各テーマの詳細は順次公開していきます。" />
+        <JapaneseLineBreak text="SNS 発信の自動化・情報収集・コンテンツ生成・ナレッジ管理など、AI を実際の開発・運用プロセスに組み込んだ取り組みをまとめています。" />
       </p>
 
       <div className="mt-16">

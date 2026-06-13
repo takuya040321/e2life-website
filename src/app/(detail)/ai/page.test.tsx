@@ -10,10 +10,10 @@ describe("AiHubPage", () => {
     expect(screen.queryByText("AI")).not.toBeInTheDocument();
   });
 
-  it("renders the upcoming topics", () => {
+  it("renders the topic links", () => {
     render(<AiHubPage />);
-    expect(screen.getByRole("link", { name: /エコシステム全体像/ })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /SNS 自動化パイプライン/ })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /SNS 発信の自動化/ })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /情報収集・配信/ })).toBeInTheDocument();
   });
 
   it("renders Japanese-modern topic cards with accent numbers", () => {
@@ -22,6 +22,6 @@ describe("AiHubPage", () => {
     expect(screen.getByText("01")).toHaveClass("text-accent");
     expect(screen.getByText("02")).toHaveClass("text-accent");
     expect(screen.getByText("03")).toHaveClass("text-accent");
-    expect(screen.getByRole("link", { name: /エコシステム全体像/ })).toHaveClass("bg-card/70");
+    expect(screen.getByRole("link", { name: /SNS 発信の自動化/ })).toHaveClass("bg-card/70");
   });
 });
