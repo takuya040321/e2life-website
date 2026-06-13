@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 import { buttonVariants } from "@/components/ui/button";
 
+import { HarnessDiagram } from "@/components/shared/harness-diagram";
 import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
 import { harnessTopics } from "@/lib/data/harness-topics";
@@ -72,19 +72,10 @@ export default function HarnessHubPage() {
         ))}
       </div>
 
-      <figure className="mt-14">
-        <div className="border-border bg-card/40 overflow-hidden rounded-lg border">
-          <Image
-            src="/illustrations/harness-overview.webp"
-            alt="秘書役の AI を中心に、社長・各担当の AI・記録層が連携する組織型ハーネスの全体像"
-            width={1536}
-            height={1024}
-            className="h-auto w-full"
-            sizes="(min-width: 1024px) 64rem, 100vw"
-          />
-        </div>
-        <figcaption className="text-muted-foreground mt-3 text-center text-sm leading-7">
-          <JapaneseLineBreak text="全体像: 社長は秘書役の AI に伝えるだけ。秘書が各担当の AI と連携し、やり取りと判断を記録層に蓄積していきます。" />
+      <figure className="border-border bg-background mt-14 rounded-xl border p-6 sm:p-8">
+        <HarnessDiagram />
+        <figcaption className="text-muted-foreground mt-6 text-center text-sm leading-7">
+          <JapaneseLineBreak text="全体像: 社長は秘書役の AI に伝えるだけ。秘書が各担当の AI に指示を出して実装し、やり取りと判断を記録層に蓄積していきます。" />
         </figcaption>
       </figure>
 
