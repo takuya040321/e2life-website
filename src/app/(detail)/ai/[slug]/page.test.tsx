@@ -5,21 +5,21 @@ import AiTopicPage from "./page";
 
 describe("AiTopicPage", () => {
   it("renders the topic title, intro and sections", async () => {
-    const ui = await AiTopicPage({ params: Promise.resolve({ slug: "ecosystem" }) });
+    const ui = await AiTopicPage({ params: Promise.resolve({ slug: "sns" }) });
     render(ui);
-    expect(screen.getByRole("heading", { level: 2, name: "エコシステム全体像" })).toHaveClass(
+    expect(screen.getByRole("heading", { level: 2, name: "SNS 発信の自動化" })).toHaveClass(
       "font-serif",
     );
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: "役割を絞った AI エージェントと、権限の三層モデル",
+        name: "記録の蓄積を発信の原資に変えるパイプライン",
       }),
     ).toBeInTheDocument();
   });
 
   it("renders sections as Japanese-modern cards", async () => {
-    const ui = await AiTopicPage({ params: Promise.resolve({ slug: "ecosystem" }) });
+    const ui = await AiTopicPage({ params: Promise.resolve({ slug: "sns" }) });
     const { container } = render(ui);
 
     expect(screen.getByText("壱")).toHaveClass("text-accent");
