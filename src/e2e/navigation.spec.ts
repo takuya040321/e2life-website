@@ -8,20 +8,6 @@ test.describe("navigation", () => {
     );
   });
 
-  test("navigates to skills page", async ({ page }) => {
-    await page.goto("/");
-    await page.getByRole("navigation").getByRole("link", { name: "スキル" }).click();
-    await expect(page).toHaveURL(/\/skills/);
-    await expect(page.getByRole("heading", { level: 2, name: "SE スキル" })).toBeVisible();
-  });
-
-  test("navigates to career page", async ({ page }) => {
-    await page.goto("/");
-    await page.getByRole("navigation").getByRole("link", { name: "経歴" }).click();
-    await expect(page).toHaveURL(/\/career/);
-    await expect(page.getByRole("heading", { level: 2, name: "職務経歴" })).toBeVisible();
-  });
-
   test("navigates to contact page", async ({ page }) => {
     await page.goto("/");
     await page.getByRole("navigation").getByRole("link", { name: "お問い合わせ" }).click();
@@ -37,7 +23,7 @@ test.describe("navigation", () => {
   });
 
   test("logo links back to home", async ({ page }) => {
-    await page.goto("/skills");
+    await page.goto("/about");
     await page.getByRole("link", { name: "e2life.dev" }).click();
     await expect(page).toHaveURL(/\/$/);
   });
