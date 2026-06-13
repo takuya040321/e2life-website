@@ -85,8 +85,8 @@ export default function HarnessHubPage() {
         <Link href="/contact" className={buttonVariants({ variant: "outline" })}>
           お問い合わせ
         </Link>
-        <Link href="/skills" className={buttonVariants({ variant: "outline" })}>
-          スキルを見る
+        <Link href="/ai" className={buttonVariants({ variant: "outline" })}>
+          AI活用を見る
         </Link>
       </div>
     </div>

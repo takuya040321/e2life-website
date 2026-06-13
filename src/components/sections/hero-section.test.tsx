@@ -11,7 +11,11 @@ describe("HeroSection", () => {
       "AI で開発プロセス自体を設計するエンジニア",
     );
     expect(screen.getByRole("link", { name: "お問い合わせ" })).toHaveAttribute("href", "/contact");
-    expect(screen.getByRole("link", { name: "スキルを見る" })).toHaveAttribute("href", "/skills");
+    expect(screen.getByRole("link", { name: "AI活用を見る" })).toHaveAttribute("href", "/ai");
+    expect(screen.getByRole("link", { name: "ハーネス設計を見る" })).toHaveAttribute(
+      "href",
+      "/harness",
+    );
   });
 
   it("renders the decorative enso image", () => {

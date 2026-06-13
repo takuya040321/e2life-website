@@ -60,11 +60,7 @@ export default function AboutPage() {
 
         <div className="mt-8 max-w-3xl space-y-7 font-serif text-base leading-9 md:text-lg">
           <p>
-            <JapaneseLineBreak text="2023 年に SE 業界に入り、製造業の SI 案件で AI を業務に持ち込む選択を取りました。Microsoft 365 Copilot をコード作成・設計書作成 (UML 図) に組み込み、AI ネイティブな開発スタイルでスタートしました。案件履歴は " />
-            <Link href="/career" className="text-accent underline-offset-4 hover:underline">
-              /career
-            </Link>
-            <JapaneseLineBreak text=" へ。" />
+            <JapaneseLineBreak text="2023 年に SE 業界に入り、製造業の SI 案件で AI を業務に持ち込む選択を取りました。Microsoft 365 Copilot をコード作成・設計書作成 (UML 図) に組み込み、AI ネイティブな開発スタイルでスタートしました。" />
           </p>
           <p>
             <JapaneseLineBreak text="業務並行で個人開発を進め、Claude Code を中核にしたマルチエージェント開発エコシステムを構築しました。AI が自ら判断・記録・相互レビューを回す仕組みを設計し、実装で検証しています。詳細は " />

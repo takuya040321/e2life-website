@@ -9,9 +9,9 @@ describe("CTASection", () => {
     expect(screen.getByText("お気軽にご相談ください")).toBeInTheDocument();
   });
 
-  it("renders three CTA links", () => {
+  it("renders four CTA links", () => {
     render(<CTASection />);
-    expect(screen.getAllByRole("link")).toHaveLength(3);
+    expect(screen.getAllByRole("link")).toHaveLength(4);
   });
 
   it("renders contact link", () => {
@@ -20,10 +20,16 @@ describe("CTASection", () => {
     expect(contactLink.closest("a")).toHaveAttribute("href", "/contact");
   });
 
-  it("renders skills link", () => {
+  it("renders ai link", () => {
     render(<CTASection />);
-    const skillsLink = screen.getByText("スキルを見る");
-    expect(skillsLink.closest("a")).toHaveAttribute("href", "/skills");
+    const aiLink = screen.getByText("AI活用を見る");
+    expect(aiLink.closest("a")).toHaveAttribute("href", "/ai");
+  });
+
+  it("renders harness link", () => {
+    render(<CTASection />);
+    const harnessLink = screen.getByText("ハーネス設計を見る");
+    expect(harnessLink.closest("a")).toHaveAttribute("href", "/harness");
   });
 
   it("renders about link", () => {

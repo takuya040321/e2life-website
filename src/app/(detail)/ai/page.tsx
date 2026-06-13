@@ -85,8 +85,8 @@ export default function AiHubPage() {
         <Link href="/contact" className={buttonVariants({ variant: "outline" })}>
           お問い合わせ
         </Link>
-        <Link href="/skills" className={buttonVariants({ variant: "outline" })}>
-          スキルを見る
+        <Link href="/harness" className={buttonVariants({ variant: "outline" })}>
+          ハーネス設計を見る
         </Link>
       </div>
     </div>

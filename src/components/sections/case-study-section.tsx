@@ -44,14 +44,14 @@ export function CaseStudySection() {
                   AI 活用の詳細
                 </Link>
                 <Link
-                  href="/skills"
+                  href="/harness"
                   className={buttonVariants({
                     variant: "outline",
                     size: "sm",
                     className: "hover:border-accent hover:text-accent rounded-sm",
                   })}
                 >
-                  技術スタック
+                  ハーネス設計
                 </Link>
               </div>
             </div>

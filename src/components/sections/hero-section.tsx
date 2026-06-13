@@ -54,13 +54,22 @@ export function HeroSection() {
                 お問い合わせ
               </Link>
               <Link
-                href="/skills"
+                href="/ai"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
                   "border-primary/70 bg-background/70 hover:border-accent hover:text-accent rounded-sm px-5 font-medium backdrop-blur-sm",
                 )}
               >
-                スキルを見る
+                AI活用を見る
+              </Link>
+              <Link
+                href="/harness"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "border-primary/70 bg-background/70 hover:border-accent hover:text-accent rounded-sm px-5 font-medium backdrop-blur-sm",
+                )}
+              >
+                ハーネス設計を見る
               </Link>
             </div>
           </div>
