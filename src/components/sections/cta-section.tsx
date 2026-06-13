@@ -24,13 +24,22 @@ export function CTASection() {
           お問い合わせ
         </Link>
         <Link
-          href="/skills"
+          href="/ai"
           className={cn(
             buttonVariants({ variant: "outline", size: "lg" }),
             "border-primary/70 hover:border-accent hover:text-accent rounded-sm px-5",
           )}
         >
-          スキルを見る
+          AI活用を見る
+        </Link>
+        <Link
+          href="/harness"
+          className={cn(
+            buttonVariants({ variant: "outline", size: "lg" }),
+            "border-primary/70 hover:border-accent hover:text-accent rounded-sm px-5",
+          )}
+        >
+          ハーネス設計を見る
         </Link>
         <Link
           href="/about"
