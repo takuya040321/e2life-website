@@ -27,7 +27,7 @@ export function CaseStudySection() {
                 <JapaneseLineBreak text="PA エコシステム — マルチリポ AI 開発基盤" />
               </h3>
               <p className="text-muted-foreground mt-2">
-                <JapaneseLineBreak text="個人の事業運営を AI エージェントで効率化するエコシステム。複数リポジトリを横断するマルチエージェント構成で、開発・運用・コンテンツ更新を自動化しています。" />
+                <JapaneseLineBreak text="個人の組織運営を AI エージェントで効率化するエコシステム。複数リポジトリを横断するマルチエージェント構成で、開発・運用・コンテンツ更新を自動化しています。" />
               </p>
               <p className="text-muted-foreground mt-2 text-sm">
                 <JapaneseLineBreak text="詳細は AI 活用ページにて体系的に紹介します。" />
