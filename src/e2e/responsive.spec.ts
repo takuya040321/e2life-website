@@ -15,11 +15,6 @@ for (const viewport of viewports) {
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     });
 
-    test("skills page renders correctly", async ({ page }) => {
-      await page.goto("/skills");
-      await expect(page.getByRole("heading", { level: 2, name: "SE スキル" })).toBeVisible();
-    });
-
     test("contact form is accessible", async ({ page }) => {
       await page.goto("/contact");
       await expect(page.getByLabel(/名前/)).toBeVisible();

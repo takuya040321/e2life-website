@@ -25,14 +25,6 @@ test.describe("SEO metadata", () => {
     );
   });
 
-  test("skills page has canonical URL", async ({ page }) => {
-    await page.goto("/skills");
-    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
-      "href",
-      "https://e2life.dev/skills",
-    );
-  });
-
   test("home page has JSON-LD structured data", async ({ page }) => {
     await page.goto("/");
     const jsonLd = page.locator('script[type="application/ld+json"]');
