@@ -49,6 +49,11 @@ e2life.dev の個人 Web サイト。Next.js 16 + Vercel。
 
 - Conventional Commits 準拠（`<type>(<scope>): <subject>`）
 - main 直 push OK（個人 site で 1 人作業のため、PR 必須を 2026-06-01 に廃止）
+- **commit → push → Vercel デプロイまで確認なしで自走 OK**（2026-06-13。自社サイト・1 人運用のため、本リポに限り対外公開ゲートの本人確認を撤廃）
+  - 前提条件 1: push 前ローカル品質ゲート（format / lint / 型 / test / build / E2E）が green
+  - 前提条件 2: コンテンツ追加・変更時は機密スキャン（顧客名 / 金額 / サービス名 / 個人情報の混入チェック）を実施
+  - 禁止維持: secret / 個人情報 / 具体的事業判断の混入（「絶対ルール」のとおり）
+  - 経緯: PA repo `decisions/website/2026-06-13-deploy-self-drive.md`
 
 ## コード品質基準
 
