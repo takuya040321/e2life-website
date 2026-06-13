@@ -16,6 +16,13 @@ describe("HarnessHubPage", () => {
     expect(screen.getByRole("link", { name: /エコシステム全体像/ })).toBeInTheDocument();
   });
 
+  it("renders the overview diagram and organization benefits", () => {
+    render(<HarnessHubPage />);
+    expect(screen.getByRole("img", { name: /組織型ハーネスの全体像/ })).toBeInTheDocument();
+    expect(screen.getByText("窓口はひとつ")).toBeInTheDocument();
+    expect(screen.getByText("資産を一元管理")).toBeInTheDocument();
+  });
+
   it("renders Japanese-modern topic cards with accent numbers", () => {
     render(<HarnessHubPage />);
 
