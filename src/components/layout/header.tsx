@@ -6,6 +6,7 @@ import { siteMetadata } from "@/lib/data/site";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/ai", label: "AI" },
+  { href: "/harness", label: "ハーネス" },
   { href: "/skills", label: "スキル" },
   { href: "/career", label: "経歴" },
   { href: "/about", label: "自分について" },
