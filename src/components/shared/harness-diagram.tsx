@@ -14,8 +14,8 @@ const steps: readonly Step[] = [
   { title: "秘書役の AI（PA）", note: "窓口はここひとつ", emphasis: true },
   {
     title: "各部門の担当 AI（部長役）",
-    note: "事業ごとに方針を検討",
-    branches: ["事業A", "事業B", "事業C"],
+    note: "部門ごとに方針を検討",
+    branches: ["部門A", "部門B", "部門C"],
   },
   { title: "実装エージェント", note: "「作って直す」を反復" },
   { title: "レビュー → 公開・成果", note: "独立した目で確認してから出す" },
