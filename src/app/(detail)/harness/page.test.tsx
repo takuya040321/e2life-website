@@ -4,52 +4,53 @@ import { describe, expect, it } from "vitest";
 import HarnessHubPage from "./page";
 
 describe("HarnessHubPage", () => {
-  it("renders the hero with the catchphrase", () => {
+  it("renders the hero heading", () => {
     render(<HarnessHubPage />);
     expect(
-      screen.getByRole("heading", { level: 2, name: "AI を、ひとつの組織のように経営する" }),
+      screen.getByRole("heading", { level: 2, name: "わたしのハーネス設計" }),
     ).toHaveClass("font-serif");
   });
 
-  it("renders the Why section with before/after", () => {
+  it("renders the Principles section with orchestration items", () => {
     render(<HarnessHubPage />);
     expect(
-      screen.getByRole("heading", { level: 2, name: "なぜ、組織のように束ねるのか" }),
-    ).toBeInTheDocument();
-    expect(screen.getByText("Before")).toBeInTheDocument();
-    expect(screen.getByText("After")).toBeInTheDocument();
-  });
-
-  it("renders the 3-step flow summary", () => {
-    render(<HarnessHubPage />);
-    expect(
-      screen.getByRole("heading", { level: 2, name: "全体の流れは 3 ステップ" }),
-    ).toBeInTheDocument();
-    expect(screen.getByText("01")).toBeInTheDocument();
-    expect(screen.getByText("02")).toBeInTheDocument();
-    expect(screen.getByText("03")).toBeInTheDocument();
-  });
-
-  it("renders the 5 principles with benefit lines", () => {
-    render(<HarnessHubPage />);
-    expect(
-      screen.getByRole("heading", { level: 2, name: "わたしが大事にしている 5 つの考え方" }),
+      screen.getByRole("heading", { level: 3, name: "全体で意識していること" }),
     ).toBeInTheDocument();
     expect(screen.getByText("入口はひとつ")).toBeInTheDocument();
-    expect(screen.getByText(/考えることが減り/)).toBeInTheDocument();
+    expect(screen.getByText("役割で分業する")).toBeInTheDocument();
   });
 
-  it("shows the secretary harness prominently as ready", () => {
+  it("renders the 5 role cards as navigable links", () => {
     render(<HarnessHubPage />);
-    expect(screen.getByRole("link", { name: /秘書役ハーネス/ })).toBeInTheDocument();
-    expect(screen.getByText("公開中")).toBeInTheDocument();
-  });
-
-  it("groups preparing harnesses in a separate Preparing block", () => {
-    render(<HarnessHubPage />);
-    expect(screen.getByText("Preparing")).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { level: 3, name: "準備中のハーネス" }),
+      screen.getByRole("heading", { level: 3, name: "5 つの役割で分業する" }),
     ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /秘書役/ })).toHaveAttribute(
+      "href",
+      "/harness/secretary",
+    );
+    expect(screen.getByRole("link", { name: /部門担当/ })).toHaveAttribute(
+      "href",
+      "/harness/department",
+    );
+    expect(screen.getByRole("link", { name: /実装担当/ })).toHaveAttribute(
+      "href",
+      "/harness/implementation",
+    );
+    expect(screen.getByRole("link", { name: /レビュー担当/ })).toHaveAttribute(
+      "href",
+      "/harness/review",
+    );
+    expect(screen.getByRole("link", { name: /記録担当/ })).toHaveAttribute(
+      "href",
+      "/harness/record",
+    );
+    expect(screen.getByText("01")).toHaveClass("text-accent");
+    expect(screen.getByText("05")).toHaveClass("text-accent");
+  });
+
+  it("no longer shows the preparing badge", () => {
+    render(<HarnessHubPage />);
+    expect(screen.queryByText("準備中")).not.toBeInTheDocument();
   });
 });

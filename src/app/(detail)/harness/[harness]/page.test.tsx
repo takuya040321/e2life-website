@@ -1,32 +1,34 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import SpecialistHarnessPage from "./page";
+import HarnessRolePage from "./page";
 
-describe("SpecialistHarnessPage", () => {
-  it("renders the secretary harness with its items", async () => {
-    const ui = await SpecialistHarnessPage({
+describe("HarnessRolePage", () => {
+  it("renders the secretary role with overview and principles", async () => {
+    const ui = await HarnessRolePage({
       params: Promise.resolve({ harness: "secretary" }),
     });
     render(ui);
-    expect(screen.getByRole("heading", { level: 2, name: "秘書役ハーネス" })).toHaveClass(
-      "font-serif",
-    );
+    expect(screen.getByRole("heading", { level: 2, name: "秘書役" })).toHaveClass("font-serif");
     expect(
-      screen.getByRole("heading", { level: 3, name: "このハーネスでわたしが意識していること" }),
+      screen.getByRole("heading", { level: 4, name: "どんなメンバーか" }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /議論パートナーになる/ })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /司令塔として束ねる/ })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 4, name: "この役割で意識していること" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("壱")).toHaveClass("text-accent");
+    expect(screen.getByText("弐")).toHaveClass("text-accent");
   });
 
-  it("renders a preparing notice for harnesses without items", async () => {
-    const ui = await SpecialistHarnessPage({
-      params: Promise.resolve({ harness: "department" }),
-    });
-    render(ui);
-    expect(screen.getByText("準備中")).toBeInTheDocument();
-    expect(
-      screen.getByText(/このハーネスの詳細は、現在準備中です。/),
-    ).toBeInTheDocument();
+  it("renders all 5 roles when each slug is requested", async () => {
+    const slugs = ["secretary", "department", "implementation", "review", "record"] as const;
+    for (const slug of slugs) {
+      const ui = await HarnessRolePage({ params: Promise.resolve({ harness: slug }) });
+      const { unmount } = render(ui);
+      expect(
+        screen.getByRole("heading", { level: 4, name: "この役割で意識していること" }),
+      ).toBeInTheDocument();
+      unmount();
+    }
   });
 });

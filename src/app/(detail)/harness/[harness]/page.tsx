@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 
 import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
-import { getSpecialistHarness, specialistHarnesses } from "@/lib/data/harness-topics";
+import { getHarnessRole, harnessRoles } from "@/lib/data/harness-topics";
 
-const itemNumbers = ["01", "02", "03", "04", "05"] as const;
+const japaneseNumerals = ["壱", "弐", "参", "四", "伍"] as const;
 
 function splitJapaneseSentences(text: string): string[] {
   const sentences = text
@@ -52,7 +51,7 @@ function JapaneseModernProse({ text }: { text: string }) {
 }
 
 export function generateStaticParams() {
-  return specialistHarnesses.map((harness) => ({ harness: harness.slug }));
+  return harnessRoles.map((role) => ({ harness: role.slug }));
 }
 
 export async function generateMetadata({
@@ -61,30 +60,28 @@ export async function generateMetadata({
   params: Promise<{ harness: string }>;
 }): Promise<Metadata> {
   const { harness: slug } = await params;
-  const harness = getSpecialistHarness(slug);
-  if (!harness) return {};
+  const role = getHarnessRole(slug);
+  if (!role) return {};
   return {
-    title: harness.title,
-    description: harness.summary,
+    title: `${role.title} | ハーネス設計`,
+    description: role.summary,
     alternates: { canonical: `/harness/${slug}` },
     openGraph: {
-      title: harness.title,
-      description: harness.summary,
+      title: `${role.title} | ハーネス設計`,
+      description: role.summary,
       url: `/harness/${slug}`,
     },
   };
 }
 
-export default async function SpecialistHarnessPage({
+export default async function HarnessRolePage({
   params,
 }: {
   params: Promise<{ harness: string }>;
 }) {
   const { harness: slug } = await params;
-  const harness = getSpecialistHarness(slug);
-  if (!harness) notFound();
-
-  const isReady = harness.status === "ready";
+  const role = getHarnessRole(slug);
+  if (!role) notFound();
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-20">
@@ -93,7 +90,7 @@ export default async function SpecialistHarnessPage({
           ハーネス設計
         </Link>
         <span className="mx-2">/</span>
-        <span>{harness.title}</span>
+        <span>{role.title}</span>
       </p>
 
       <div className="relative">
@@ -101,77 +98,66 @@ export default async function SpecialistHarnessPage({
           className="border-gold/35 absolute -top-10 right-0 hidden size-32 rounded-full border md:block"
           aria-hidden="true"
         />
-        <div className="flex items-center gap-3">
-          <p className="text-muted-foreground font-mono text-sm">{harness.role}</p>
-          {!isReady && (
-            <Badge variant="outline" className="font-mono text-[10px]">
-              準備中
-            </Badge>
-          )}
-        </div>
-        <h2 className="mt-2 font-serif text-3xl font-bold tracking-normal">
-          <JapaneseLineBreak text={harness.title} />
+        <p className="text-muted-foreground mb-2 font-mono text-sm">{role.role}</p>
+        <h2 className="font-serif text-3xl font-bold tracking-normal">
+          <JapaneseLineBreak text={role.title} />
         </h2>
-        <div className="mt-6 max-w-2xl space-y-2">
-          <JapaneseModernProse text={harness.overview} />
-        </div>
       </div>
 
-      {isReady ? (
-        <div className="mt-20">
-          <div className="border-accent/70 flex items-end justify-between gap-6 border-l pl-5">
-            <div>
-              <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">
-                Items
-              </p>
-              <h3 className="mt-2 font-serif text-2xl font-bold tracking-normal">
-                <JapaneseLineBreak text="このハーネスでわたしが意識していること" />
-              </h3>
-            </div>
-            <div className="bg-accent hidden h-px flex-1 self-end sm:block" aria-hidden="true" />
-          </div>
+      <section className="mt-12">
+        <h3 className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">
+          Overview
+        </h3>
+        <h4 className="mt-2 font-serif text-xl font-bold tracking-normal">
+          <JapaneseLineBreak text="どんなメンバーか" />
+        </h4>
+        <div className="mt-4 max-w-2xl space-y-2">
+          <JapaneseModernProse text={role.overview} />
+        </div>
+      </section>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
-            {harness.items.map((item, index) => (
-              <Link
-                key={item.slug}
-                href={`/harness/${harness.slug}/${item.slug}`}
-                className="border-border bg-card/70 hover:border-accent group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors"
-              >
-                <span
-                  className="border-accent/20 absolute top-5 right-5 size-20 rounded-full border"
-                  aria-hidden="true"
-                />
-                <span className="text-accent font-mono text-sm leading-none font-bold tracking-[0.18em]">
-                  {itemNumbers[index]}
+      <section className="mt-16">
+        <h3 className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">
+          Principles
+        </h3>
+        <h4 className="mt-2 font-serif text-xl font-bold tracking-normal">
+          <JapaneseLineBreak text="この役割で意識していること" />
+        </h4>
+
+        <div className="mt-6 grid gap-5">
+          {role.principles.map((principle, index) => (
+            <section
+              key={principle.heading}
+              className="border-border bg-card/70 relative overflow-hidden rounded-lg border p-6 shadow-sm sm:p-8"
+            >
+              <span
+                className="border-accent/15 absolute top-5 right-5 size-20 rounded-full border"
+                aria-hidden="true"
+              />
+              <div className="flex flex-col gap-4 sm:flex-row sm:gap-7">
+                <span className="text-accent shrink-0 font-serif text-3xl leading-none font-bold">
+                  {japaneseNumerals[index]}
                 </span>
-                <h4 className="mt-5 font-serif text-lg font-bold tracking-normal">
-                  <JapaneseLineBreak text={item.title} />
-                </h4>
-                <p className="text-muted-foreground mt-3 text-sm leading-7">
-                  <JapaneseLineBreak text={item.summary} />
-                </p>
-                <p className="text-accent mt-5 font-mono text-xs font-bold tracking-[0.16em]">
-                  詳細を見る →
-                </p>
-              </Link>
-            ))}
-          </div>
+                <div>
+                  <h5 className="font-serif text-lg leading-snug font-bold tracking-normal">
+                    <JapaneseLineBreak text={principle.heading} />
+                  </h5>
+                  <div className="mt-4 max-w-2xl space-y-2">
+                    <JapaneseModernProse text={principle.body} />
+                  </div>
+                </div>
+              </div>
+            </section>
+          ))}
         </div>
-      ) : (
-        <div className="border-border bg-card/40 mt-16 rounded-lg border border-dashed p-8 text-center">
-          <p className="text-muted-foreground text-sm leading-7">
-            このハーネスの詳細は、現在準備中です。
-          </p>
-          <p className="text-muted-foreground mt-2 text-sm leading-7">
-            まずはトップの全体構図と、秘書役ハーネスからご覧ください。
-          </p>
-        </div>
-      )}
+      </section>
 
-      <div className="mt-12">
+      <div className="mt-12 flex flex-wrap gap-4">
         <Link href="/harness" className={buttonVariants({ variant: "outline" })}>
           ← ハーネス設計に戻る
+        </Link>
+        <Link href="/ai" className={buttonVariants({ variant: "outline" })}>
+          AI活用事例を見る
         </Link>
       </div>
     </div>
