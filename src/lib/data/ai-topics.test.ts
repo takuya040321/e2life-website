@@ -3,10 +3,10 @@ import { describe, expect, it } from "vitest";
 import { aiTopics, getAiTopic } from "./ai-topics";
 
 describe("aiTopics", () => {
-  it("has 4 topics with unique slugs", () => {
-    expect(aiTopics).toHaveLength(4);
+  it("has 12 topics with unique slugs", () => {
+    expect(aiTopics).toHaveLength(12);
     const slugs = aiTopics.map((topic) => topic.slug);
-    expect(new Set(slugs).size).toBe(4);
+    expect(new Set(slugs).size).toBe(12);
   });
 
   it("each topic has overview and at least 3 points", () => {

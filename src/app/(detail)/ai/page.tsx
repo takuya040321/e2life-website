@@ -7,7 +7,21 @@ import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
 import { aiTopics } from "@/lib/data/ai-topics";
 
-const topicNumbers = ["01", "02", "03", "04"] as const;
+const topicNumbers = [
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+  "13",
+] as const;
 
 export const metadata: Metadata = {
   title: "AI活用事例",
@@ -57,13 +71,13 @@ export default function AiHubPage() {
           Domains
         </p>
         <h3 className="mt-3 font-serif text-2xl font-bold tracking-normal">
-          <JapaneseLineBreak text="4 つの活用領域" />
+          <JapaneseLineBreak text="活用領域の一覧" />
         </h3>
         <p className="text-muted-foreground mt-2 max-w-2xl text-sm leading-7">
           <JapaneseLineBreak text="それぞれの領域で、何をして、何を意識しているかをまとめています。" />
         </p>
 
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {aiTopics.map((topic, index) => (
             <Link
               key={topic.slug}
