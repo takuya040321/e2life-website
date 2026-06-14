@@ -125,7 +125,7 @@ export default async function SpecialistHarnessPage({
                 Items
               </p>
               <h3 className="mt-2 font-serif text-2xl font-bold tracking-normal">
-                <JapaneseLineBreak text="このハーネスで意識していること" />
+                <JapaneseLineBreak text="このハーネスでわたしが意識していること" />
               </h3>
             </div>
             <div className="bg-accent hidden h-px flex-1 self-end sm:block" aria-hidden="true" />

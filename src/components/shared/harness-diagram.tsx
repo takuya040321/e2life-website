@@ -10,10 +10,10 @@ type Step = {
 };
 
 const steps: readonly Step[] = [
-  { title: "あなた（社長）", note: "やりたいことを伝える" },
-  { title: "秘書役の AI（PA）", note: "窓口はここひとつ", emphasis: true },
+  { title: "わたし", note: "やりたいことを伝える" },
+  { title: "秘書役の AI", note: "窓口はここひとつ", emphasis: true },
   {
-    title: "各部門の担当 AI（部長役）",
+    title: "各部門の担当 AI",
     note: "部門ごとに方針を検討",
     branches: ["部門A", "部門B", "部門C"],
   },

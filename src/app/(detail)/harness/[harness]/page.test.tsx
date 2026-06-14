@@ -13,7 +13,7 @@ describe("SpecialistHarnessPage", () => {
       "font-serif",
     );
     expect(
-      screen.getByRole("heading", { level: 3, name: "このハーネスで意識していること" }),
+      screen.getByRole("heading", { level: 3, name: "このハーネスでわたしが意識していること" }),
     ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /議論パートナーになる/ })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /司令塔として束ねる/ })).toBeInTheDocument();

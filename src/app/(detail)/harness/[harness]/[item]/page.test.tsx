@@ -13,10 +13,10 @@ describe("HarnessItemPage", () => {
       screen.getByRole("heading", { level: 2, name: "議論パートナーになる" }),
     ).toHaveClass("font-serif");
     expect(
-      screen.getByRole("heading", { level: 4, name: "どんな取り組みか" }),
+      screen.getByRole("heading", { level: 4, name: "どんな取り組みをしているか" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { level: 4, name: "意識していること" }),
+      screen.getByRole("heading", { level: 4, name: "わたしが意識していること" }),
     ).toBeInTheDocument();
   });
 

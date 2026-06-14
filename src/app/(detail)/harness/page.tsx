@@ -28,22 +28,25 @@ export default function HarnessHubPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-20">
       <div className="relative">
-        <h2 className="font-serif text-3xl font-bold tracking-normal">
-          <JapaneseLineBreak text="ハーネス設計" />
+        <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">
+          About my harness design
+        </p>
+        <h2 className="mt-3 font-serif text-3xl font-bold tracking-normal">
+          <JapaneseLineBreak text="わたしのハーネス設計" />
         </h2>
-        <p className="text-muted-foreground mt-2">
-          <JapaneseLineBreak text="AI を 1 つの組織のように経営する仕組みです。" />
+        <p className="text-muted-foreground mt-3">
+          <JapaneseLineBreak text="AI を 1 つの組織のように経営する仕組みを、わたしは下記のように設計しています。" />
         </p>
       </div>
 
       <p className="text-muted-foreground mt-10 max-w-3xl text-base leading-8">
-        <JapaneseLineBreak text="複数の AI を思いつきで個別に動かすのではなく、役割ごとの専門ハーネスに分け、それらをひとつの会社のように束ねて動かしています。やりたいことは窓口役の AI ひとつに伝えるだけ。窓口が関連する専門ハーネスを集めて方針を決め、実装まで進めます。判断・知見・やり取りはすべて記録として蓄積し、振り返って次に活かします。" />
+        <JapaneseLineBreak text="わたしは複数の AI を思いつきで個別に動かすのではなく、役割ごとの専門ハーネスに分け、それらをひとつの会社のように束ねて動かしています。やりたいことを伝える相手は、秘書役の AI ひとつだけ。秘書役が関連する専門ハーネスを集めて方針を決め、実装まで進めます。判断・知見・やり取りはすべて記録として蓄積し、振り返って次に活かしていく、というのがわたしのハーネス設計の全体像です。" />
       </p>
 
       <figure className="border-border bg-background mt-14 rounded-xl border p-6 sm:p-8">
         <HarnessDiagram />
         <figcaption className="text-muted-foreground mt-6 text-center text-sm leading-7">
-          <JapaneseLineBreak text="全体構図: 社長は窓口役の AI に伝えるだけ。窓口が各専門ハーネスと連携して方針を決め、実装し、独立した目で確認したうえで世に出します。やり取りと判断は記録層に蓄積されていきます。" />
+          <JapaneseLineBreak text="全体構図: わたしは秘書役の AI に伝えるだけ。秘書役が各専門ハーネスと連携して方針を決め、実装し、独立した目で確認したうえで世に出します。やり取りと判断は記録層に蓄積されていきます。" />
         </figcaption>
       </figure>
 
@@ -54,10 +57,10 @@ export default function HarnessHubPage() {
               Orchestration
             </p>
             <h2 className="mt-2 font-serif text-2xl font-bold tracking-normal">
-              <JapaneseLineBreak text="全体ハーネスで意識していること" />
+              <JapaneseLineBreak text="全体ハーネスでわたしが意識していること" />
             </h2>
             <p className="text-muted-foreground mt-2 max-w-2xl text-sm leading-7">
-              <JapaneseLineBreak text="複数の専門ハーネスを束ねる「全体のオーケストレーション」で大切にしている考え方です。各専門ハーネスの設計は、この方針に沿って組み立てています。" />
+              <JapaneseLineBreak text="複数の専門ハーネスを束ねる「全体のオーケストレーション」で、わたしが大切にしている考え方です。各専門ハーネスの設計も、この方針に沿って組み立てています。" />
             </p>
           </div>
           <div className="bg-accent hidden h-px flex-1 self-end sm:block" aria-hidden="true" />
@@ -87,10 +90,10 @@ export default function HarnessHubPage() {
               Specialist Harnesses
             </p>
             <h2 className="mt-2 font-serif text-2xl font-bold tracking-normal">
-              <JapaneseLineBreak text="専門ハーネス一覧" />
+              <JapaneseLineBreak text="わたしが設計している専門ハーネス" />
             </h2>
             <p className="text-muted-foreground mt-2 max-w-2xl text-sm leading-7">
-              <JapaneseLineBreak text="役割・機能ごとに設計している専門ハーネスです。それぞれのハーネスでも、その役割固有に意識していることがあります。" />
+              <JapaneseLineBreak text="役割・機能ごとに分けて設計している専門ハーネスです。それぞれのハーネスでも、その役割固有に意識していることがあります。" />
             </p>
           </div>
           <div className="bg-accent hidden h-px flex-1 self-end sm:block" aria-hidden="true" />

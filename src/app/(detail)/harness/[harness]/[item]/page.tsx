@@ -117,7 +117,7 @@ export default async function HarnessItemPage({
           Overview
         </h3>
         <h4 className="mt-2 font-serif text-xl font-bold tracking-normal">
-          <JapaneseLineBreak text="どんな取り組みか" />
+          <JapaneseLineBreak text="どんな取り組みをしているか" />
         </h4>
         <div className="mt-4 max-w-2xl space-y-2">
           <JapaneseModernProse text={item.overview} />
@@ -129,7 +129,7 @@ export default async function HarnessItemPage({
           Points
         </h3>
         <h4 className="mt-2 font-serif text-xl font-bold tracking-normal">
-          <JapaneseLineBreak text="意識していること" />
+          <JapaneseLineBreak text="わたしが意識していること" />
         </h4>
 
         <div className="mt-6 grid gap-5">

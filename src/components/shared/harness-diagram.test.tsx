@@ -6,9 +6,9 @@ import { HarnessDiagram } from "./harness-diagram";
 describe("HarnessDiagram", () => {
   it("renders the flow steps in order", () => {
     render(<HarnessDiagram />);
-    expect(screen.getByText("あなた（社長）")).toBeInTheDocument();
-    expect(screen.getByText("秘書役の AI（PA）")).toBeInTheDocument();
-    expect(screen.getByText("各部門の担当 AI（部長役）")).toBeInTheDocument();
+    expect(screen.getByText("わたし")).toBeInTheDocument();
+    expect(screen.getByText("秘書役の AI")).toBeInTheDocument();
+    expect(screen.getByText("各部門の担当 AI")).toBeInTheDocument();
     expect(screen.getByText("実装エージェント")).toBeInTheDocument();
     expect(screen.getByText("レビュー → 公開・成果")).toBeInTheDocument();
   });
