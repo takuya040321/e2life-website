@@ -11,14 +11,14 @@ describe("AiHubPage", () => {
     ).toHaveClass("font-serif");
   });
 
-  it("renders the Domains section with category grouping and glossary", () => {
+  it("renders the Domains section with category grouping and without a glossary block", () => {
     render(<AiHubPage />);
     expect(
       screen.getByRole("heading", { level: 3, name: "活用領域(カテゴリ別)" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { level: 3, name: "このページで出てくる用語" }),
-    ).toBeInTheDocument();
+      screen.queryByRole("heading", { name: "このページで出てくる用語" }),
+    ).not.toBeInTheDocument();
     expect(
       screen.queryByRole("heading", { name: "なぜ自動化に振り切るのか" }),
     ).not.toBeInTheDocument();

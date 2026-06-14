@@ -37,8 +37,6 @@ export type AiTopic = {
   summary: string;
   /** 詳細ページの概要(何をしているか) */
   overview: string;
-  /** ハブカードに表示する主要ツール */
-  highlightTools?: string[];
   /** 何が楽になるか / 防げるか(3点) */
   benefits?: string[];
   /** 安全境界(高リスク領域のみ) */
@@ -62,7 +60,6 @@ export const aiTopics: AiTopic[] = [
     summary: "ネタ抽出から執筆・レビューまでを自走、声がけで下書きに反映。",
     overview:
       "日々の作業で溜まる記録を起点に、SNS 発信の「ネタ探し」から執筆・公開前チェックまでを AI が一連の流れで進めます。各プラットフォームの下書きへの反映は、わたしが朝イチで声をかけたタイミングで行うことで、出すか出さないかを最後まで自分の判断に残しています。",
-    highlightTools: ["macOS launchd", "Playwright", "X API"],
     benefits: [
       "毎朝、発信ネタを 0 から探す手間がなくなる",
       "媒体ごとに執筆スタイルを切り替える負担がなくなる",
@@ -113,7 +110,6 @@ export const aiTopics: AiTopic[] = [
     summary: "最新情報の自動収集・要約と、確認しやすいチャネルへの配信。",
     overview:
       "関心領域の最新情報を、AI エージェントが定期的に収集・要約し、確認しやすいチャネルへ配信する仕組みを運用しています。情報を手動で追い続ける負荷を、定時に走るエージェントに置き換えています。",
-    highlightTools: ["GitHub Actions", "Slack Bot"],
     benefits: [
       "関心領域の情報を毎日追いに行かなくて済む",
       "ニュースの分量に振り回されず、要点だけ追える",
@@ -159,7 +155,6 @@ export const aiTopics: AiTopic[] = [
     summary: "Codex CLI + gpt-image-2 を使い、媒体別スキルで自動生成。",
     overview:
       "ブログのアイキャッチや SNS のカルーセルといった画像コンテンツを、専用の生成スキル経由で自動化しています。AI(Claude Code)が直接 API を叩くのではなく、画像生成専用の Codex CLI に入口を一本化することで、品質と運用ルールを揃えています。",
-    highlightTools: ["Codex CLI", "gpt-image-2"],
     benefits: [
       "媒体ごとのサイズ・余白を毎回調整する手間がなくなる",
       "「画像どうする?」で記事公開が止まらなくなる",
@@ -205,7 +200,6 @@ export const aiTopics: AiTopic[] = [
     summary: "gpt-image-2 で静止画 → Kling で動画化 → DaVinci で編集。",
     overview:
       "ショート動画・縦型動画コンテンツの制作を、台本生成から生成モデル向けプロンプト変換、編集までを一連のスキルで自動化しています。作品ごとの世界観やキャラクター設定を維持しながら、量と質を両立させます。",
-    highlightTools: ["gpt-image-2", "Kling 3.0", "DaVinci Resolve"],
     benefits: [
       "単話完結の量産にかかる制作工数を抑えられる",
       "キャラクターの一貫性が崩れない",
@@ -251,7 +245,6 @@ export const aiTopics: AiTopic[] = [
     summary: "日次→週次→月次→年次の階層要約を launchd で自走化。",
     overview:
       "AI エージェントとの作業で生まれる対話・判断・知見を、流れて消える情報ではなく資産として扱い、自動で要約・蓄積し、定期的に振り返る仕組みを運用しています。記録を使い捨てにせず積み上げることが、次の判断の質を支えます。",
-    highlightTools: ["macOS launchd", "SessionStart hook"],
     benefits: [
       "セッションの続きを「前回どこまで話したか」から始めなくて済む",
       "同じ試行錯誤を 2 度繰り返さずに済む",
@@ -297,7 +290,6 @@ export const aiTopics: AiTopic[] = [
     summary: "依頼 → 設計 → 実装 → 検証 → commit → push → Vercel デプロイまで自走。",
     overview:
       "このサイト自体、コードの修正から本番反映までを AI エージェントが自走で進めています。レビューとビルド検証を必須ゲートとして組み込み、人間が握るのは方針判断と最終確認だけです。",
-    highlightTools: ["Next.js", "pnpm", "Vercel"],
     benefits: [
       "細かな実装判断を一つひとつレビューしなくていい",
       "検証ゲートを通らないと公開されないので破綻を防げる",
@@ -343,7 +335,6 @@ export const aiTopics: AiTopic[] = [
     summary: "原本リポジトリで一極管理し、symlink で各事業リポへ即時配備。",
     overview:
       "複数の事業リポジトリで使う AI のスキル・ルール・エージェント定義を、単一の原本リポジトリで管理し、各環境へは即時に配備する基盤を運用しています。バラバラに増殖しがちな AI 運用を、組織的な構成に揃えています。",
-    highlightTools: ["claude-assets", "symlink", "@import"],
     benefits: [
       "リポごとに同じルールを書き直す手間がなくなる",
       "古い設定のままのリポが残る事故を防げる",
@@ -389,7 +380,6 @@ export const aiTopics: AiTopic[] = [
     summary: "要件定義 → 見積もり → ER 図 → 基本設計までを定型スキルで。",
     overview:
       "受託案件や個人プロダクトの設計工程を、AI エージェントと共に進めています。要件の整理から、見積もり、ER 図、基本設計書まで、定型化したスキルで一定の品質を保ちながら速く回します。",
-    highlightTools: ["Mermaid", "Markdown"],
     benefits: [
       "要件・見積もり・ER 図・基本設計をゼロから書かなくて済む",
       "案件ごとに粒度がぶれず、比較や引き継ぎがしやすい",
@@ -435,7 +425,6 @@ export const aiTopics: AiTopic[] = [
     summary: "Amazon 売上の自動取得 → 検算 → マネーフォワード会計へ確定仕訳。",
     overview:
       "複数の収益源から発生する取引データを、それぞれの API やレポートから自動取得し、マネーフォワード会計へ自動仕訳で投入する仕組みを運用しています。手動入力の負担をなくし、月次の数字を常に最新の状態に保っています。",
-    highlightTools: ["マネフォ会計 MCP", "Amazon SP-API"],
     benefits: [
       "月末の入力作業がほぼゼロになる",
       "入力ミスや重複登録による財務データ破壊を防げる",
@@ -497,7 +486,6 @@ export const aiTopics: AiTopic[] = [
     summary: "Gmail / Google Calendar の MCP で初動を任せ、送信は必ず人間。",
     overview:
       "日々の受信メールチェックや返信下書き、予定の調整候補出しなど、対応の初動を AI エージェントに任せています。最終確認と送信は人間が行うため、外に出る一歩手前で必ず人間のゲートを通る設計です。",
-    highlightTools: ["Gmail MCP", "Google Calendar MCP"],
     benefits: [
       "受信ボックスを開きに行く回数が減る",
       "ゼロから返信文を書く手間がなくなる",
@@ -559,7 +547,6 @@ export const aiTopics: AiTopic[] = [
     summary: "Markdown 原稿 → PDF / Word / Excel / PowerPoint を専用スキルで変換。",
     overview:
       "業務で必要なドキュメントを、フォーマット別の専用スキルで自動生成しています。Markdown で書いた原稿を、PDF や DOCX、PPTX、XLSX へ変換する流れを定型化し、書き手は中身に集中できるようにしています。",
-    highlightTools: ["Markdown", "DOCX", "PDF"],
     benefits: [
       "レイアウト調整に時間を取られない",
       "複数フォーマット間の内容ずれを防げる",
@@ -605,7 +592,6 @@ export const aiTopics: AiTopic[] = [
     summary: "月次起動で家計を集計、ブラウザ操作で口座を巡回、家計簿スプシに追記。",
     overview:
       "仕事だけでなく、家計管理や家族関連の連絡、個人タスクの集約まで、AI エージェントの支援を取り入れています。仕事と生活で使う AI の判断軸を共通化し、同じ規律で動かしています。",
-    highlightTools: ["Chrome MCP", "Google Sheets MCP"],
     benefits: [
       "月末の家計まとめが声がけ一つで終わる",
       "銀行・カード・現金支出を毎回別画面で確認しなくて済む",

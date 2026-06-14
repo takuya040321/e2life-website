@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 
 import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
@@ -11,25 +10,6 @@ import {
   aiTopics,
   getAiTopicsByCategory,
 } from "@/lib/data/ai-topics";
-
-const glossary = [
-  {
-    term: "Claude Code",
-    body: "Anthropic 製のターミナル型 AI コーディングエージェント。本サイトの中心。",
-  },
-  {
-    term: "Codex CLI",
-    body: "OpenAI 製の CLI 型エージェント。画像生成スキルの実体側として使用。",
-  },
-  {
-    term: "スキル",
-    body: "AI に手順や判断基準を渡すための再利用可能な定義(SKILL.md)。",
-  },
-  {
-    term: "MCP",
-    body: "Model Context Protocol。AI から外部サービス(Gmail / Sheets / 会計など)を操作する共通仕様。",
-  },
-] as const;
 
 const topicNumbers = [
   "01",
@@ -83,30 +63,8 @@ export default function AiHubPage() {
         </p>
       </section>
 
-      {/* 用語ミニガイド */}
-      <section className="mt-12">
-        <p className="text-muted-foreground font-mono text-xs font-bold tracking-[0.22em] uppercase">
-          Glossary
-        </p>
-        <h3 className="mt-2 font-serif text-base font-bold tracking-normal">
-          <JapaneseLineBreak text="このページで出てくる用語" />
-        </h3>
-        <dl className="border-border bg-card/40 mt-4 grid gap-x-6 gap-y-3 rounded-lg border p-5 sm:grid-cols-2">
-          {glossary.map((entry) => (
-            <div key={entry.term} className="flex gap-3">
-              <dt className="text-accent shrink-0 font-mono text-xs font-bold leading-6 tracking-wider">
-                {entry.term}
-              </dt>
-              <dd className="text-muted-foreground text-xs leading-6">
-                <JapaneseLineBreak text={entry.body} />
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </section>
-
       {/* カテゴリ別に活用領域を表示 */}
-      <section className="mt-20">
+      <section className="mt-16">
         <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">
           Domains
         </p>
@@ -114,7 +72,7 @@ export default function AiHubPage() {
           <JapaneseLineBreak text="活用領域(カテゴリ別)" />
         </h3>
         <p className="text-muted-foreground mt-2 max-w-2xl text-sm leading-7">
-          <JapaneseLineBreak text="それぞれの領域で、何をして、どんなツールで実現しているかをまとめています。" />
+          <JapaneseLineBreak text="それぞれの領域で、何をしていて何を意識しているかをまとめています。" />
         </p>
 
         {aiTopicCategories.map((category) => {
@@ -150,19 +108,6 @@ export default function AiHubPage() {
                     <p className="text-muted-foreground mt-3 text-sm leading-7">
                       <JapaneseLineBreak text={topic.summary} />
                     </p>
-                    {topic.highlightTools && topic.highlightTools.length > 0 && (
-                      <div className="mt-4 flex flex-wrap gap-1.5">
-                        {topic.highlightTools.map((tool) => (
-                          <Badge
-                            key={tool}
-                            variant="outline"
-                            className="font-mono text-[10px] tracking-wider"
-                          >
-                            {tool}
-                          </Badge>
-                        ))}
-                      </div>
-                    )}
                     <p className="text-accent mt-5 font-mono text-xs font-bold tracking-[0.16em]">
                       詳細を見る →
                     </p>
