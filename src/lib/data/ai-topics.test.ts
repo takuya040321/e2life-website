@@ -9,19 +9,16 @@ describe("aiTopics", () => {
     expect(new Set(slugs).size).toBe(12);
   });
 
-  it("each topic has summary and overview", () => {
+  it("each topic has summary, overview and howSteps", () => {
     for (const topic of aiTopics) {
       expect(topic.summary.length).toBeGreaterThan(0);
       expect(topic.overview.length).toBeGreaterThan(0);
-    }
-  });
-
-  it("sns topic has a fully-written howSteps with at least 5 steps", () => {
-    const sns = getAiTopic("sns");
-    expect(sns?.howSteps?.length).toBeGreaterThanOrEqual(5);
-    for (const step of sns?.howSteps ?? []) {
-      expect(step.title.length).toBeGreaterThan(0);
-      expect(step.body.length).toBeGreaterThan(0);
+      expect(topic.howSteps?.length).toBeGreaterThanOrEqual(5);
+      for (const step of topic.howSteps ?? []) {
+        expect(step.title.length).toBeGreaterThan(0);
+        expect(step.body.length).toBeGreaterThan(0);
+        expect(step.step).toBeGreaterThan(0);
+      }
     }
   });
 
