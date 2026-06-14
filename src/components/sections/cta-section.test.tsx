@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { CTASection } from "./cta-section";
 
 describe("CTASection", () => {
-  it("renders the let's talk heading", () => {
+  it("renders the heading", () => {
     render(<CTASection />);
     expect(
       screen.getByRole("heading", {
@@ -14,21 +14,13 @@ describe("CTASection", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders only primary contact CTA and a single secondary link", () => {
+  it("renders the three CTA links", () => {
     render(<CTASection />);
-    const links = screen.getAllByRole("link");
-    expect(links).toHaveLength(2);
-  });
-
-  it("renders the contact CTA pointing to /contact", () => {
-    render(<CTASection />);
-    const contactLink = screen.getByText("お問い合わせ");
-    expect(contactLink.closest("a")).toHaveAttribute("href", "/contact");
-  });
-
-  it("renders the about secondary link pointing to /about", () => {
-    render(<CTASection />);
-    const aboutLink = screen.getByText("自分について");
-    expect(aboutLink.closest("a")).toHaveAttribute("href", "/about");
+    expect(screen.getByRole("link", { name: "お問い合わせ" })).toHaveAttribute("href", "/contact");
+    expect(screen.getByRole("link", { name: "AI活用事例を見る" })).toHaveAttribute("href", "/ai");
+    expect(screen.getByRole("link", { name: "ハーネス設計を見る" })).toHaveAttribute(
+      "href",
+      "/harness",
+    );
   });
 });

@@ -7,7 +7,7 @@ describe("HarnessHubPage", () => {
   it("renders the hero with the catchphrase", () => {
     render(<HarnessHubPage />);
     expect(
-      screen.getByRole("heading", { level: 2, name: "AI を、ひとりの会社のように経営する" }),
+      screen.getByRole("heading", { level: 2, name: "AI を、ひとつの組織のように経営する" }),
     ).toHaveClass("font-serif");
   });
 

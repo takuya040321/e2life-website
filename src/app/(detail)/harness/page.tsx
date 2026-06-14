@@ -59,7 +59,7 @@ export default function HarnessHubPage() {
           About my harness design
         </p>
         <h2 className="mt-3 font-serif text-3xl font-bold tracking-normal sm:text-4xl">
-          <JapaneseLineBreak text="AI を、ひとりの会社のように経営する" />
+          <JapaneseLineBreak text="AI を、ひとつの組織のように経営する" />
         </h2>
         <p className="text-muted-foreground mt-5 max-w-2xl text-base leading-8">
           <JapaneseLineBreak text="秘書役の AI 1 人を窓口に、複数の専門 AI に分業させ、すべての判断とやり取りを記録に残す。これがわたしのハーネス設計です。このページでは、その全体像と、わたしが大事にしている考え方を紹介します。" />
@@ -87,7 +87,7 @@ export default function HarnessHubPage() {
           <div className="border-accent/40 bg-accent/5 rounded-lg border p-6">
             <p className="text-accent font-mono text-xs tracking-[0.2em] uppercase">After</p>
             <p className="mt-3 text-sm leading-7">
-              <JapaneseLineBreak text="役割ごとに専門ハーネスを分け、秘書役 1 人を窓口にして、すべての判断とやり取りを記録に残す形にしたところ、ひとつの会社のように判断を積み重ねられるようになりました。" />
+              <JapaneseLineBreak text="役割ごとに専門ハーネスを分け、秘書役 1 人を窓口にして、すべての判断とやり取りを記録に残す形にしたところ、ひとつの組織として判断を積み重ねられるようになりました。" />
             </p>
           </div>
         </div>

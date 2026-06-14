@@ -19,7 +19,7 @@ export function CTASection() {
       />
       <div className="relative z-10">
         <p className="text-accent font-mono text-xs font-bold tracking-[0.28em] uppercase">
-          Let&apos;s talk
+          Let&apos;s work together
         </p>
         <h2 className="mt-4 font-serif text-2xl font-bold tracking-normal sm:text-3xl">
           <JapaneseLineBreak text="AI を組織のように動かすご相談を受け付けています" />
@@ -38,13 +38,22 @@ export function CTASection() {
             お問い合わせ
           </Link>
           <Link
-            href="/about"
+            href="/ai"
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
               "border-primary/70 hover:border-accent hover:text-accent rounded-sm px-6",
             )}
           >
-            自分について
+            AI活用事例を見る
+          </Link>
+          <Link
+            href="/harness"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              "border-primary/70 hover:border-accent hover:text-accent rounded-sm px-6",
+            )}
+          >
+            ハーネス設計を見る
           </Link>
         </div>
       </div>

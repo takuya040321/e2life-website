@@ -22,16 +22,16 @@ export function HeroSection() {
               <h1 className="font-serif text-3xl leading-tight font-bold tracking-normal sm:text-5xl lg:text-6xl">
                 <span className="block">AI を、</span>
                 <span className="block">
-                  ひとりの<span className="text-accent">会社</span>のように
+                  ひとつの<span className="text-accent">組織</span>のように
                 </span>
                 <span className="block">経営するエンジニア</span>
               </h1>
             </div>
             <div className="bg-accent mx-auto mt-8 h-px w-32 origin-center" />
             <p className="text-muted-foreground mx-auto mt-8 max-w-2xl text-base leading-8 sm:text-lg">
-              <JapaneseLineBreak text="マルチエージェント構成 × 記録集中管理 × 独立レビューで、" />
+              <JapaneseLineBreak text="役割の異なる AI を組織のように分業させ、判断と知見を記録に残しながら、" />
               <br className="hidden sm:block" />
-              <JapaneseLineBreak text="開発プロセスごと自走させる設計を行います。" />
+              <JapaneseLineBreak text="開発プロセスごと自走させる設計を行っています。" />
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
@@ -42,6 +42,15 @@ export function HeroSection() {
                 )}
               >
                 お問い合わせ
+              </Link>
+              <Link
+                href="/ai"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "border-primary/70 bg-background/70 hover:border-accent hover:text-accent rounded-sm px-6 font-medium backdrop-blur-sm",
+                )}
+              >
+                AI活用事例を見る
               </Link>
               <Link
                 href="/harness"

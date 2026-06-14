@@ -1,10 +1,9 @@
-import { CaseStudySection } from "@/components/sections/case-study-section";
+import { AboutMeSection } from "@/components/sections/about-me-section";
 import { CTASection } from "@/components/sections/cta-section";
+import { ExploreSection } from "@/components/sections/explore-section";
 import { HeroSection } from "@/components/sections/hero-section";
-import { ProblemSolutionSection } from "@/components/sections/problem-solution-section";
 import { ProcessSection } from "@/components/sections/process-section";
-import { StrengthsSection } from "@/components/sections/strengths-section";
-import { TrustStrip } from "@/components/sections/trust-strip";
+import { WhatIDoSection } from "@/components/sections/what-i-do-section";
 
 export default function HomePage() {
   return (
@@ -13,13 +12,10 @@ export default function HomePage() {
         <HeroSection />
       </div>
       <div className="mx-auto max-w-5xl px-6">
-        <TrustStrip />
-      </div>
-      <div className="mx-auto max-w-5xl px-6">
-        <ProblemSolutionSection />
-        <StrengthsSection />
+        <AboutMeSection />
+        <WhatIDoSection />
         <ProcessSection />
-        <CaseStudySection />
+        <ExploreSection />
       </div>
       <div className="border-border border-t">
         <div className="mx-auto max-w-5xl px-6">
