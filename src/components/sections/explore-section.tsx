@@ -3,41 +3,52 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
-const entries = [
+type Entry = {
+  label: string;
+  title: string;
+  body: string;
+  href: string;
+  emphasis?: boolean;
+};
+
+const featured: Entry[] = [
   {
-    label: "Case Study",
+    label: "具体例を見る",
     title: "AI活用事例",
-    body: "実際にどんな現場で、どのように AI を活用しているかを具体例で紹介します。",
+    body: "12 領域でどんなツールでどう動かしているか、ステップ単位で紹介。「何が楽になるか」「自動化しないこと」も明記しています。",
     href: "/ai",
+    emphasis: true,
   },
   {
-    label: "Design Thinking",
+    label: "設計思想を読む",
     title: "ハーネス設計",
-    body: "AI を組織のように動かす設計思想と、わたしが意識していることをまとめています。",
+    body: "AI を組織のように動かすための、わたしが大事にしている考え方と 5 つの役割。具体実装はあえて伏せ、なぜそうしているかを語ります。",
     href: "/harness",
+    emphasis: true,
   },
-  {
-    label: "About Me",
-    title: "自分について",
-    body: "経歴や背景、いま取り組んでいることを、もう少し詳しく書いています。",
-    href: "/about",
-  },
-] as const;
+];
+
+const secondary: Entry = {
+  label: "人物背景を確認する",
+  title: "自分について",
+  body: "経歴・転機・価値観・技術スタック・得意な相談・対応しないこと。",
+  href: "/about",
+};
 
 export function ExploreSection() {
   return (
     <section className="py-24">
       <SectionHeading
         title="もっと詳しく見る"
-        description="気になる入口から、深掘りしてご覧ください。"
+        description="目的別の入口から、深掘りしてご覧ください。"
         align="left"
       />
       <div className="mt-12 grid gap-5 md:grid-cols-3">
-        {entries.map((entry) => (
+        {featured.map((entry) => (
           <Link
             key={entry.href}
             href={entry.href}
-            className="border-border bg-card/70 hover:border-accent hover:bg-card group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors sm:p-7"
+            className="border-accent/40 bg-card/70 hover:border-accent hover:bg-card group relative overflow-hidden rounded-lg border-2 p-6 shadow-sm transition-colors sm:p-7 md:col-span-1"
           >
             <span
               className="border-accent/20 absolute top-5 right-5 size-20 rounded-full border"
@@ -57,6 +68,23 @@ export function ExploreSection() {
             </p>
           </Link>
         ))}
+        <Link
+          href={secondary.href}
+          className="border-border bg-card/40 hover:border-accent group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors sm:p-7"
+        >
+          <p className="text-muted-foreground font-mono text-xs font-bold tracking-[0.22em] uppercase">
+            {secondary.label}
+          </p>
+          <h3 className="mt-4 font-serif text-base font-bold tracking-normal">
+            <JapaneseLineBreak text={secondary.title} />
+          </h3>
+          <p className="text-muted-foreground mt-3 text-sm leading-7">
+            <JapaneseLineBreak text={secondary.body} />
+          </p>
+          <p className="text-accent mt-5 font-mono text-xs font-bold tracking-[0.16em]">
+            プロフィールを見る →
+          </p>
+        </Link>
       </div>
     </section>
   );

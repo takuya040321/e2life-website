@@ -27,35 +27,30 @@ export function CTASection() {
         <p className="text-muted-foreground mx-auto mt-5 max-w-xl text-sm leading-7">
           <JapaneseLineBreak text="開発プロセスの自走化、マルチエージェント設計、記録基盤の構築まで。まずはお気軽にご相談ください。" />
         </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mt-10 flex justify-center">
           <Link
             href="/contact"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "bg-accent text-accent-foreground hover:bg-accent/90 border-accent rounded-sm px-8",
+              "bg-accent text-accent-foreground hover:bg-accent/90 border-accent rounded-sm px-10",
             )}
           >
             お問い合わせ
           </Link>
-          <Link
-            href="/ai"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "border-primary/70 hover:border-accent hover:text-accent rounded-sm px-6",
-            )}
-          >
+        </div>
+        <p className="text-muted-foreground mt-6 text-xs">
+          <Link href="/ai" className="hover:text-accent transition-colors">
             AI活用事例を見る
           </Link>
-          <Link
-            href="/harness"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "border-primary/70 hover:border-accent hover:text-accent rounded-sm px-6",
-            )}
-          >
+          <span className="mx-2">/</span>
+          <Link href="/harness" className="hover:text-accent transition-colors">
             ハーネス設計を見る
           </Link>
-        </div>
+          <span className="mx-2">/</span>
+          <Link href="/about" className="hover:text-accent transition-colors">
+            自分について
+          </Link>
+        </p>
       </div>
     </section>
   );

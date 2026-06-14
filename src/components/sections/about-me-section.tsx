@@ -9,7 +9,7 @@ export function AboutMeSection() {
   return (
     <section className="py-24">
       <SectionHeading
-        title="わたしについて"
+        title="自分について"
         description="AI と一緒に開発プロセスを設計するエンジニアです。"
         align="left"
       />
@@ -17,14 +17,26 @@ export function AboutMeSection() {
       <div className="mt-12 grid gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="space-y-5">
           <p className="text-muted-foreground text-base leading-8">
-            <JapaneseLineBreak text="AI を「補助ツール」ではなく、ひとつの組織のメンバーとして位置づけ、開発プロセス全体を AI が自走して回せる形に再設計するエンジニアです。" />
+            <JapaneseLineBreak text="2023 年に SE 業界へ入り、Microsoft 365 Copilot を業務に組み込むところから AI ネイティブな開発スタイルでキャリアを始めました。" />
           </p>
           <p className="text-muted-foreground text-base leading-8">
-            <JapaneseLineBreak text="役割ごとに専門のエージェントを設計し、窓口・部門担当・実装・レビュー・記録という分業体制を作って動かしています。人間が握るのは、最終ゲートと重要判断だけ。" />
+            <JapaneseLineBreak text="その後、Claude Code を中核にしたマルチエージェント基盤を個人開発で構築。判断・実装・レビュー・記録を役割ごとに分けて回す仕組みを設計し、自分自身の事業運営で検証してきました。" />
           </p>
           <p className="text-muted-foreground text-base leading-8">
-            <JapaneseLineBreak text="個人で複数の領域を並行運営する中で得た知見を、そのまま設計に反映しています。" />
+            <JapaneseLineBreak text="いまは、設計思想と具体実装の両方を継続改善しながら、外部案件にも展開しています。" />
           </p>
+          <div className="pt-2">
+            <Link
+              href="/about"
+              className={buttonVariants({
+                variant: "outline",
+                size: "sm",
+                className: "hover:border-accent hover:text-accent rounded-sm",
+              })}
+            >
+              プロフィール詳細 →
+            </Link>
+          </div>
         </div>
 
         <div className="border-accent/40 bg-card/40 self-start rounded-lg border p-6">
@@ -37,18 +49,6 @@ export function AboutMeSection() {
             <li>・判断と知見の記録基盤</li>
             <li>・独立レビューによる品質設計</li>
           </ul>
-          <div className="mt-6">
-            <Link
-              href="/about"
-              className={buttonVariants({
-                variant: "outline",
-                size: "sm",
-                className: "hover:border-accent hover:text-accent rounded-sm",
-              })}
-            >
-              プロフィール詳細 →
-            </Link>
-          </div>
         </div>
       </div>
     </section>

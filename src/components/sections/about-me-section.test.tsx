@@ -6,7 +6,7 @@ import { AboutMeSection } from "./about-me-section";
 describe("AboutMeSection", () => {
   it("renders the section heading and the profile link", () => {
     render(<AboutMeSection />);
-    expect(screen.getByRole("heading", { level: 2, name: "わたしについて" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "自分について" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /プロフィール詳細/ })).toHaveAttribute(
       "href",
       "/about",

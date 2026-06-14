@@ -29,9 +29,9 @@ export function HeroSection() {
             </div>
             <div className="bg-accent mx-auto mt-8 h-px w-32 origin-center" />
             <p className="text-muted-foreground mx-auto mt-8 max-w-2xl text-base leading-8 sm:text-lg">
-              <JapaneseLineBreak text="役割の異なる AI を組織のように分業させ、判断と知見を記録に残しながら、" />
+              <JapaneseLineBreak text="個人事業主・小規模事業・開発組織の判断負荷を、" />
               <br className="hidden sm:block" />
-              <JapaneseLineBreak text="開発プロセスごと自走させる設計を行っています。" />
+              <JapaneseLineBreak text="役割を分けた AI と記録基盤の組み合わせで下げます。" />
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link

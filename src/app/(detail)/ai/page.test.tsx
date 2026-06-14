@@ -11,14 +11,25 @@ describe("AiHubPage", () => {
     ).toHaveClass("font-serif");
   });
 
-  it("renders the Domains section without a Why block", () => {
+  it("renders the Domains section with category grouping and glossary", () => {
     render(<AiHubPage />);
     expect(
-      screen.getByRole("heading", { level: 3, name: "活用領域の一覧" }),
+      screen.getByRole("heading", { level: 3, name: "活用領域(カテゴリ別)" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: "このページで出てくる用語" }),
     ).toBeInTheDocument();
     expect(
       screen.queryByRole("heading", { name: "なぜ自動化に振り切るのか" }),
     ).not.toBeInTheDocument();
+  });
+
+  it("groups topics by category", () => {
+    render(<AiHubPage />);
+    expect(screen.getByRole("heading", { level: 4, name: "発信" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 4, name: "開発" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 4, name: "業務運用" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 4, name: "生活・管理" })).toBeInTheDocument();
   });
 
   it("renders the 12 topic cards covering all domains", () => {
@@ -39,7 +50,7 @@ describe("AiHubPage", () => {
     expect(screen.getByRole("link", { name: /設計工程の AI 化/ })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /ドキュメント作成の自動化/ })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /個人生活の AI サポート/ })).toBeInTheDocument();
-    expect(screen.getByText("01")).toHaveClass("text-accent");
+    expect(screen.getAllByText("01")[0]).toHaveClass("text-accent");
     expect(screen.getByText("12")).toHaveClass("text-accent");
   });
 });
