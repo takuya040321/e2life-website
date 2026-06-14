@@ -11,7 +11,7 @@ describe("HarnessRolePage", () => {
     render(ui);
     expect(screen.getByRole("heading", { level: 2, name: "秘書役" })).toHaveClass("font-serif");
     expect(
-      screen.getByRole("heading", { level: 4, name: "どんなメンバーか" }),
+      screen.getByRole("heading", { level: 4, name: "何を任せているか" }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { level: 4, name: "この役割で意識していること" }),

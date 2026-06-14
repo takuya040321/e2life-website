@@ -76,7 +76,7 @@ export default function HarnessHubPage() {
           <JapaneseLineBreak text="5 つの役割で分業する" />
         </h3>
         <p className="text-muted-foreground mt-2 max-w-2xl text-sm leading-7">
-          <JapaneseLineBreak text="役割ごとに専任の AI メンバーを立てています。それぞれが何をしてくれて、何を意識しているかをまとめています。" />
+          <JapaneseLineBreak text="役割ごとに専任の AI を立てています。それぞれに何を任せていて、何を意識しているかをまとめています。" />
         </p>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

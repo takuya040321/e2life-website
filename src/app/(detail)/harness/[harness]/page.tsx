@@ -109,7 +109,7 @@ export default async function HarnessRolePage({
           Overview
         </h3>
         <h4 className="mt-2 font-serif text-xl font-bold tracking-normal">
-          <JapaneseLineBreak text="どんなメンバーか" />
+          <JapaneseLineBreak text="何を任せているか" />
         </h4>
         <div className="mt-4 max-w-2xl space-y-2">
           <JapaneseModernProse text={role.overview} />
