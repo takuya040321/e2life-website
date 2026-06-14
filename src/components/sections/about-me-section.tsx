@@ -17,13 +17,10 @@ export function AboutMeSection() {
       <div className="mt-12 grid gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="space-y-5">
           <p className="text-muted-foreground text-base leading-8">
-            <JapaneseLineBreak text="2023 年に SE 業界へ入り、Microsoft 365 Copilot を業務に組み込むところから AI ネイティブな開発スタイルでキャリアを始めました。" />
+            <JapaneseLineBreak text="メーカーの製品技術者として工程設計を経験したのち、2023 年にシステムエンジニアへ転身。製造業の現場で得た改善目線を、AI を組み込んだ開発設計に持ち込みました。" />
           </p>
           <p className="text-muted-foreground text-base leading-8">
-            <JapaneseLineBreak text="その後、Claude Code を中核にしたマルチエージェント基盤を個人開発で構築。判断・実装・レビュー・記録を役割ごとに分けて回す仕組みを設計し、自分自身の事業運営で検証してきました。" />
-          </p>
-          <p className="text-muted-foreground text-base leading-8">
-            <JapaneseLineBreak text="いまは、設計思想と具体実装の両方を継続改善しながら、外部案件にも展開しています。" />
+            <JapaneseLineBreak text="いまは Claude Code を中核にしたマルチエージェント基盤を個人開発で構築しながら、外部案件にも展開しています。実装と仕組みの整合性を両方追う判断軸で動いています。" />
           </p>
           <div className="pt-2">
             <Link
@@ -34,7 +31,7 @@ export function AboutMeSection() {
                 className: "hover:border-accent hover:text-accent rounded-sm",
               })}
             >
-              プロフィール詳細 →
+              経歴・スキル詳細 →
             </Link>
           </div>
         </div>

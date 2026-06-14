@@ -17,19 +17,24 @@ const tags = [
 
 const timeline = [
   {
+    year: "2016",
+    title: "新卒で製品技術者として就職",
+    body: "メーカーの製品技術者として、コストダウンや工程設計を担当しました。製造業の現場で「不要な手順を減らす」「同じ判断を何度も繰り返さない」という改善目線を身につけました。",
+  },
+  {
     year: "2023",
-    title: "SE 業界に入り、AI を業務に組み込む",
-    body: "製造業の SI 案件で Microsoft 365 Copilot をコード作成・設計書作成(UML 図)に組み込み、AI ネイティブな開発スタイルでキャリアをスタートしました。",
+    title: "システムエンジニアに転身、AI を業務に組み込む",
+    body: "製造業向けの業務システム開発の現場に移り、Microsoft 365 Copilot をコード作成や設計書(画面・データ設計)作りに組み込んだところからキャリアをスタート。AI ネイティブな開発スタイルで始めました。",
   },
   {
     year: "2025",
     title: "Claude Code でマルチエージェント基盤を構築",
-    body: "業務並行で個人開発を進め、Claude Code を中核にしたマルチエージェント開発エコシステムを構築。AI が自ら判断・記録・相互レビューを回す仕組みを設計し、実装で検証しました。",
+    body: "本業の開発に取り組みながら、個人開発でも Claude Code を中核にしたマルチエージェント開発エコシステムを構築。AI が自ら判断・記録・相互レビューを回す仕組みを設計し、実装で検証しました。",
   },
   {
     year: "2026〜",
     title: "外部案件へ展開、設計と運用を両輪で回す",
-    body: "SE エージェント経由で外部案件にも展開し、AI ネイティブな開発スタイルを継続中です。実装と仕組みの整合性を両方追う判断軸で動いています。",
+    body: "外部案件にも展開し、AI ネイティブな開発スタイルを継続中です。実装と仕組みの整合性を両方追う判断軸で動いています。",
   },
 ] as const;
 
@@ -64,7 +69,7 @@ const stack = {
 } as const;
 
 const goodAt = [
-  "AI を組み込んだ開発プロセスの設計と組み込み",
+  "AI を組み込んだ開発プロセスの設計・導入",
   "マルチエージェント構成の設計(役割分離 / 独立レビュー / 記録基盤)",
   "Web フロントエンド(Next.js / TypeScript / React)の自走化設計",
   "業務自動化(SNS / メール / 会計 / ドキュメント / 家計など)",
@@ -102,7 +107,7 @@ export default function AboutPage() {
           <JapaneseLineBreak text="仕組みを作って、判断負荷を下げる" />
         </h1>
         <p className="text-muted-foreground mt-5 max-w-3xl text-base leading-8 md:text-lg">
-          <JapaneseLineBreak text="2023 年から SE 業界に入り、AI ネイティブな開発プロセス設計に集中しています。複数の AI を組織のように分業させ、開発・運用・コンテンツ生成まで AI 自走で回す仕組みを設計するエンジニアです。" />
+          <JapaneseLineBreak text="2016 年に製品技術者として就業し、製造業の改善目線を持ったまま 2023 年にシステムエンジニアへ転身。いまは AI ネイティブな開発プロセス設計に集中し、複数の AI を組織のように分業させて、開発・運用・コンテンツ生成まで AI 自走で回す仕組みを設計しています。" />
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
           {tags.map((tag) => (
@@ -186,12 +191,15 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {values.map((value) => (
+          {values.map((value, index) => (
             <article
               key={value.title}
-              className="border-border bg-card/70 rounded-sm border p-6 shadow-sm"
+              className="border-border bg-card/70 rounded-lg border p-6 shadow-sm"
             >
-              <h3 className="font-serif text-lg leading-snug font-bold tracking-normal">
+              <span className="text-accent font-mono text-sm leading-none font-bold tracking-[0.18em]">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 font-serif text-lg leading-snug font-bold tracking-normal">
                 <JapaneseLineBreak text={value.title} />
               </h3>
               <p className="text-muted-foreground mt-3 text-sm leading-7">

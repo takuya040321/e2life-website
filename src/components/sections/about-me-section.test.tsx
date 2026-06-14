@@ -7,7 +7,7 @@ describe("AboutMeSection", () => {
   it("renders the section heading and the profile link", () => {
     render(<AboutMeSection />);
     expect(screen.getByRole("heading", { level: 2, name: "自分について" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /プロフィール詳細/ })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /経歴・スキル詳細/ })).toHaveAttribute(
       "href",
       "/about",
     );
