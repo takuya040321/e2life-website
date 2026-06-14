@@ -13,60 +13,41 @@ export function HeroSection() {
     <section className="relative min-h-[78vh] overflow-hidden py-20 sm:py-28">
       <EnsoAnimation />
       <HeroAnimation>
-        <div className="relative z-10 grid min-h-[56vh] items-center gap-10 sm:grid-cols-[minmax(3rem,0.35fr)_minmax(0,1.25fr)]">
-          <div className="hidden h-full items-center sm:flex">
-            <div
-              aria-label="AI と開発プロセス設計"
-              className="text-accent border-accent/70 flex h-72 items-center gap-5 border-l pl-5 font-serif text-sm tracking-[0.28em] [writing-mode:vertical-rl]"
-            >
-              AI x Development Process
-            </div>
-          </div>
-          <div className="max-w-5xl text-center sm:text-left">
-            <p className="text-muted-foreground mb-5 font-mono text-sm">
+        <div className="relative z-10 mx-auto grid min-h-[56vh] max-w-4xl place-items-center text-center">
+          <div>
+            <p className="text-accent font-mono text-xs font-bold tracking-[0.28em] uppercase">
               AI x Development Process Engineering
             </p>
-            <div className="bg-background/80 dark:bg-background/70 inline-block rounded-sm px-3 py-2 sm:-ml-3">
+            <div className="bg-background/80 dark:bg-background/70 mt-6 inline-block rounded-sm px-4 py-3">
               <h1 className="font-serif text-3xl leading-tight font-bold tracking-normal sm:text-5xl lg:text-6xl">
-                <span className="sm:inline-block sm:whitespace-nowrap">
-                  AI で開発プロセス自体を
+                <span className="block">AI を、</span>
+                <span className="block">
+                  ひとりの<span className="text-accent">会社</span>のように
                 </span>
-                <br className="hidden sm:block" />
-                <span className="inline-block sm:whitespace-nowrap">
-                  <span className="text-accent">設計する</span>エンジニア
-                </span>
+                <span className="block">経営するエンジニア</span>
               </h1>
             </div>
-            <div className="bg-accent mt-6 h-px w-full origin-left sm:w-4/5" />
-            <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg sm:mx-0">
-              <JapaneseLineBreak text="マルチエージェント構成による品質管理と、自己改善する開発プロセスで、" />
+            <div className="bg-accent mx-auto mt-8 h-px w-32 origin-center" />
+            <p className="text-muted-foreground mx-auto mt-8 max-w-2xl text-base leading-8 sm:text-lg">
+              <JapaneseLineBreak text="マルチエージェント構成 × 記録集中管理 × 独立レビューで、" />
               <br className="hidden sm:block" />
-              <JapaneseLineBreak text="プロジェクトの生産性を根本から変えます。" />
+              <JapaneseLineBreak text="開発プロセスごと自走させる設計を行います。" />
             </p>
-            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:justify-start">
+            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/contact"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "bg-accent text-accent-foreground hover:bg-accent/90 border-accent rounded-sm px-5",
+                  "bg-accent text-accent-foreground hover:bg-accent/90 border-accent rounded-sm px-6",
                 )}
               >
                 お問い合わせ
               </Link>
               <Link
-                href="/ai"
-                className={cn(
-                  buttonVariants({ variant: "outline", size: "lg" }),
-                  "border-primary/70 bg-background/70 hover:border-accent hover:text-accent rounded-sm px-5 font-medium backdrop-blur-sm",
-                )}
-              >
-                AI活用を見る
-              </Link>
-              <Link
                 href="/harness"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
-                  "border-primary/70 bg-background/70 hover:border-accent hover:text-accent rounded-sm px-5 font-medium backdrop-blur-sm",
+                  "border-primary/70 bg-background/70 hover:border-accent hover:text-accent rounded-sm px-6 font-medium backdrop-blur-sm",
                 )}
               >
                 ハーネス設計を見る
