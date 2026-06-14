@@ -40,17 +40,17 @@ const values = [
   {
     title: "整合とシンプルさ",
     body: "不要な情報を足さない判断を取ります。3 つあるなら 2 つに、複雑なら段階を 1 つ減らす方向に倒します。一度作った構造を増設より整理で延命させる傾向です。",
-    effect: "依頼者にとって: 後から触れる範囲が狭く、引き継ぎや保守がしやすい状態になります。",
+    effect: "後から触れる範囲が狭く、引き継ぎや保守がしやすい状態になります。",
   },
   {
     title: "仕組み作り",
     body: "個別判断を毎回繰り返すより、一度仕組みにする方を選びます。属人化を避け、再利用と自動化に投資します。それが結果として実装速度にも返ってきます。",
-    effect: "依頼者にとって: 「人に依存しない」「同じ作業を 2 度しない」業務基盤が手に入ります。",
+    effect: "「人に依存しない」「同じ作業を 2 度しない」業務基盤が手に入ります。",
   },
   {
     title: "透明性と振り返り",
     body: "判断と却下理由を記録に残す運用にしています。判断軸ドリフトを 2 度繰り返さないため、後から辿れる状態を保つことを優先します。",
-    effect: "依頼者にとって: なぜそう作ったかが後から辿れ、変更時の「触っていい範囲」がはっきりします。",
+    effect: "なぜそう作ったかが後から辿れ、変更時の「触っていい範囲」がはっきりします。",
   },
 ] as const;
 
@@ -171,9 +171,14 @@ export default function AboutPage() {
               <p className="text-muted-foreground mt-3 text-sm leading-7">
                 <JapaneseLineBreak text={value.body} />
               </p>
-              <p className="text-foreground border-accent/30 mt-4 border-t pt-3 text-xs leading-6">
-                <JapaneseLineBreak text={value.effect} />
-              </p>
+              <div className="border-accent/30 mt-4 border-t pt-3">
+                <span className="text-accent font-mono text-[10px] font-bold tracking-[0.22em] uppercase">
+                  Outcome
+                </span>
+                <p className="text-foreground mt-1 text-xs leading-6">
+                  <JapaneseLineBreak text={value.effect} />
+                </p>
+              </div>
             </article>
           ))}
         </div>
