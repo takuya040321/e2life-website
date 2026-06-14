@@ -34,6 +34,8 @@ const slugToNumber = aiTopics.reduce<Record<string, string>>(
   {},
 );
 
+const categoryNumbers = ["01", "02", "03", "04"] as const;
+
 export const metadata: Metadata = {
   title: "AI活用事例",
   description:
@@ -75,15 +77,20 @@ export default function AiHubPage() {
           <JapaneseLineBreak text="それぞれの領域で、何をしていて何を意識しているかをまとめています。" />
         </p>
 
-        {aiTopicCategories.map((category) => {
+        {aiTopicCategories.map((category, categoryIndex) => {
           const topicsInCategory = getAiTopicsByCategory(category.id);
           return (
-            <div key={category.id} className="mt-12">
-              <div className="border-accent/40 border-l-2 pl-4">
-                <h4 className="font-serif text-lg font-bold tracking-normal">
-                  {category.id}
-                </h4>
-                <p className="text-muted-foreground mt-1 text-xs leading-6">
+            <div key={category.id} className="mt-16">
+              <div className="border-accent/30 flex flex-col gap-3 border-b pb-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-accent font-mono text-sm leading-none font-bold tracking-[0.2em]">
+                    {categoryNumbers[categoryIndex]}
+                  </span>
+                  <h4 className="font-serif text-2xl font-bold tracking-normal">
+                    {category.id}
+                  </h4>
+                </div>
+                <p className="text-muted-foreground max-w-md text-xs leading-6 sm:text-right">
                   <JapaneseLineBreak text={category.description} />
                 </p>
               </div>
@@ -93,7 +100,7 @@ export default function AiHubPage() {
                   <Link
                     key={topic.slug}
                     href={`/ai/${topic.slug}`}
-                    className="border-border bg-card/70 hover:border-accent hover:bg-card group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors sm:p-7"
+                    className="border-border bg-card/70 hover:border-accent hover:bg-card focus-visible:ring-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors sm:p-7"
                   >
                     <span
                       className="border-accent/20 absolute top-5 right-5 size-20 rounded-full border"
