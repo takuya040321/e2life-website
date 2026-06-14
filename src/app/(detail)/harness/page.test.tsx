@@ -11,31 +11,32 @@ describe("HarnessHubPage", () => {
     );
   });
 
-  it("renders the topic links", () => {
+  it("renders the orchestration principles section", () => {
     render(<HarnessHubPage />);
-    expect(screen.getByRole("link", { name: /エコシステム全体像/ })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 2, name: "全体ハーネスで意識していること" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("入口はひとつ")).toBeInTheDocument();
+    expect(screen.getByText("記録を活かす")).toBeInTheDocument();
   });
 
-  it("renders the organization benefits", () => {
+  it("renders specialist harness cards with the secretary harness link", () => {
     render(<HarnessHubPage />);
-    expect(screen.getByText("窓口はひとつ")).toBeInTheDocument();
-    expect(screen.getByText("資産を一元管理")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 2, name: "専門ハーネス一覧" }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /秘書役ハーネス/ })).toBeInTheDocument();
   });
 
-  it("renders the connection diagram with labeled nodes and the records layer", () => {
+  it("marks preparing harnesses with the 準備中 badge", () => {
+    render(<HarnessHubPage />);
+    const badges = screen.getAllByText("準備中");
+    expect(badges.length).toBeGreaterThan(0);
+  });
+
+  it("renders the connection diagram", () => {
     render(<HarnessHubPage />);
     expect(screen.getByText("秘書役の AI（PA）")).toBeInTheDocument();
-    expect(screen.getByText("各部門の担当 AI（部長役）")).toBeInTheDocument();
     expect(screen.getByText("記録層")).toBeInTheDocument();
-    expect(screen.getByText("話すだけ")).toBeInTheDocument();
-  });
-
-  it("renders Japanese-modern topic cards with accent numbers", () => {
-    render(<HarnessHubPage />);
-
-    expect(screen.getByText("01")).toHaveClass("text-accent");
-    expect(screen.getByText("02")).toHaveClass("text-accent");
-    expect(screen.getByText("03")).toHaveClass("text-accent");
-    expect(screen.getByRole("link", { name: /エコシステム全体像/ })).toHaveClass("bg-card/70");
   });
 });

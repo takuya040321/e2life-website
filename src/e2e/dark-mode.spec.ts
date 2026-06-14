@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const darkModePages = ["/", "/contact", "/ai", "/harness/ecosystem"] as const;
+const darkModePages = ["/", "/contact", "/ai", "/harness/secretary"] as const;
 
 test.describe("dark mode", () => {
   test.use({ colorScheme: "dark" });
