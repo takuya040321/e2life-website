@@ -16,9 +16,15 @@ describe("AiTopicPage", () => {
     expect(
       screen.getByRole("heading", { level: 4, name: "どう実現しているか" }),
     ).toBeInTheDocument();
-    // 具体ツール名が描画されている
-    expect(screen.getByText("macOS launchd")).toBeInTheDocument();
-    expect(screen.getByText("Playwright")).toBeInTheDocument();
+    // ステップ番号と特徴的な見出しが出ている
+    expect(screen.getByText("01")).toBeInTheDocument();
+    expect(screen.getByText("07")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 5,
+        name: "Mac の launchd で毎朝、定時に起動する",
+      }),
+    ).toBeInTheDocument();
   });
 
   it("shows the preparing placeholder for topics without howSteps", async () => {

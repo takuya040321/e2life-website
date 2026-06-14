@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 
 import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
@@ -143,19 +142,6 @@ export default async function AiTopicPage({ params }: { params: Promise<{ slug: 
                     <div className="mt-4 max-w-2xl space-y-2">
                       <JapaneseModernProse text={step.body} />
                     </div>
-                    {step.tools && step.tools.length > 0 && (
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {step.tools.map((tool) => (
-                          <Badge
-                            key={tool}
-                            variant="outline"
-                            className="font-mono text-[10px] tracking-wider"
-                          >
-                            {tool}
-                          </Badge>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 </div>
               </section>

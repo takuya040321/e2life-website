@@ -16,11 +16,13 @@ describe("aiTopics", () => {
     }
   });
 
-  it("sns topic has a fully-written howSteps with concrete tool names", () => {
+  it("sns topic has a fully-written howSteps with at least 5 steps", () => {
     const sns = getAiTopic("sns");
     expect(sns?.howSteps?.length).toBeGreaterThanOrEqual(5);
-    const flatTools = sns?.howSteps?.flatMap((step) => step.tools ?? []) ?? [];
-    expect(flatTools).toContain("macOS launchd");
+    for (const step of sns?.howSteps ?? []) {
+      expect(step.title.length).toBeGreaterThan(0);
+      expect(step.body.length).toBeGreaterThan(0);
+    }
   });
 
   it("getAiTopic returns the matching topic or undefined", () => {
