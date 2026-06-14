@@ -8,7 +8,7 @@ import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
 import { getHarnessRole, harnessRoles } from "@/lib/data/harness-topics";
 
-const japaneseNumerals = ["壱", "弐", "参", "四", "伍"] as const;
+const principleNumbers = ["01", "02", "03", "04", "05"] as const;
 
 function splitJapaneseSentences(text: string): string[] {
   const sentences = text
@@ -135,8 +135,8 @@ export default async function HarnessRolePage({
                 aria-hidden="true"
               />
               <div className="flex flex-col gap-4 sm:flex-row sm:gap-7">
-                <span className="text-accent shrink-0 font-serif text-3xl leading-none font-bold">
-                  {japaneseNumerals[index]}
+                <span className="text-accent shrink-0 font-mono text-3xl leading-none font-bold tracking-tight">
+                  {principleNumbers[index]}
                 </span>
                 <div>
                   <h5 className="font-serif text-lg leading-snug font-bold tracking-normal">
