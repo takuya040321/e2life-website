@@ -6,19 +6,16 @@ const steps = [
     number: "01",
     title: "ヒアリングと現状診断",
     body: "やりたいことと、既存の開発・運用フローを伺います。AI で自走化できる箇所と、人間が握るべき判断を切り分けます。",
-    deliverable: "現状診断メモ / 自走化対象の切り分け表",
   },
   {
     number: "02",
     title: "ハーネス設計と組み込み",
     body: "役割ごとに専任エージェントを設計し、記録・レビュー・自走の仕組みを組み込みます。重要判断は必ず人間ゲートを通します。",
-    deliverable: "ハーネス設計案 / 実装計画 / 安全境界の定義",
   },
   {
     number: "03",
     title: "自走化と継続改善",
     body: "実装したフローを動かし、記録から学んで継続的に改善します。区切りごとに振り返り、次の判断に活かす循環を作ります。",
-    deliverable: "運用フロー / 改善ループ / 振り返り基盤",
   },
 ] as const;
 
@@ -45,12 +42,6 @@ export function ProcessSection() {
             <p className="text-muted-foreground mt-3 text-sm leading-7">
               <JapaneseLineBreak text={step.body} />
             </p>
-            <div className="border-accent/30 mt-4 border-l-2 pl-3">
-              <p className="text-muted-foreground font-mono text-[10px] font-bold tracking-[0.2em] uppercase">
-                Deliverable
-              </p>
-              <p className="text-foreground mt-1 text-xs leading-6">{step.deliverable}</p>
-            </div>
           </li>
         ))}
       </ol>
