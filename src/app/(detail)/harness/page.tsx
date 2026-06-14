@@ -100,16 +100,16 @@ export default function HarnessHubPage() {
           <JapaneseLineBreak text="役割ごとに専任の AI を立てています。秘書役を入口に、部門担当が判断し、実装担当が形にし、レビュー担当が止め、記録担当が次回へ返す、という流れです。" />
         </p>
 
-        {/* 関係フロー */}
+        {/* 関係フロー(番号+短縮タイトル、キャッチコピーは下のカードに譲る) */}
         <div className="border-border bg-card/40 mt-8 rounded-lg border border-dashed p-5">
           <div className="flex flex-col items-stretch gap-3 text-sm sm:flex-row sm:items-center sm:gap-2">
             {harnessRoles.map((role, index) => (
               <div key={role.slug} className="flex items-center gap-2 sm:flex-1">
-                <div className="border-accent/40 bg-background flex-1 rounded-md border px-3 py-2 text-center">
+                <div className="border-accent/40 bg-background flex flex-1 items-center justify-center gap-2 rounded-md border px-3 py-2 text-center">
+                  <span className="text-accent font-mono text-[10px] font-bold tracking-wider">
+                    {roleNumbers[index]}
+                  </span>
                   <p className="font-serif text-sm font-bold">{role.title}</p>
-                  <p className="text-muted-foreground mt-0.5 font-mono text-[10px] tracking-wider">
-                    {role.role}
-                  </p>
                 </div>
                 {index < harnessRoles.length - 1 && (
                   <span className="text-accent hidden font-mono text-base sm:inline" aria-hidden="true">
@@ -132,7 +132,7 @@ export default function HarnessHubPage() {
             <Link
               key={role.slug}
               href={`/harness/${role.slug}`}
-              className="border-border bg-card/70 hover:border-accent hover:bg-card group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors sm:p-7"
+              className="border-border bg-card/70 hover:border-accent hover:bg-card focus-visible:ring-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors sm:p-7"
             >
               <span
                 className="border-accent/20 absolute top-5 right-5 size-20 rounded-full border"
