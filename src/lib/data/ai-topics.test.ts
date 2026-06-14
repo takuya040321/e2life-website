@@ -9,11 +9,15 @@ describe("aiTopics", () => {
     expect(new Set(slugs).size).toBe(4);
   });
 
-  it("each topic has intro and at least 3 sections", () => {
+  it("each topic has overview and at least 3 points", () => {
     for (const topic of aiTopics) {
-      expect(topic.intro.length).toBeGreaterThan(0);
+      expect(topic.overview.length).toBeGreaterThan(0);
       expect(topic.summary.length).toBeGreaterThan(0);
-      expect(topic.sections.length).toBeGreaterThanOrEqual(3);
+      expect(topic.points.length).toBeGreaterThanOrEqual(3);
+      for (const point of topic.points) {
+        expect(point.heading.length).toBeGreaterThan(0);
+        expect(point.body.length).toBeGreaterThan(0);
+      }
     }
   });
 
