@@ -10,7 +10,16 @@ export function PersonJsonLd() {
     url: siteMetadata.url,
     description: siteMetadata.description,
     sameAs: siteMetadata.socialLinks.map((link) => link.url),
-    jobTitle: "ソフトウェアエンジニア",
+    jobTitle: "AI ネイティブな開発プロセス設計エンジニア",
+    knowsAbout: [
+      "AI による開発プロセスの自走化",
+      "マルチエージェント構成の設計",
+      "ハーネス設計",
+      "判断と知見の記録基盤",
+      "Claude Code",
+      "Next.js",
+      "TypeScript",
+    ],
   };
 
   return (
