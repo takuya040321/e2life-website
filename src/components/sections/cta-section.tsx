@@ -46,10 +46,6 @@ export function CTASection() {
           <Link href="/harness" className="hover:text-accent transition-colors">
             ハーネス設計を見る
           </Link>
-          <span className="mx-2">/</span>
-          <Link href="/about" className="hover:text-accent transition-colors">
-            自分について
-          </Link>
         </p>
       </div>
     </section>

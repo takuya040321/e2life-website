@@ -18,6 +18,9 @@ export function HeroSection() {
             <p className="text-accent font-mono text-xs font-bold tracking-[0.28em] uppercase">
               AI x Development Process Engineering
             </p>
+            <p className="text-muted-foreground/80 mt-2 text-xs tracking-wider sm:text-sm">
+              AI と開発プロセスの境界を設計するエンジニアリング
+            </p>
             <div className="bg-background/80 dark:bg-background/70 mt-6 inline-block rounded-sm px-4 py-3">
               <h1 className="font-serif text-3xl leading-tight font-bold tracking-normal sm:text-5xl lg:text-6xl">
                 <span className="block">AI を、</span>
