@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 
 import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
 import { aiTopics, getAiTopic } from "@/lib/data/ai-topics";
-
-const japaneseNumerals = ["壱", "弐", "参", "四"] as const;
 
 function splitJapaneseSentences(text: string): string[] {
   const sentences = text
@@ -79,6 +78,8 @@ export default async function AiTopicPage({ params }: { params: Promise<{ slug: 
   const topic = getAiTopic(slug);
   if (!topic) notFound();
 
+  const hasHow = !!topic.howSteps && topic.howSteps.length > 0;
+
   return (
     <div className="mx-auto max-w-5xl px-6 py-20">
       <p className="text-muted-foreground mb-6 text-sm">
@@ -114,38 +115,74 @@ export default async function AiTopicPage({ params }: { params: Promise<{ slug: 
 
       <section className="mt-16">
         <h3 className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">
-          Points
+          How
         </h3>
         <h4 className="mt-2 font-serif text-xl font-bold tracking-normal">
-          <JapaneseLineBreak text="わたしが意識していること" />
+          <JapaneseLineBreak text="どう実現しているか" />
         </h4>
 
-        <div className="mt-6 grid gap-5">
-          {topic.points.map((point, index) => (
-            <section
-              key={point.heading}
-              className="border-border bg-card/70 relative overflow-hidden rounded-lg border p-6 shadow-sm sm:p-8"
-            >
-              <span
-                className="border-accent/15 absolute top-5 right-5 size-20 rounded-full border"
-                aria-hidden="true"
-              />
-              <div className="flex flex-col gap-4 sm:flex-row sm:gap-7">
-                <span className="text-accent shrink-0 font-serif text-3xl leading-none font-bold">
-                  {japaneseNumerals[index]}
-                </span>
-                <div>
-                  <h5 className="font-serif text-lg leading-snug font-bold tracking-normal">
-                    <JapaneseLineBreak text={point.heading} />
-                  </h5>
-                  <div className="mt-4 max-w-2xl space-y-2">
-                    <JapaneseModernProse text={point.body} />
+        {hasHow ? (
+          <div className="mt-6 grid gap-5">
+            {topic.howSteps!.map((step) => (
+              <section
+                key={step.step}
+                className="border-border bg-card/70 relative overflow-hidden rounded-lg border p-6 shadow-sm sm:p-8"
+              >
+                <span
+                  className="border-accent/15 absolute top-5 right-5 size-20 rounded-full border"
+                  aria-hidden="true"
+                />
+                <div className="flex flex-col gap-5 sm:flex-row sm:gap-7">
+                  <span className="text-accent shrink-0 font-mono text-3xl leading-none font-bold tracking-tight">
+                    {String(step.step).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1">
+                    <h5 className="font-serif text-lg leading-snug font-bold tracking-normal">
+                      <JapaneseLineBreak text={step.title} />
+                    </h5>
+                    <div className="mt-4 max-w-2xl space-y-2">
+                      <JapaneseModernProse text={step.body} />
+                    </div>
+                    {step.tools && step.tools.length > 0 && (
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {step.tools.map((tool) => (
+                          <Badge
+                            key={tool}
+                            variant="outline"
+                            className="font-mono text-[10px] tracking-wider"
+                          >
+                            {tool}
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
-            </section>
-          ))}
-        </div>
+              </section>
+            ))}
+          </div>
+        ) : (
+          <div className="border-border bg-card/40 mt-6 rounded-lg border border-dashed p-8 text-center">
+            <p className="text-muted-foreground text-sm leading-7">
+              この領域の「どう実現しているか」は、現在準備中です。
+            </p>
+            <p className="text-muted-foreground mt-2 text-sm leading-7">
+              先に書き起こした SNS 発信の自動化を、まずはご覧ください。
+            </p>
+            <div className="mt-6">
+              <Link
+                href="/ai/sns"
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "sm",
+                  className: "hover:border-accent hover:text-accent rounded-sm",
+                })}
+              >
+                SNS 発信の自動化を見る →
+              </Link>
+            </div>
+          </div>
+        )}
       </section>
 
       <div className="mt-12 flex flex-wrap gap-4">

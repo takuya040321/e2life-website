@@ -52,19 +52,6 @@ export default function AiHubPage() {
         </p>
       </section>
 
-      {/* Why */}
-      <section className="mt-16">
-        <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">
-          Why
-        </p>
-        <h3 className="mt-3 font-serif text-2xl font-bold tracking-normal">
-          <JapaneseLineBreak text="なぜ自動化に振り切るのか" />
-        </h3>
-        <p className="text-muted-foreground mt-4 max-w-3xl text-base leading-8">
-          <JapaneseLineBreak text="手作業で続けるかぎり、忙しさで途切れます。判断基準を仕組みに埋め込んで AI に走らせれば、意志の力に頼らなくても継続でき、品質も安定します。わたしは、この発想で各領域を組み立てています。" />
-        </p>
-      </section>
-
       {/* 領域別カード */}
       <section className="mt-20">
         <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">

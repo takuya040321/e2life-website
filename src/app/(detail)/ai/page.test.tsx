@@ -11,14 +11,14 @@ describe("AiHubPage", () => {
     ).toHaveClass("font-serif");
   });
 
-  it("renders the Why and Domains sections", () => {
+  it("renders the Domains section without a Why block", () => {
     render(<AiHubPage />);
-    expect(
-      screen.getByRole("heading", { level: 3, name: "なぜ自動化に振り切るのか" }),
-    ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { level: 3, name: "活用領域の一覧" }),
     ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "なぜ自動化に振り切るのか" }),
+    ).not.toBeInTheDocument();
   });
 
   it("renders the 12 topic cards covering all domains", () => {
