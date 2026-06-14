@@ -31,7 +31,7 @@ export function AboutMeSection() {
                 className: "hover:border-accent hover:text-accent rounded-sm",
               })}
             >
-              経歴・スキル詳細 →
+              自分について詳しく →
             </Link>
           </div>
         </div>
