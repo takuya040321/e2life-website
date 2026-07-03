@@ -26,20 +26,11 @@
 
 ## ドメイン設定
 
-### e2life.dev の取得と設定
+### Vercel 標準サブドメインで運用
 
-1. Vercel ダッシュボード → Settings → Domains
-2. `e2life.dev` を追加（Vercel 経由で取得、年 $12〜15）
-3. DNS 設定は Vercel が自動管理
-4. SSL 証明書も自動発行・更新
-
-### ドメイン構成
-
-| ドメイン         | 設定                                    |
-| ---------------- | --------------------------------------- |
-| `e2life.dev`     | プライマリドメイン                      |
-| `www.e2life.dev` | `e2life.dev` にリダイレクト             |
-| `*.vercel.app`   | Vercel デフォルトドメイン（残しておく） |
+- プライマリ URL は Vercel 標準サブドメイン `e2life-website.vercel.app`
+- SSL 証明書は Vercel が自動発行・更新
+- 独自ドメイン (`e2life.dev`) は 2026-07 に運用終了 (経緯: PA repo `decisions/website/`)
 
 ## 環境変数設定
 
@@ -75,7 +66,7 @@ env-vars.md を参照。Vercel ダッシュボードの Settings → Environment
 デプロイ後に以下を確認する:
 
 - Vercel ダッシュボードでデプロイステータスが「Ready」
-- 本番 URL（https://e2life.dev）でページ表示を確認
+- 本番 URL（https://e2life-website.vercel.app）でページ表示を確認
 - Lighthouse スコアが基準値を満たしているか
 
 ## ロールバック手順

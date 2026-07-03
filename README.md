@@ -1,6 +1,6 @@
 # e2life
 
-個人 Web サイト [e2life.dev](https://e2life.dev)
+個人 Web サイト [e2life](https://e2life-website.vercel.app)
 
 AI を活用した開発プロセス設計を実践するエンジニアのサイト。
 

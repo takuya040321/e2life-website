@@ -14,9 +14,9 @@ type SiteMetadata = {
 };
 
 export const siteMetadata: SiteMetadata = {
-  title: "e2life.dev",
+  title: "e2life",
   description: "AI で開発プロセス自体を設計するエンジニア",
-  url: "https://e2life.dev",
+  url: "https://e2life-website.vercel.app",
   author: "たくや",
   locale: "ja_JP",
   socialLinks: [

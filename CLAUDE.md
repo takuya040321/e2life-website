@@ -1,6 +1,6 @@
 # e2life-website
 
-e2life.dev の個人 Web サイト。Next.js 16 + Vercel。
+個人 Web サイト (Vercel 標準サブドメイン `e2life-website.vercel.app` で運用)。Next.js 16 + Vercel。
 
 ## 技術スタック
 

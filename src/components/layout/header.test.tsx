@@ -14,8 +14,8 @@ describe("Header", () => {
   it("renders the site logo link and decorative hanko image", () => {
     render(<Header />);
 
-    expect(screen.getByRole("link", { name: /e2life.dev/ })).toHaveAttribute("href", "/");
-    expect(screen.getByRole("link", { name: /e2life.dev/ }).querySelector("img")).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /e2life/ })).toHaveAttribute("href", "/");
+    expect(screen.getByRole("link", { name: /e2life/ }).querySelector("img")).toHaveAttribute(
       "src",
       "/illustrations/hanko-e2life.png",
     );

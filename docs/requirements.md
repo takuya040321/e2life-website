@@ -141,7 +141,7 @@ flowchart TD
 | -------------- | ----------------------------------------------------------- |
 | ページ         | LP, Skills, Career, Contact の 4 ページ                     |
 | 機能           | 問い合わせフォーム、PDF ダウンロード、レスポンシブ対応      |
-| インフラ       | Vercel デプロイ、独自ドメイン（e2life.dev）、CI/CD          |
+| インフラ       | Vercel デプロイ、Vercel 標準サブドメイン、CI/CD             |
 | テスト         | Unit / Integration / E2E / Performance / Security           |
 | SEO            | メタデータ、OGP、JSON-LD（インデックスは noindex で無効化） |
 | アナリティクス | Google Analytics（PV、PDF DL 数、問い合わせ数）             |

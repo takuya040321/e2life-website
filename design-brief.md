@@ -1,4 +1,4 @@
-# e2life.dev デザインブリーフ
+# e2life デザインブリーフ
 
 - PA decisions: `PA repo decisions/website/2026-06-04-japanese-modern-design.md`
 - 実装計画書: `docs/implementation-plan-2026-06-04-japanese-modern.md`
@@ -8,7 +8,7 @@ Claude Design 連携で複数方向を比較し、**和モダン (墨と朱)** �
 
 ## サイトの性格
 
-- 個人ポートフォリオサイト（e2life.dev）
+- 個人サイト（e2life）
 - コンセプト: **「AI で開発プロセス自体を設計するエンジニア」**
 - 訴求の核: マルチエージェント構成による品質管理と、自己改善する開発プロセス
 - 公開リポであり、ソースコード自体がポートフォリオとして評価される

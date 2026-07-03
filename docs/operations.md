@@ -15,7 +15,7 @@
 
 ### 補足
 
-- ドメインは `e2life.dev`（Vercel 管理、HTTPS 自動）。検索非公開でも独自ドメインで運用する
+- ドメインは Vercel 標準サブドメイン `e2life-website.vercel.app`（Vercel 管理、HTTPS 自動）。検索非公開のまま運用する
 - Lighthouse の SEO スコアは `is-crawlable` の意図的失敗により低下するが、これは方針通り。他の SEO 監査・Performance / Accessibility / Best Practices は基準（90 以上）を維持する（`.lighthouserc.json` は SEO 総合ゲートを撤廃し、オンページ SEO 監査を個別にチェック）
 - 将来「検索公開」に方針転換する場合は、上記の `robots.ts` / `layout.tsx` を戻し、sitemap を復活させる
 
@@ -95,8 +95,7 @@ deploy.md の「ロールバック手順」を参照。
 
 | 項目                  | 費用       | 備考              |
 | --------------------- | ---------- | ----------------- |
-| ドメイン (e2life.dev) | 年 $12〜15 | Vercel 経由で取得 |
-| Vercel Hobby プラン   | 無料       | 個人利用          |
+| Vercel Hobby プラン   | 無料       | 個人利用、標準サブドメイン `e2life-website.vercel.app` を使用 |
 
 ### 無料枠の制限（Vercel Hobby）
 

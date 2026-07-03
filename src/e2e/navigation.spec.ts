@@ -24,7 +24,7 @@ test.describe("navigation", () => {
 
   test("logo links back to home", async ({ page }) => {
     await page.goto("/about");
-    await page.getByRole("link", { name: "e2life.dev" }).click();
+    await page.getByRole("link", { name: "e2life" }).click();
     await expect(page).toHaveURL(/\/$/);
   });
 });

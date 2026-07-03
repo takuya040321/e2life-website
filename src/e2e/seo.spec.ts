@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test.describe("SEO metadata", () => {
   test("home page has title and description", async ({ page }) => {
     await page.goto("/");
-    await expect(page).toHaveTitle("e2life.dev");
+    await expect(page).toHaveTitle("e2life");
     const description = page.locator('meta[name="description"]');
     await expect(description).toHaveAttribute("content", /AI で開発プロセス/);
   });
@@ -13,7 +13,7 @@ test.describe("SEO metadata", () => {
     await expect(page.locator('meta[property="og:type"]')).toHaveAttribute("content", "website");
     await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
       "content",
-      "e2life.dev",
+      "e2life",
     );
   });
 
