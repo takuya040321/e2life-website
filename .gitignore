@@ -58,6 +58,10 @@ pnpm-debug.log*
 # 誤って PA 配下ファイルがコピー / mv されても push されないようガード。
 personal-assistant/
 
+# ローカル参照用の symlink。追跡するとリンク先の絶対パス(ローカルユーザー名を含む)が
+# public リポで閲覧できてしまうため除外する。実体はローカルにのみ置く。
+.claude/about-me
+
 # ---- Next.js / Vercel 固有 ----
 .pnp
 .pnp.js
