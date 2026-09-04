@@ -76,13 +76,16 @@
 
 ## Claude への指摘・改善記録
 
-`claude-behavior/` 配下に記録する（PA repo の 5 層構造に準拠）。
-`claude-behavior/README.md` は `@import` で起動時に自動ロード。
+本リポは記録層を持たない（公開リポ保護 MUST により 2026-06-03 に PA repo へ全件移行済み）。
+指摘・改善記録は PA repo の `claude-behavior/` に記録する。
 
 ## 注意
 
 - claude-assets-public 未整備のため、現在ルールは直書き。整備後に symlink に切り替える
 
-@claude-behavior/README.md
+## PA repo との接続
+
+`.claude/about-me` は PA repo の `about-me/` を指すローカル symlink（本リポでは追跡対象外）。
+本人の判断軸を読み込むために `@import` する。clone 環境では解決されない。
 
 @.claude/about-me/README.md
