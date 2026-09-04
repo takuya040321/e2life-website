@@ -32,52 +32,81 @@ AI を活用した開発プロセス設計を実践するエンジニアのサ�
 ```
 src/
 ├── app/
-│   ├── (marketing)/          # LP、問い合わせ
-│   ├── (detail)/             # スキル、経歴、AI 関連ページ
+│   ├── (marketing)/          # トップページ、お問い合わせ
+│   ├── (detail)/             # 自分について、AI 活用、ハーネス設計
 │   ├── actions/              # Server Actions
 │   └── layout.tsx
 ├── components/
 │   ├── ui/                   # shadcn/ui コンポーネント
-│   ├── layout/               # Header, Footer, Navigation
-│   ├── sections/             # LP セクション
+│   ├── layout/               # Header, Footer
+│   ├── sections/             # トップページのセクション
 │   └── shared/               # 共通コンポーネント
-├── lib/                      # ユーティリティ、定数
-└── styles/                   # グローバルスタイル
+├── lib/
+│   ├── data/                 # ページ定義データ
+│   ├── utils/                # ユーティリティ
+│   └── validations/          # 入力バリデーション
+└── e2e/                      # Playwright の E2E テスト
 ```
 
 ## ページ構成
 
-| パス               | 内容                   | ステータス |
-| ------------------ | ---------------------- | ---------- |
-| `/`                | ランディングページ     | MVP        |
-| `/skills`          | 技術スキル             | MVP        |
-| `/career`          | 職務経歴               | MVP        |
-| `/contact`         | 問い合わせフォーム     | MVP        |
-| `/ai/`             | AI 活用ハブ            | フェーズ 2 |
-| `/ai/ecosystem`    | マルチリポエコシステム | フェーズ 2 |
-| `/ai/agents`       | サブエージェント構成   | フェーズ 2 |
-| `/ai/recording`    | 5 層記録システム       | フェーズ 2 |
-| `/ai/autonomous`   | 自走モードと安全設計   | フェーズ 2 |
-| `/ai/security`     | セキュリティ設計       | フェーズ 2 |
-| `/ai/sns-pipeline` | SNS 自動化パイプライン | フェーズ 2 |
+| パス                 | 内容                         |
+| -------------------- | ---------------------------- |
+| `/`                  | トップページ                 |
+| `/ai`                | AI 活用ハブ                  |
+| `/ai/[slug]`         | AI 活用の詳細（12 トピック） |
+| `/harness`           | ハーネス設計ハブ             |
+| `/harness/[harness]` | 役割ごとの詳細（5 役割）     |
+| `/about`             | 自分について                 |
+| `/contact`           | お問い合わせ                 |
+
+### `/ai/[slug]`
+
+| slug                    | 内容                             |
+| ----------------------- | -------------------------------- |
+| `sns`                   | SNS 発信の自動化                 |
+| `curation`              | 情報収集・配信                   |
+| `image-generation`      | 画像コンテンツの生成             |
+| `video-ip`              | 動画・キャラクター IP 制作       |
+| `knowledge`             | ナレッジ・記録の自動化           |
+| `website-self-drive`    | Web サイトの AI 自走運営         |
+| `multi-repo-platform`   | マルチリポジトリ AI 開発基盤     |
+| `design-process`        | 設計工程の AI 化                 |
+| `accounting`            | 会計・経理の自動化               |
+| `mail-calendar`         | メール・カレンダー対応の半自動化 |
+| `document-generation`   | ドキュメント作成の自動化         |
+| `personal-life-support` | 個人生活の AI サポート           |
+
+### `/harness/[harness]`
+
+| harness          | 内容         |
+| ---------------- | ------------ |
+| `secretary`      | 秘書役       |
+| `department`     | 部門担当     |
+| `implementation` | 実装担当     |
+| `review`         | レビュー担当 |
+| `record`         | 記録担当     |
 
 ## 開発
 
+パッケージ管理は pnpm を使う（`packageManager: pnpm@11.4.0`）。
+
 ```bash
 # 依存パッケージのインストール
-npm install
+pnpm install
 
 # 開発サーバーの起動
-npm run dev
+pnpm dev
 
 # テスト実行
-npm run test          # Unit + Integration
-npm run test:e2e      # E2E (Playwright)
-npm run test:perf     # Lighthouse CI
+pnpm test              # Unit + Integration (Vitest)
+pnpm test:e2e          # E2E (Playwright)
+pnpm test:lighthouse   # Lighthouse CI
 
-# Lint & Format
-npm run lint
-npm run format
+# Lint / Format / 型チェック
+pnpm lint
+pnpm format
+pnpm typecheck
 ```
 
 ## テスト戦略
