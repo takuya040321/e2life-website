@@ -25,5 +25,10 @@ export const siteMetadata: SiteMetadata = {
       url: "https://github.com/takuya040321",
       icon: "github",
     },
+    {
+      platform: "X",
+      url: "https://x.com/e2life040321",
+      icon: "x",
+    },
   ],
 };
