@@ -28,8 +28,11 @@
   → ローカル Claude Hooks (push 前) で品質ゲート通過
     (format / lint / type-check / unit test / build / E2E / Lighthouse 直列)
   → main に直 push
+  → GitHub Actions が format / lint / type-check / unit test を実行
   → Vercel 自動デプロイ
 ```
+
+品質ゲートは手元と GitHub の二層構成（docs/testing.md「品質ゲート (二層構成)」を参照）。
 
 更新対象:
 
@@ -63,6 +66,9 @@
 - Lighthouse CI をローカル Claude Hooks (push 前) で自動実行
 - Core Web Vitals (LCP, CLS, INP) を継続モニタリング
 - スコアが基準値を下回った場合は push がブロックされる
+- Lighthouse は GitHub Actions 側には置いていない（1 回に数分かかるため手元だけ）。
+  ローカル Hooks が発火しない経路（別リポジトリのセッションからの push）ではこの検査は走らないので、
+  その場合は `pnpm test:lighthouse` を手で実行する
 
 ## 障害対応
 

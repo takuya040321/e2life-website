@@ -51,6 +51,8 @@
 - main 直 push OK（個人 site で 1 人作業のため、PR 必須を 2026-06-01 に廃止）
 - **commit → push → Vercel デプロイまで確認なしで自走 OK**（2026-06-13。自社サイト・1 人運用のため、本リポに限り対外公開ゲートの本人確認を撤廃）
   - 前提条件 1: push 前ローカル品質ゲート（format / lint / 型 / test / build / E2E）が green
+    - 別リポジトリ（PA 等）のセッションから push する場合は Hooks が発火しないため、同じコマンドを手で実行してから push する
+    - push 後は GitHub Actions が format / lint / 型 / test を再実行するので、結果を確認する
   - 前提条件 2: コンテンツ追加・変更時は機密スキャン（顧客名 / 金額 / サービス名 / 個人情報の混入チェック）を実施
   - 禁止維持: secret / 個人情報 / 具体的事業判断の混入（「絶対ルール」のとおり）
   - 経緯: PA repo `decisions/website/2026-06-13-deploy-self-drive.md`
@@ -65,7 +67,9 @@
 - ディレクトリ構成は App Router のベストプラクティスに沿う
 - commit message に「なぜこう作ったか」の設計判断を記録する
 - README.md はアーキテクチャ・セットアップ手順・テスト戦略を網羅する
-- 品質ゲートはローカル Claude Hooks (`.claude/settings.json` の PreToolUse) に集約し、`git push` 前に format / lint / 型チェック / unit test / build / E2E / Lighthouse を直列実行する
+- 品質ゲートは二層構成にする（詳細と切り分けの基準: `docs/testing.md`「品質ゲート (二層構成)」）
+  - ローカル Claude Hooks (`.claude/settings.json` の PreToolUse): `git push` 前に format / lint / 型チェック / unit test / build / E2E / Lighthouse を直列実行する
+  - GitHub Actions (`.github/workflows/ci.yml`): main への push と pull request で format / lint / 型チェック / unit test を実行する（push の出所を問わず必ず走る層）
 
 ## 開発フロー
 

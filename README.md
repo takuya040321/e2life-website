@@ -1,5 +1,7 @@
 # e2life
 
+[![CI](https://github.com/takuya040321/e2life-website/actions/workflows/ci.yml/badge.svg)](https://github.com/takuya040321/e2life-website/actions/workflows/ci.yml)
+
 個人 Web サイト [e2life](https://e2life-website.vercel.app)
 
 AI を活用した開発プロセス設計を実践するエンジニアのサイト。
@@ -17,7 +19,7 @@ AI を活用した開発プロセス設計を実践するエンジニアのサ�
 | テスト            | Vitest + Testing Library + Playwright   |
 | パフォーマンス    | Lighthouse CI                           |
 | ホスティング      | Vercel                                  |
-| 品質ゲート        | ローカル Claude Hooks (push 前検証)     |
+| 品質ゲート        | GitHub Actions + ローカル Claude Hooks  |
 
 ## アーキテクチャ
 
@@ -123,7 +125,10 @@ pnpm typecheck
 
 - ブランチ戦略: main 直 push（個人 site で 1 人作業のため、PR 必須を 2026-06-01 に廃止）
 - コミット規約: [Conventional Commits](https://www.conventionalcommits.org/)
-- 品質ゲート: ローカル Claude Hooks（`.claude/settings.json` の PreToolUse で push 前に format / lint / 型チェック / unit test / build / E2E / Lighthouse を直列実行）
+- 品質ゲート: 二層構成
+  - ローカル Claude Hooks: `.claude/settings.json` の PreToolUse で push 前に format / lint / 型チェック / unit test / build / E2E / Lighthouse を直列実行
+  - GitHub Actions: main への push と pull request で format / lint / 型チェック / unit test を実行（`.github/workflows/ci.yml`）
+  - 使い分けの考え方は [docs/testing.md](docs/testing.md) を参照
 - デプロイ: Vercel（main push で本番デプロイ）
 
 ## ライセンス

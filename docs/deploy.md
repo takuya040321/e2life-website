@@ -45,8 +45,12 @@ env-vars.md を参照。Vercel ダッシュボードの Settings → Environment
   → ローカル Claude Hooks (push 前) で品質ゲート通過
     (format / lint / type-check / unit test / build / E2E / Lighthouse 直列)
   → main に直 push（個人 site で 1 人作業、PR 廃止済み）
+  → GitHub Actions が format / lint / type-check / unit test を実行
+    (push の出所を問わず必ず走る層。ローカル Hooks が発火しない経路の受け皿)
   → Vercel が本番に自動デプロイ
 ```
+
+品質ゲートは手元と GitHub の二層構成。どちらに何を置いているかと、その理由は testing.md を参照。
 
 ### プレビューデプロイ
 
