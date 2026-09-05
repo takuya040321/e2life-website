@@ -72,9 +72,7 @@ export default function AboutPage() {
     <div className="relative mx-auto max-w-5xl px-6 py-20">
       {/* Hero */}
       <section>
-        <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">
-          About
-        </p>
+        <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">About</p>
         <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight font-bold tracking-normal md:text-5xl">
           <JapaneseLineBreak text="仕組みを作って、判断負荷を下げる" />
         </h1>
@@ -105,10 +103,8 @@ export default function AboutPage() {
               >
                 {entry.year.slice(2, 4)}
               </span>
-              <p className="text-accent font-mono text-xs font-bold tracking-wider">
-                {entry.year}
-              </p>
-              <h3 className="mt-1 font-serif text-lg font-bold leading-snug tracking-normal">
+              <p className="text-accent font-mono text-xs font-bold tracking-wider">{entry.year}</p>
+              <h3 className="mt-1 font-serif text-lg leading-snug font-bold tracking-normal">
                 <JapaneseLineBreak text={entry.title} />
               </h3>
               <p className="text-muted-foreground mt-2 text-sm leading-7">
@@ -127,7 +123,7 @@ export default function AboutPage() {
           </h2>
         </div>
         <div className="border-border bg-card/40 mt-6 max-w-3xl rounded-lg border p-6 sm:p-7">
-          <h3 className="font-serif text-lg font-bold leading-snug tracking-normal">
+          <h3 className="font-serif text-lg leading-snug font-bold tracking-normal">
             <JapaneseLineBreak text={turningPoint.title} />
           </h3>
           <p className="text-muted-foreground mt-4 text-sm leading-7">
@@ -184,7 +180,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-
       {/* CTA */}
       <section className="border-border mt-16 border-t pt-10">
         <p className="text-muted-foreground max-w-2xl text-sm leading-7">
@@ -200,16 +195,10 @@ export default function AboutPage() {
           >
             お問い合わせ
           </Link>
-          <Link
-            href="/ai"
-            className={buttonVariants({ variant: "outline", size: "lg" })}
-          >
+          <Link href="/ai" className={buttonVariants({ variant: "outline", size: "lg" })}>
             AI活用事例を見る
           </Link>
-          <Link
-            href="/harness"
-            className={buttonVariants({ variant: "outline", size: "lg" })}
-          >
+          <Link href="/harness" className={buttonVariants({ variant: "outline", size: "lg" })}>
             ハーネス設計を見る
           </Link>
           {githubLink && (

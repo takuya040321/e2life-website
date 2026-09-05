@@ -5,11 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 import { JapaneseLineBreak } from "@/components/shared/japanese-line-break";
 
-import {
-  aiTopicCategories,
-  aiTopics,
-  getAiTopicsByCategory,
-} from "@/lib/data/ai-topics";
+import { aiTopicCategories, aiTopics, getAiTopicsByCategory } from "@/lib/data/ai-topics";
 
 const topicNumbers = [
   "01",
@@ -26,13 +22,10 @@ const topicNumbers = [
   "12",
 ] as const;
 
-const slugToNumber = aiTopics.reduce<Record<string, string>>(
-  (acc, topic, index) => {
-    acc[topic.slug] = topicNumbers[index] ?? String(index + 1).padStart(2, "0");
-    return acc;
-  },
-  {},
-);
+const slugToNumber = aiTopics.reduce<Record<string, string>>((acc, topic, index) => {
+  acc[topic.slug] = topicNumbers[index] ?? String(index + 1).padStart(2, "0");
+  return acc;
+}, {});
 
 const categoryNumbers = ["01", "02", "03", "04"] as const;
 
@@ -86,9 +79,7 @@ export default function AiHubPage() {
                   <span className="text-accent font-mono text-sm leading-none font-bold tracking-[0.2em]">
                     {categoryNumbers[categoryIndex]}
                   </span>
-                  <h4 className="font-serif text-2xl font-bold tracking-normal">
-                    {category.id}
-                  </h4>
+                  <h4 className="font-serif text-2xl font-bold tracking-normal">{category.id}</h4>
                 </div>
                 <p className="text-muted-foreground max-w-md text-xs leading-6 sm:text-right">
                   <JapaneseLineBreak text={category.description} />
@@ -100,7 +91,7 @@ export default function AiHubPage() {
                   <Link
                     key={topic.slug}
                     href={`/ai/${topic.slug}`}
-                    className="border-border bg-card/70 hover:border-accent hover:bg-card focus-visible:ring-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors sm:p-7"
+                    className="border-border bg-card/70 hover:border-accent hover:bg-card focus-visible:ring-accent focus-visible:ring-offset-background group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none sm:p-7"
                   >
                     <span
                       className="border-accent/20 absolute top-5 right-5 size-20 rounded-full border"

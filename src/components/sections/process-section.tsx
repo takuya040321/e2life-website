@@ -36,7 +36,7 @@ export function ProcessSection() {
             >
               {step.number}
             </span>
-            <h3 className="font-serif text-lg font-bold leading-snug tracking-normal">
+            <h3 className="font-serif text-lg leading-snug font-bold tracking-normal">
               <JapaneseLineBreak text={step.title} />
             </h3>
             <p className="text-muted-foreground mt-3 text-sm leading-7">

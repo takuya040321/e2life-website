@@ -90,9 +90,7 @@ export default function HarnessHubPage() {
 
       {/* Roles: 関係フロー + 5役割カード */}
       <section className="mt-20">
-        <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">
-          Roles
-        </p>
+        <p className="text-accent font-mono text-xs font-bold tracking-[0.24em] uppercase">Roles</p>
         <h3 className="mt-3 font-serif text-2xl font-bold tracking-normal">
           <JapaneseLineBreak text="5 つの役割で分業する" />
         </h3>
@@ -112,12 +110,18 @@ export default function HarnessHubPage() {
                   <p className="font-serif text-sm font-bold">{role.title}</p>
                 </div>
                 {index < harnessRoles.length - 1 && (
-                  <span className="text-accent hidden font-mono text-base sm:inline" aria-hidden="true">
+                  <span
+                    className="text-accent hidden font-mono text-base sm:inline"
+                    aria-hidden="true"
+                  >
                     →
                   </span>
                 )}
                 {index < harnessRoles.length - 1 && (
-                  <span className="text-accent text-center font-mono text-base sm:hidden" aria-hidden="true">
+                  <span
+                    className="text-accent text-center font-mono text-base sm:hidden"
+                    aria-hidden="true"
+                  >
                     ↓
                   </span>
                 )}
@@ -132,7 +136,7 @@ export default function HarnessHubPage() {
             <Link
               key={role.slug}
               href={`/harness/${role.slug}`}
-              className="border-border bg-card/70 hover:border-accent hover:bg-card focus-visible:ring-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors sm:p-7"
+              className="border-border bg-card/70 hover:border-accent hover:bg-card focus-visible:ring-accent focus-visible:ring-offset-background group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none sm:p-7"
             >
               <span
                 className="border-accent/20 absolute top-5 right-5 size-20 rounded-full border"

@@ -6,9 +6,9 @@ import HarnessHubPage from "./page";
 describe("HarnessHubPage", () => {
   it("renders the hero heading and the harness definition block", () => {
     const { container } = render(<HarnessHubPage />);
-    expect(
-      screen.getByRole("heading", { level: 2, name: "わたしのハーネス設計" }),
-    ).toHaveClass("font-serif");
+    expect(screen.getByRole("heading", { level: 2, name: "わたしのハーネス設計" })).toHaveClass(
+      "font-serif",
+    );
     expect(container.textContent).toMatch(/AI に役割・権限・停止条件を与えるための設計/);
   });
 
@@ -46,12 +46,7 @@ describe("HarnessHubPage", () => {
 
   it("primary CTA is the AI usage page and contact is secondary", () => {
     render(<HarnessHubPage />);
-    expect(
-      screen.getByRole("link", { name: /AI活用事例を見る/ }),
-    ).toHaveAttribute("href", "/ai");
-    expect(screen.getByRole("link", { name: "お問い合わせ" })).toHaveAttribute(
-      "href",
-      "/contact",
-    );
+    expect(screen.getByRole("link", { name: /AI活用事例を見る/ })).toHaveAttribute("href", "/ai");
+    expect(screen.getByRole("link", { name: "お問い合わせ" })).toHaveAttribute("href", "/contact");
   });
 });

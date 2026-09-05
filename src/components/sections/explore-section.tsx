@@ -48,7 +48,7 @@ export function ExploreSection() {
           <Link
             key={entry.href}
             href={entry.href}
-            className="border-accent/40 bg-card/70 hover:border-accent hover:bg-card focus-visible:ring-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background group relative overflow-hidden rounded-lg border-2 p-6 shadow-sm transition-colors sm:p-7 md:col-span-1"
+            className="border-accent/40 bg-card/70 hover:border-accent hover:bg-card focus-visible:ring-accent focus-visible:ring-offset-background group relative overflow-hidden rounded-lg border-2 p-6 shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none sm:p-7 md:col-span-1"
           >
             <span
               className="border-accent/20 absolute top-5 right-5 size-20 rounded-full border"
@@ -70,7 +70,7 @@ export function ExploreSection() {
         ))}
         <Link
           href={secondary.href}
-          className="border-border bg-card/40 hover:border-accent focus-visible:ring-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors sm:p-7"
+          className="border-border bg-card/40 hover:border-accent focus-visible:ring-accent focus-visible:ring-offset-background group relative overflow-hidden rounded-lg border p-6 shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none sm:p-7"
         >
           <p className="text-muted-foreground font-mono text-xs font-bold tracking-[0.22em] uppercase">
             {secondary.label}

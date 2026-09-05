@@ -1,10 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  getHarnessRole,
-  harnessRoles,
-  orchestrationPrinciples,
-} from "./harness-topics";
+import { getHarnessRole, harnessRoles, orchestrationPrinciples } from "./harness-topics";
 
 describe("orchestrationPrinciples", () => {
   it("has 6 principles including 「最終決定はわたし」", () => {

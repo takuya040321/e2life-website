@@ -127,10 +127,7 @@ export default async function AiTopicPage({ params }: { params: Promise<{ slug: 
           </h4>
           <ul className="border-accent/30 bg-card/40 mt-4 max-w-2xl space-y-3 rounded-lg border p-5">
             {topic.benefits!.map((benefit) => (
-              <li
-                key={benefit}
-                className="text-foreground flex gap-2 text-sm leading-7"
-              >
+              <li key={benefit} className="text-foreground flex gap-2 text-sm leading-7">
                 <span className="text-accent shrink-0">◎</span>
                 <span>{benefit}</span>
               </li>

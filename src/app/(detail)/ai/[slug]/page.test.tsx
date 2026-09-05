@@ -29,9 +29,9 @@ describe("AiTopicPage", () => {
   it("renders the How steps for accounting (now fully written)", async () => {
     const ui = await AiTopicPage({ params: Promise.resolve({ slug: "accounting" }) });
     render(ui);
-    expect(
-      screen.getByRole("heading", { level: 2, name: "会計・経理の自動化" }),
-    ).toHaveClass("font-serif");
+    expect(screen.getByRole("heading", { level: 2, name: "会計・経理の自動化" })).toHaveClass(
+      "font-serif",
+    );
     expect(
       screen.getByRole("heading", { level: 4, name: "どう実現しているか" }),
     ).toBeInTheDocument();

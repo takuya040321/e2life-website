@@ -6,9 +6,9 @@ import AiHubPage from "./page";
 describe("AiHubPage", () => {
   it("renders the hero with the new self-introduction heading", () => {
     render(<AiHubPage />);
-    expect(
-      screen.getByRole("heading", { level: 2, name: "わたしの AI 活用事例" }),
-    ).toHaveClass("font-serif");
+    expect(screen.getByRole("heading", { level: 2, name: "わたしの AI 活用事例" })).toHaveClass(
+      "font-serif",
+    );
   });
 
   it("renders the Domains section with category grouping and without a glossary block", () => {
@@ -44,9 +44,7 @@ describe("AiHubPage", () => {
     ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /動画・キャラクター IP 制作/ })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Web サイトの AI 自走運営/ })).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: /マルチリポジトリ AI 開発基盤/ }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /マルチリポジトリ AI 開発基盤/ })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /設計工程の AI 化/ })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /ドキュメント作成の自動化/ })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /個人生活の AI サポート/ })).toBeInTheDocument();

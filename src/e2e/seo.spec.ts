@@ -11,10 +11,7 @@ test.describe("SEO metadata", () => {
   test("home page has OpenGraph metadata", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator('meta[property="og:type"]')).toHaveAttribute("content", "website");
-    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
-      "content",
-      "e2life",
-    );
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "e2life");
   });
 
   test("home page has Twitter card metadata", async ({ page }) => {
